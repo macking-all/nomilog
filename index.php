@@ -1,6 +1,6 @@
 <?php
-$hw = 'Helow Sake World!'
-$hw2 = $hw.' おまけ'
+$hw = 'Helow Sake World!';
+$hw2 = $hw . ' おまけ';
 ?>
 <!DOCTYPE html>
 <html lang="ja_JP">
