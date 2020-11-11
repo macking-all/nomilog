@@ -1,6 +1,6 @@
 <?php
 $hw = 'Helow Sake World!'
-$hw2 = ' おまけ'
+$hw2 = $hw+' おまけ'
 ?>
 <!DOCTYPE html>
 <html lang="ja_JP">
@@ -10,6 +10,6 @@ $hw2 = ' おまけ'
     <title>Document</title>
 </head>
 <body>
-    <h1><?=$hw+$hw2?></h1>
+    <h1><?=$hw2?></h1>
 </body>
 </html>
