@@ -1,5 +1,6 @@
 <?php
 $hw = 'Helow World!'
+echo $hw;
 ?>
 <!DOCTYPE html>
 <html lang="ja_JP">
