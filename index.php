@@ -15,7 +15,7 @@ $hw = 'Helow Sake World!';
         <dt>呑みたい人マッチング機能</dt>
         <dt>aaaa</dt>
         <dt>aaa</dt>
-        <dt>aaaa</dt>
+        <dt></dt>
     </dl>
 </body>
 </html>
