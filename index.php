@@ -11,5 +11,12 @@ echo $hw;
 </head>
 <body>
     <h1><?=$hw?></h1>
+    <ul>
+        <li>アクティビティ機能</li>
+        <li>呑みたい人マッチング機能</li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </body>
 </html>
