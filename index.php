@@ -15,8 +15,8 @@ $hw = 'Helow Sake World!';
         <dt>呑みたい人マッチング機能</dt>
         <dt></dt>
         <dt></dt>
-        <dt>鈴木　航也鈴木　航也鈴木　航也</dt>
-        <dt></dt>
+        <dt>鈴木　航也鈴木　航也鈴木　航也 morimori</dt>
+        <dt>morimori</dt>
         <dt></dt>
     </dl>
 </body>
