@@ -10,12 +10,12 @@ $hw = 'Helow Sake World!';
 </head>
 <body>
     <h1><?=$hw?></h1>
-    <ul>
-        <li>アクティビティ機能</li>
-        <li>呑みたい人マッチング機能</li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+    <dl>
+        <dt>アクティビティ機能</dt>
+        <dt>呑みたい人マッチング機能</dt>
+        <dt></dt>
+        <dt></dt>
+        <dt></dt>
+    </dl>
 </body>
 </html>
