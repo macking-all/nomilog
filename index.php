@@ -13,8 +13,8 @@ $hw = 'Helow Sake World!';
     <dl>
         <dt>アクティビティ機能</dt>
         <dt>呑みたい人マッチング機能</dt>
-        <dt>aaaa</dt>
-        <dt>aaa</dt>
+        <dt></dt>
+        <dt></dt>
         <dt>鈴木　航也鈴木　航也鈴木　航也</dt>
         <dt></dt>
         <dt></dt>
