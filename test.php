@@ -1,5 +1,21 @@
 <?php
-    $title = 'Test';
+$dsn = 'mysql:dbname=nomilog;host=localhost';
+$user = 'nomilog';
+$password = 'nomilogdbpassword';
+
+try{
+    $dbh = new PDO($dsn, $user, $password);
+}catch (PDOException $e){
+    print('Error:'.$e->getMessage());
+    die();
+}
+$dbh->query('SET NAMES sjis');
+
+$sql = 'select * from test_table';
+$list = '';
+foreach ($dbh->query($sql) as $row) {
+    $list .= '<li>'.$row['id'].':'.$row['var_name'].'</li>';
+}    
 ?>
 
 <!DOCTYPE html>
@@ -11,5 +27,6 @@
 </head>
 <body>
     <h1><?=$title?></h1>
+    <ul><?=$list?></ul>
 </body>
 </html>
