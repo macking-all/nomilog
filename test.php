@@ -5,7 +5,7 @@ $password = 'nomilogdbpassword';
 
 try{
     $dbh = new PDO($dsn, $user, $password);
-    $dbh->query('SET NAMES utf8');
+//    $dbh->query('SET NAMES utf8');
 
     $sql = 'select * from test_table';
     $list = '';
