@@ -12,7 +12,7 @@ try{
     foreach ($dbh->query($sql) as $row) {
         $list .= '<li>'.$row['id'].':'.$row['var_name'].'</li>';
     }    
-    }catch (PDOException $e){
+}catch (PDOException $e){
     print('Error:'.$e->getMessage());
 }
 ?>
