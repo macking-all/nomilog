@@ -1,5 +1,6 @@
 <?php
     $recommend = "本日のおすすめ";
+    $today = date("j");
 ?>
 <!DOCTYPE html>
 <html lang="ja_JP">
@@ -15,6 +16,6 @@
 </head>
 <body>
     <li><?=$recommend?></li>
-    
+
 </body>
 </html>
