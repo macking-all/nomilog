@@ -5,17 +5,17 @@ $password = 'nomilogdbpassword';
 
 try{
     $dbh = new PDO($dsn, $user, $password);
-}catch (PDOException $e){
+    $dbh->query('SET NAMES utf8');
+
+    $sql = 'select * from test_table';
+    $list = '';
+    foreach ($dbh->query($sql) as $row) {
+        $list .= '<li>'.$row['id'].':'.$row['var_name'].'</li>';
+    }    
+    }catch (PDOException $e){
     print('Error:'.$e->getMessage());
     die();
 }
-$dbh->query('SET NAMES sjis');
-
-$sql = 'select * from test_table';
-$list = '';
-foreach ($dbh->query($sql) as $row) {
-    $list .= '<li>'.$row['id'].':'.$row['var_name'].'</li>';
-}    
 ?>
 
 <!DOCTYPE html>
