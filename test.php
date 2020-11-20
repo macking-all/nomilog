@@ -1,19 +1,28 @@
 <?php
-$dsn = 'mysql:dbname=nomilog;host=localhost';
+//接続設定
+$dsn = 'mysql:host=localhost;pert=3306;dbname=nomilog';
 $user = 'nomilog';
 $password = 'nomilogdbpassword';
 
 try{
-    $dbh = new PDO($dsn, $user, $password);
-//    $dbh->query('SET NAMES utf8');
+    //接続
+    $dbh = new PDO($dsn, $user, $password, array( PDO::ATTR_PERSISTENT => false));
 
+    //ここがsql 実際は可変の条件とかつくので使うときにインジェクションについて勉強しよう
     $sql = 'select * from test_table';
     $list = '';
+    //foreachは ループされる要素 as 単体
     foreach ($dbh->query($sql) as $row) {
+        //selectしてきたもののidカラムとvar_nameカラムを結合してリストに出すよ
         $list .= '<li>'.$row['id'].':'.$row['var_name'].'</li>';
     }    
 }catch (PDOException $e){
+    //dieしてもいいんだけどね
     echo('Error:'.$e->getMessage());
+}finally {
+    //まあ多分ここで閉じとけばいいと思う
+    //実際のコードだとこのあたりは共通化して触れないようになると思われるけど
+    $dbh=null;
 }
 ?>
 
