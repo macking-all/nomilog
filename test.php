@@ -13,7 +13,7 @@ try{
         $list .= '<li>'.$row['id'].':'.$row['var_name'].'</li>';
     }    
 }catch (PDOException $e){
-    print('Error:'.$e->getMessage());
+    echo('Error:'.$e->getMessage());
 }
 ?>
 
