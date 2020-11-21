@@ -1,6 +1,6 @@
 <?php
 //接続設定
-$dsn = 'mysql:host=localhost;pert=3306;dbname=nomilog';
+$dsn = 'mysql:host=localhost;dbname=nomilog';
 $user = 'nomilog';
 $password = 'nomilogdbpassword';
 
