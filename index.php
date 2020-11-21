@@ -1,5 +1,7 @@
 <?php
-$hw = 'Helow Sake World!';
+
+$hw = 'Hello Sake World!';
+
 ?>
 <!DOCTYPE html>
 <html lang="ja_JP">
