@@ -17,9 +17,15 @@ $hw = 'Hello Sake World!';
         <dt>呑みたい人マッチング機能</dt>
         <dt></dt>
         <dt></dt>
+<<<<<<< HEAD
+        <dt>鈴木　航也</dt>
+        <dt>鈴木　航也</dt>
+        <dt>鈴木　航也</dt>
+=======
         <dt>鈴木　航也鈴木　航也鈴木　航也 morimori</dt>
         <dt>morimori</dt>
         <dt></dt>
+>>>>>>> e5ddee9fbe6f8c9657e3b766018137dcb8a530b4
     </dl>
 </body>
 </html>
