@@ -5,10 +5,9 @@ $user = 'nomilog';
 $password = 'nomilogdbpassword';
 
 try{
-    //接続
+    //接続する
     $dbh = new PDO($dsn, $user, $password, array( PDO::ATTR_PERSISTENT => false));
 
-    //ここがsql 実際は可変の条件とかつくので使うときにインジェクションについて勉強しよう
     $sql = 'select * from test_table';
     $list = '';
     //foreachは ループされる要素 as 単体
