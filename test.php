@@ -5,6 +5,8 @@ $user = 'nomilog';
 $password = 'nomilogdbpassword';
 
 try{
+    $title = 'Test';
+
     //接続する
     $dbh = new PDO($dsn, $user, $password, array( PDO::ATTR_PERSISTENT => false));
 
