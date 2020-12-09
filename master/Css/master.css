@@ -15,7 +15,9 @@ body {
   flex-wrap: wrap;
 }
 
-.Main-a a{
+.a-text-align{
   flex:auto;
   width:50%;
+  text-align: center;
 }
+
