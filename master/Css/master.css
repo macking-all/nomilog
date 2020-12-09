@@ -1,0 +1,21 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.Main-font{
+  text-align: center;
+}
+
+.Main-a{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.Main-a a{
+  flex:auto;
+  width:50%;
+}
