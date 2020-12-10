@@ -1,13 +1,26 @@
 *{
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 body {
-  margin: 0;
+  /* margin: 0; */
 }
 
 header{
   min-height: 30vh;
+}
+
+.header-button{
+  display: flex;
+  text-align: right;
+}
+
+header hr{
+    width: 80%;
+}
+
+.Main{
+  min-height: 50vh;
 }
 
 .Main-font{
@@ -23,6 +36,12 @@ header{
   flex:auto;
   width:50%;
   text-align: center;
+}
+
+.test{
+  text-align: center;
+  margin:0 500px;
+  background-color: aqua;
 }
 
 footer{
