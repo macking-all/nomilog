@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+header{
+  min-height: 30vh;
+}
+
 .Main-font{
   text-align: center;
 }
@@ -21,3 +25,17 @@ body {
   text-align: center;
 }
 
+footer{
+  background-image: url("../img/nomilog-fotter.jpg");
+  min-height: 20vh;
+}
+
+footer a{
+  color: White;
+}
+
+.fotter-font{
+  color:White;
+  text-align: center;
+  padding: 3%;
+}
