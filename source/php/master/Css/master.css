@@ -3,20 +3,39 @@
 }
 
 body {
-  /* margin: 0; */
+  margin: 0;
 }
 
 header{
-  min-height: 30vh;
-}
-
-.header-button{
+  min-height: 15vh;
+  background-color: dimgray;
   display: flex;
-  text-align: right;
+  justify-content: space-between;
 }
 
-header hr{
-    width: 80%;
+header>div{
+  display: flex;
+}
+
+header>div>h2{
+  color: aliceblue;
+}
+
+.header-list{
+  display: flex;
+}
+
+.header-list li{
+  list-style: none;
+  display: inline;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: aliceblue;
+  font-size: x-large;
+}
+
+.my-white{
+  color: aliceblue;
 }
 
 .Main{
@@ -32,16 +51,17 @@ header hr{
   flex-wrap: wrap;
 }
 
-.a-text-align{
+.Main-a >div{
   flex:auto;
   width:50%;
   text-align: center;
 }
 
-.test{
-  text-align: center;
-  margin:0 500px;
-  background-color: aqua;
+.Main-a >div >a{
+  /* 下記の説明　インライン要素をブロック要素ポクする */
+  display: inline-block;
+   background-color: aqua;
+   width: 20%;
 }
 
 footer{
