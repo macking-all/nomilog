@@ -46,8 +46,12 @@ RUN curl -sS https://getcomposer.org/installer | php && \
   mv composer.phar /usr/local/bin/composer
 
 # make working directory
-RUN mkdir -p /project/nomilog/work
-RUN chmod -R -755 /project
+RUN mkdir -m 755 /project
+RUN mkdir -m 755 /project/nomilog
+RUN mkdir -m 755 /project/nomilog/work
+RUN mkdir -m 777 /project/nomilog/work/php
+RUN mkdir -m 755 /project/nomilog/work/phinx
+RUN chown apache:apache /project/nomilog/work
 WORKDIR /project/nomilog
 
 # install phinx
