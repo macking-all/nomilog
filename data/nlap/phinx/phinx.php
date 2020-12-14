@@ -21,7 +21,7 @@ return
         'development' => [
             'adapter' => 'mysql',
             'host' => 'localhost',
-            'name' => 'no,ilog',
+            'name' => 'nomilog',
             'user' => 'root',
             'pass' => 'root',
             'port' => '3306',
