@@ -25,13 +25,18 @@ header>div>h2{
   display: flex;
 }
 
+.header-list-flex-column{
+  display: flex;
+  flex-direction:column;
+}
+
 .header-list li{
   list-style: none;
   display: inline;
   padding-left: 5px;
   padding-right: 5px;
   color: aliceblue;
-  font-size: x-large;
+  font-size: large;
 }
 
 .my-white{
@@ -59,13 +64,17 @@ header>div>h2{
 
 .Main-a >div >a{
   /* 下記の説明　インライン要素をブロック要素ポクする */
-  display: inline-block;
+    display: inline-block;
    background-color: aqua;
    width: 20%;
 }
 
 footer{
-  background-image: url("../img/nomilog-fotter.jpg");
+  background:
+  linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
+  linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;
+  background-color:#708090;
+  background-size: 64px 128px;  
   min-height: 20vh;
 }
 
