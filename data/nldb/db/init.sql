@@ -1,1 +1,1 @@
-CREATE DATABASE nomilog;
+--CREATE DATABASE nomilog;

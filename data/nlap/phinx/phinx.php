@@ -3,15 +3,15 @@
 return
 [
     'paths' => [
-        'migrations' => '%%PHINX_CONFIG_DIR%%/phinx/migrations',
-        'seeds' => '%%PHINX_CONFIG_DIR%%/phinx/seeds'
+        'migrations' => '%%PHINX_CONFIG_DIR%%/work/phinx/migrations',
+        'seeds' => '%%PHINX_CONFIG_DIR%%/work/phinx/seeds'
     ],
     'environments' => [
         'default_migration_table' => 'phinxlog',
         'default_environment' => 'development',
 #        'production' => [
 #            'adapter' => 'mysql',
-#            'host' => 'localhost',
+#            'host' => '127.0.0.1',
 #            'name' => 'production_db',
 #            'user' => 'root',
 #            'pass' => '',
@@ -20,7 +20,7 @@ return
 #        ],
         'development' => [
             'adapter' => 'mysql',
-            'host' => 'localhost',
+            'host' => 'nomilog_nldb_1',
             'name' => 'nomilog',
             'user' => 'root',
             'pass' => 'root',

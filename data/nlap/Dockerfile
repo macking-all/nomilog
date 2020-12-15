@@ -62,7 +62,6 @@ RUN php vendor/bin/phinx init
 RUN ln -s /project/nomilog/vendor/robmorgan/phinx/bin/phinx /usr/local/bin/phinx
 
 COPY ./phinx/phinx.php ./phinx.php
-
 WORKDIR /
 
 # timezone setting
