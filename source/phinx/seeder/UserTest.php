@@ -19,24 +19,24 @@ class UserTest extends AbstractSeed
      */
     public function run()
     {
-        foreach ($this->fileGetLines(dirname(__FILE__)."/../csv/".$this->getName().".csv") as $data) {
-            $row = explode(",",$data);
-
+        //多重に流しても死なないようにとりあえずtruncate流しておく
+        $this->table($this->getName())->truncate();
+        foreach ($this->fileGetLines() as $data) {
             $insertData = [
                 //みんなが修正する部分
                 //ここにcsvのデータをつける読み込んでインサートの元ネタ作るコードを書く
-                "last_name"=>$row[1],
-                "first_name"=>$row[2],
-                "last_kana_name"=>$row[3],
-                "first_kana_name"=>$row[4],
-                "username"=>$row[5],
-                "password"=>$row[6],
-                "email"=>$row[7],
-                "postcode"=>$row[8],
-                "birthday"=>$row[9],
-                "description"=>$row[10],
-                "created"=>$row[11],
-                "updated"=>$row[12],
+                "last_name"=>$data[1],
+                "first_name"=>$data[2],
+                "last_kana_name"=>$data[3],
+                "first_kana_name"=>$data[4],
+                "username"=>$data[5],
+                "password"=>$data[6],
+                "email"=>$data[7],
+                "postcode"=>$data[8],
+                "birthday"=>$data[9],
+                "description"=>$data[10],
+                "created"=>$data[11],
+                "updated"=>$data[12],
           ];
             //全部貯めてもメモリが爆発するので1000レコードごとに1回バルクインサートする
             if (count($insertData) >= 1000) {
@@ -47,7 +47,8 @@ class UserTest extends AbstractSeed
         $this->insert($this->getName(), $insertData);
     }
     
-    public function fileGetLines($filepath) {
+    public function fileGetLines() {
+        $filepath = dirname(__FILE__)."/../csv/".$this->getName().".csv";
         $flag = true;
         $lines = [];
         $fp = fopen($filepath, "rb");
@@ -56,7 +57,7 @@ class UserTest extends AbstractSeed
                 $flag = false;
                 continue;
             }
-            yield $line;
+            yield explode(",",$line);
         }
         fclose($fp);
     }}
