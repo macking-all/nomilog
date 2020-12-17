@@ -1,6 +1,6 @@
 <?php
 //接続設定
-$dsn = 'mysql:host=localhost;dbname=nomilog';
+$dsn = 'mysql:host=nomilog_nldb_1;dbname=nomilog;port=3306';
 $user = 'root';
 $password = 'root';
 
@@ -13,10 +13,10 @@ try{
     $sql = 'select * from test_table';
     $list = '';
     //foreachは ループされる要素 as 単体
-    foreach ($dbh->query($sql) as $row) {
+    /*foreach ($dbh->query($sql) as $row) {
         //selectしてきたもののidカラムとvar_nameカラムを結合してリストに出すよ
         $list .= '<li>'.$row['id'].':'.$row['var_name'].'</li>';
-    }    
+    }*/    
 }catch (PDOException $e){
     //dieしてもいいんだけどね
     echo('Error:'.$e->getMessage());
