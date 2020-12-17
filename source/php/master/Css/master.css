@@ -44,16 +44,22 @@ header>div>h2{
 }
 
 .Main{
-  min-height: 50vh;
+  min-height: 70vh;
+  background-image: url(../img/nomilog_master.jpg);
+  /* 下記の説明 imgのサイズを丁度にする */
+  background-size: cover;
 }
 
 .Main-font{
   text-align: center;
+  margin-bottom: 10%;
+  color:aliceblue;
 }
 
 .Main-a{
   display:flex;
   flex-wrap: wrap;
+  font-size: x-large;
 }
 
 .Main-a >div{
@@ -64,9 +70,9 @@ header>div>h2{
 
 .Main-a >div >a{
   /* 下記の説明　インライン要素をブロック要素ポクする */
-    display: inline-block;
+  display: inline-block;
    background-color: aqua;
-   width: 20%;
+   width: 50%;
 }
 
 footer{
@@ -75,7 +81,7 @@ footer{
   linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;
   background-color:#708090;
   background-size: 64px 128px;  
-  min-height: 20vh;
+  min-height: 30vh;
 }
 
 footer a{
