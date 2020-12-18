@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
 
-final class UserTest extends AbstractMigration
+final class Posts extends AbstractMigration
 {
     /**
      * Change Method.
@@ -23,7 +23,7 @@ final class UserTest extends AbstractMigration
     public function down()
     {
         $this->execute("
-			DROP TABLE `UserTest`;
+			DROP TABLE `Posts`;
 		");
     }
 }
