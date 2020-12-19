@@ -1,4 +1,4 @@
-CREATE TABLE `UserTest` (
+CREATE TABLE `Posts` (
     `user_id` int(11) NOT NULL AUTO_INCREMENT,
     `last_name` varchar(100) NOT NULL COMMENT '姓',
     `first_name` varchar(100) NOT NULL COMMENT '名',
