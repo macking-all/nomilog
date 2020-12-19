@@ -8,9 +8,12 @@ body {
 
 header{
   min-height: 15vh;
+  width: 100%;
   background-color: dimgray;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  top:0;
 }
 
 header>div{
@@ -18,6 +21,10 @@ header>div{
 }
 
 header>div>h2{
+  color: aliceblue;
+}
+
+.my-white{
   color: aliceblue;
 }
 
@@ -39,27 +46,49 @@ header>div>h2{
   font-size: large;
 }
 
-.my-white{
-  color: aliceblue;
+header img{
+  height:50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #00FFFF;
 }
 
 .Main{
   min-height: 70vh;
-  background-image: url(../img/nomilog_master.jpg);
+  /* background-image: url(../img/nomilog_master.jpg); */
   /* 下記の説明 imgのサイズを丁度にする */
   background-size: cover;
+  /* 下記の説明　下記を充ててあげないとheaderが埋まる */
+  padding-top: 100px;
 }
 
 .Main-font{
   text-align: center;
-  margin-bottom: 10%;
-  color:aliceblue;
+  color:block;
+}
+
+.Main-font h1 {
+  position: relative;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.Main-font h1:before {
+  position: absolute;
+  bottom: -10px;
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 5px;
+  content: '';
+  border-radius: 3px;
+  background:#00FFFF;
 }
 
 .Main-a{
   display:flex;
   flex-wrap: wrap;
   font-size: x-large;
+  margin-top: 10%;
 }
 
 .Main-a >div{
@@ -68,28 +97,49 @@ header>div>h2{
   text-align: center;
 }
 
-.Main-a >div >a{
+/* .Main-a >div >a{ */
   /* 下記の説明　インライン要素をブロック要素ポクする */
-  display: inline-block;
-   background-color: aqua;
-   width: 50%;
-}
+  /* display: inline-block; */
+   /* background-color: aqua; */
+   /* width: 50%; */
+/* } */
+
 
 footer{
-  background:
-  linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
-  linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;
-  background-color:#708090;
-  background-size: 64px 128px;  
-  min-height: 30vh;
+ background-image:url("../img/nomilog_footer.jpg");
+ background-size: cover;
+ min-height: 40vh;
+ /* 下記の設営 調べる */
+ background-position:50%;
+ position: relative;
+
 }
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.5);
+  }
 
 footer a{
   color: White;
+
 }
 
+
 .fotter-font{
-  color:White;
   text-align: center;
-  padding: 3%;
+  padding-top: 8%;
+  margin: 0;
+  padding: 8%;
+  color: #FFF;
+  font-weight: bold;
+  position: relative;
+  /* 下記の説明　優先順位決めるよ */
+  z-index: 1;
+
 }
