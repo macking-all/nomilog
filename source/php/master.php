@@ -5,14 +5,15 @@
     $list = '';
     //foreachは ループされる要素 as 単体
     try{
-    foreach ($dbh->query($sql) as $row) {
-        //selectしてきたもののidカラムとvar_nameカラムを結合してリストに出すよ
-        $list .= '<li>'.$row['user_id'].':'.$row['user_name'].'</li>';
+        $dbh = connectDB();
+        foreach ($dbh->query($sql) as $row) {
+            //selectしてきたもののidカラムとvar_nameカラムを結合してリストに出すよ
+            $list .= '<li>'.$row['user_id'].':'.$row['user_name'].'</li>';
+        }
+    }catch(PDOException $e){
+        //dieしてもいいんだけどね
+        echo('DB接続時エラー:'.$e->getMessage());
     }
-}catch (PDOException $e){
-    //dieしてもいいんだけどね
-    echo('DB接続時エラー:'.$e->getMessage());
-}
 ?>
 
 <!DOCTYPE html>
