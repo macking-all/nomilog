@@ -3,7 +3,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class UserTest extends AbstractSeed
+class MPrice extends AbstractSeed
 {
     //いちいちテーブル名とか書くのだるいのでconstで楽するよ
     public function getName() {
@@ -25,18 +25,10 @@ class UserTest extends AbstractSeed
             $insertData = [
                 //みんなが修正する部分
                 //ここにcsvのデータをつける読み込んでインサートの元ネタ作るコードを書く
-                "last_name"=>$data[1],
-                "first_name"=>$data[2],
-                "last_kana_name"=>$data[3],
-                "first_kana_name"=>$data[4],
-                "username"=>$data[5],
-                "password"=>$data[6],
-                "email"=>$data[7],
-                "postcode"=>$data[8],
-                "birthday"=>$data[9],
-                "description"=>$data[10],
-                "created"=>$data[11],
-                "updated"=>$data[12],
+                "price_range"=>$data[1],
+                "delete_flag"=>$data[2],
+                "created"=>$data[3],
+                "updated"=>$data[4],
           ];
             //全部貯めてもメモリが爆発するので1000レコードごとに1回バルクインサートする
             if (count($insertData) >= 1000) {

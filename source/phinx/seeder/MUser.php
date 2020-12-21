@@ -3,7 +3,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class Posts extends AbstractSeed
+class MUser extends AbstractSeed
 {
     //いちいちテーブル名とか書くのだるいのでconstで楽するよ
     public function getName() {
@@ -25,12 +25,12 @@ class Posts extends AbstractSeed
             $insertData = [
                 //みんなが修正する部分
                 //ここにcsvのデータをつける読み込んでインサートの元ネタ作るコードを書く
-                "pub_name"=>$data[1],
-                "comment"=>$data[2],
-                "user_id"=>$data[3],
-                "cook_id"=>$data[4],
-                "area_id"=>$data[5],
-                "price_id"=>$data[6],
+                "user_name"=>$data[1],
+                "email"=>$data[2],
+                "email_flag"=>$data[3],
+                "icon_image"=>$data[4],
+                "password"=>$data[5],
+                "admin_flag"=>$data[6],
                 "created"=>$data[7],
                 "updated"=>$data[8],
           ];
