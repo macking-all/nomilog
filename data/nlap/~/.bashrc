@@ -5,6 +5,7 @@ alias ls="ls --color=auto"
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
+alias ll="ls -la"
 
 # laで隠しファイルも含めて全部表示してくれる
 alias ll="ls -la"

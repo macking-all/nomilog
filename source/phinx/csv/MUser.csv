@@ -1,0 +1,2 @@
+user_id,user_name,email,email_flag,icon_image,password,admin_flag,created,updated
+0,テスト太郎,'test@xxx.com',0,'202012211158','passw0rd',0,2020/12/21 00:00:00,2020/12/21

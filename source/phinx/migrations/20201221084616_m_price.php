@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
 
-final class MCook extends AbstractMigration
+final class MPrice extends AbstractMigration
 {
     /**
      * Change Method.
@@ -23,7 +23,7 @@ final class MCook extends AbstractMigration
     public function down()
     {
         $this->execute("
-			DROP TABLE `MCook`;
+			DROP TABLE `MPrice`;
 		");
     }
 }
