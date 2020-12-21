@@ -23,7 +23,7 @@ final class MUser extends AbstractMigration
     public function down()
     {
         $this->execute("
-			DROP TABLE `MUser`;
+			DROP TABLE `M_User`;
 		");
     }
 }

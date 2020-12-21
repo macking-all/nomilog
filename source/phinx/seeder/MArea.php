@@ -22,7 +22,7 @@ class MArea extends AbstractSeed
         //多重に流しても死なないようにとりあえずtruncate流しておく
         $this->table($this->getName())->truncate();
         foreach ($this->fileGetLines() as $data) {
-            $insertData = [
+            $insertData[] = [
                 //みんなが修正する部分
                 //ここにcsvのデータをつける読み込んでインサートの元ネタ作るコードを書く
                 "area_name"=>$data[1],
