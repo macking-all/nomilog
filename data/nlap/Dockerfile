@@ -1,7 +1,5 @@
 FROM centos:8
 
-MAINTAINER docker-web
-
 # update dnf
 RUN dnf -y update
 RUN dnf -y install dnf-utils
@@ -68,6 +66,9 @@ WORKDIR /
 RUN cp /etc/localtime /etc/localtime.org
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
+#for x-debug
+EXPOSE 9000
+
 # for web
 EXPOSE 80
 
@@ -75,5 +76,7 @@ COPY ./conf.d/userdir.conf /etc/httpd/conf.d/userdir.conf
 
 RUN mv /etc/httpd/conf.modules.d/00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf.origin
 COPY ./conf.modules.d/00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf
+COPY ./php74/php.ini /etc/opt/remi/php74/php.ini
+
 
 CMD /usr/sbin/httpd -DFOREGROUND

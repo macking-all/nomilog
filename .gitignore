@@ -1,3 +1,5 @@
 data/nldb/data/*
 data/nldb/log/*
+data/nlap/php74/*
+log/*
 .*

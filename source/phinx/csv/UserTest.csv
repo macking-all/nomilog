@@ -1,2 +1,3 @@
 user_id,last_name,first_name,last_kana_name,first_kana_name,username,password,email,postcode,birthday,description,created,updated
 0,'荒野','寿々喜','こうや','すずき','koya.suzuki','passw0rd','koya.suzuki@carryz.jp','xxx-xxxx',1997/1/1,'てすと',2000/1/1 00:00:00,2001/1/1
+1,'温','可愛','ゆたか','かわい','yutaka.kawai','passw0rd','yutaka.kawai@carryz.jp','xxx-xxxx',1997/1/1,'てすと',2000/1/1 00:00:00,2001/1/1

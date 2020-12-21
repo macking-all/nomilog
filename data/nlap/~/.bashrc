@@ -1,4 +1,4 @@
-export PS1="[\u@\[\e[1;37m\]nlap \W]$"
+export PS1="[\u@\[\e[0;37m\]nlap \W]$"
 # lsの結果を色付きで表示してくれる
 alias ls="ls --color=auto"
 # ○○するときに、本当に○○していいか聞いてくれる系のエイリアス

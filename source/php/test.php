@@ -13,10 +13,10 @@ try{
     $sql = 'select * from test_table';
     $list = '';
     //foreachは ループされる要素 as 単体
-    /*foreach ($dbh->query($sql) as $row) {
+    foreach ($dbh->query($sql) as $row) {
         //selectしてきたもののidカラムとvar_nameカラムを結合してリストに出すよ
         $list .= '<li>'.$row['id'].':'.$row['var_name'].'</li>';
-    }*/    
+    }
 }catch (PDOException $e){
     //dieしてもいいんだけどね
     echo('Error:'.$e->getMessage());

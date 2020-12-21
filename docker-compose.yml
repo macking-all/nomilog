@@ -9,9 +9,12 @@ services:
       - ./source:/project/nomilog/work
       - ./data/nlap/phinx/phinx.php:/project/nomilog/phinx.php
       - ./data/nlap/~/.bashrc:/root/.bashrc
+      - ./log/xdebug:/var/log/xdebug
     working_dir: /project/nomilog/
     ports:
       - 8080:80
+    links:
+      - nldb
     depends_on:
       - nldb
   # ===============================================
