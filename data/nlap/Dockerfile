@@ -18,23 +18,40 @@ RUN dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 # inatall httpd
 RUN dnf -y install httpd httpd-tools
 
-# install php74
+# install php80
+# RUN \
+#   dnf -y install \
+#     php74-php \
+#     php74-php-mbstring \
+#     php74-php-common \
+#     php74-php-xml \
+#     php74-php-mysqlnd \
+#     php74-php-pdo \
+#     php74-php-gd \
+#     php74-php-cli \
+#     php74-php-intl \
+#     php74-php-opcache --nogpgcheck \
+#     php74-php-json \
+#     php74-php-pecl-xdebug
+
+# RUN ln -s /bin/php74 /bin/php
+
 RUN \
   dnf -y install \
-    php74-php \
-    php74-php-mbstring \
-    php74-php-common \
-    php74-php-xml \
-    php74-php-mysqlnd \
-    php74-php-pdo \
-    php74-php-gd \
-    php74-php-cli \
-    php74-php-intl \
-    php74-php-opcache --nogpgcheck \
-    php74-php-json \
-    php74-php-pecl-xdebug
+    php80-php \
+    php80-php-mbstring \
+    php80-php-common \
+    php80-php-xml \
+    php80-php-mysqlnd \
+    php80-php-pdo \
+    php80-php-gd \
+    php80-php-cli \
+    php80-php-intl \
+    php80-php-opcache --nogpgcheck \
+    php80-php-json \
+    php80-php-pecl-xdebug
 
-RUN ln -s /bin/php74 /bin/php
+RUN ln -s /bin/php80 /bin/php
 
 # clear dnf cache
 RUN dnf clean all
@@ -76,7 +93,7 @@ COPY ./conf.d/userdir.conf /etc/httpd/conf.d/userdir.conf
 
 RUN mv /etc/httpd/conf.modules.d/00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf.origin
 COPY ./conf.modules.d/00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf
-COPY ./php74/php.ini /etc/opt/remi/php74/php.ini
+COPY ./php80/php.ini /etc/opt/remi/php80/php.ini
 
 
 CMD /usr/sbin/httpd -DFOREGROUND
