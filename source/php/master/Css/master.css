@@ -103,7 +103,6 @@ header img{
 .Main-button{
   display:flex;
   flex-wrap: wrap;
-  font-size: x-large;
   margin-top: 5%;
 }
 
@@ -114,6 +113,28 @@ header img{
   margin-top: 30px;
 }
 
+a.btn--orange {
+  font-size: large;
+  padding:10px 10px;
+  display: inline-block;
+  width: 200px;
+
+  color: #fff;
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
+  border-radius: 10px;    
+}
+a.btn--orange:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
 footer{
  background-image:url("../img/nomilog_footer.jpg");
  background-size: cover;
@@ -121,7 +142,6 @@ footer{
  /* 下記の設営 調べる */
  background-position:50%;
  position: relative;
-
 }
 
 footer::before {
