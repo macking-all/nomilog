@@ -1,21 +1,54 @@
 <?php
 
-function connectDB(){
-    //接続設定
-    $dsn = 'mysql:host=nomilog_nldb_1;dbname=nomilog;port=3306';
-    $user = 'root';
-    $password = 'root';
-    try{
-        //接続する
-        //$dbh = new PDO($dsn, $user, $password, array( PDO::ATTR_PERSISTENT => false));
-        return new PDO($dsn, $user, $password);
-    }catch (PDOException $e){
-        //dieしてもいいんだけどね
-        echo('DB接続時エラー:'.$e->getMessage());
-    }finally {
-        //まあ多分ここで閉じとけばいいと思う
-        //実際のコードだとこのあたりは共通化して触れないようになると思われるけど
-        $dbh=null;
+class Datebase
+{
+    const user = 'root';
+    const pass = 'root';
+    const dsn = 'mysql:host=nomilog_nldb_1;dbname=nomilog;port=3306';
+    //protectedは継承先から呼べる
+    protected $dbh;
+
+    protected function dbconnect(){
+        $dbh = new PDO($this::dsn, $this::user, $this::pass);
+    }
+
+    protected function query($sql){
+        if($dbh === null){
+            throw new Exception('接続されてません');
+        }
+        return $dbh->query($sql);
+    }
+
+    //DBへの接続を切断する
+    protected function disdbconnect(){
+        $dbh = null;
     }
 }
+
+// function connectDB(){
+//     //接続設定
+//     $dsn = 'mysql:host=nomilog_nldb_1;dbname=nomilog;port=3306';
+//     $user = 'root';
+//     $password = 'root';
+
+//     try{
+//         //接続する
+//         //$dbh = new PDO($dsn, $user, $password, array( PDO::ATTR_PERSISTENT => false));
+//         return new PDO($dsn, $user, $password);
+//     }catch (PDOException $e){
+//         //dieしてもいいんだけどね
+//         echo('DB接続時エラー:'.$e->getMessage());
+//     }finally {
+//         //まあ多分ここで閉じとけばいいと思う
+//         //実際のコードだとこのあたりは共通化して触れないようになると思われるけど
+//         $dbh=null;
+//     }
+// }
+
+// echo var_dump(); 変数の内容を整形する
+// クラス化する
+// 接続
+// クエリを投げる
+// 切断
+
 ?>
