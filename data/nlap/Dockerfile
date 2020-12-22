@@ -18,24 +18,6 @@ RUN dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 # inatall httpd
 RUN dnf -y install httpd httpd-tools
 
-# install php80
-# RUN \
-#   dnf -y install \
-#     php74-php \
-#     php74-php-mbstring \
-#     php74-php-common \
-#     php74-php-xml \
-#     php74-php-mysqlnd \
-#     php74-php-pdo \
-#     php74-php-gd \
-#     php74-php-cli \
-#     php74-php-intl \
-#     php74-php-opcache --nogpgcheck \
-#     php74-php-json \
-#     php74-php-pecl-xdebug
-
-# RUN ln -s /bin/php74 /bin/php
-
 RUN \
   dnf -y install \
     php80-php \
