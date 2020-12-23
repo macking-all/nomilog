@@ -128,6 +128,7 @@ a.btn--orange:hover {
   margin-top: 3px;
   color: #fff;
   background: #f56500;
+  /* 下記の説明 border-bottomの値が減っています */
   border-bottom: 2px solid #b84c00;
 }
 a.btn--shadow {

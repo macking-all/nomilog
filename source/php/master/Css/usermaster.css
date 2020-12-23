@@ -1,0 +1,43 @@
+*{
+  /* box-sizing: border-box; */
+}
+
+body {
+  margin: 0;
+}
+
+table{
+  border-collapse: collapse;  /* th、tdなどの隣接するセルの枠線を重ねて表示する */
+  width: 50%;
+}
+
+table th,table td{
+  border:1px #999 solid; /* 枠線をつける */
+}
+
+.signup{
+  margin:20px 0;
+}
+
+button.action--btn{
+  font-size: small;
+  padding:5px 5px;
+  width: 100px;
+  height: 25px;
+
+  color: #fff;
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
+  border-radius: 10px; 
+}
+
+button.action--btn:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+button.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
