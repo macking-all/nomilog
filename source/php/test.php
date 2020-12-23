@@ -37,5 +37,6 @@ try{
 <body>
     <h1><?=$title?></h1>
     <ul><?=$list?></ul>
+    <?php phpinfo();?>
 </body>
 </html>

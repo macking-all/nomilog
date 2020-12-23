@@ -65,9 +65,6 @@ WORKDIR /
 RUN cp /etc/localtime /etc/localtime.org
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
-#for x-debug
-EXPOSE 9000
-
 # for web
 EXPOSE 80
 
