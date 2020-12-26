@@ -63,7 +63,6 @@ COPY ./phinx/phinx.php ./phinx.php
 WORKDIR /
 
 # timezone setting
-RUN cp /etc/localtime /etc/localtime.org
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 # for web
@@ -71,7 +70,6 @@ EXPOSE 80
 
 # copy config local to container
 COPY ./conf.d/userdir.conf /etc/httpd/conf.d/userdir.conf
-RUN mv /etc/httpd/conf.modules.d/00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf.origin
 COPY ./conf.modules.d/00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf
 COPY ./php80/php.ini /etc/opt/remi/php80/php.ini
 
