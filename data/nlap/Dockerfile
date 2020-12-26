@@ -46,9 +46,9 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 RUN mkdir -m 755 /project
 RUN mkdir -m 755 /project/nomilog
 RUN mkdir -m 755 /project/nomilog/work
-RUN mkdir -m 777 /project/nomilog/work/php
-RUN mkdir -m 755 /project/nomilog/work/phinx
 RUN chown apache:apache /project/nomilog/work
+
+# working directory change to project root
 WORKDIR /project/nomilog
 
 # install phinx
@@ -58,6 +58,7 @@ RUN composer require robmorgan/phinx
 RUN php vendor/bin/phinx init
 RUN ln -s /project/nomilog/vendor/robmorgan/phinx/bin/phinx /usr/local/bin/phinx
 
+# copy phinx config to container
 COPY ./phinx/phinx.php ./phinx.php
 WORKDIR /
 
@@ -68,11 +69,11 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 # for web
 EXPOSE 80
 
+# copy config local to container
 COPY ./conf.d/userdir.conf /etc/httpd/conf.d/userdir.conf
-
 RUN mv /etc/httpd/conf.modules.d/00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf.origin
 COPY ./conf.modules.d/00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf
 COPY ./php80/php.ini /etc/opt/remi/php80/php.ini
 
-
+# start apache service
 CMD /usr/sbin/httpd -DFOREGROUND
