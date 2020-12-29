@@ -8,20 +8,20 @@ class Datebase
     //protectedは継承先から呼べる
     protected $dbh;
 
-    protected function dbconnect(){
-        $dbh = new PDO($this::dsn, $this::user, $this::pass);
+    public function dbconnect(){
+        $this->dbh = new PDO($this::dsn, $this::user, $this::pass);
     }
 
-    protected function query($sql){
-        if($dbh === null){
+    public function query($sql){
+        if($this->dbh === null){
             throw new Exception('接続されてません');
         }
-        return $dbh->query($sql);
+        return $this->dbh->query($sql);
     }
 
     //DBへの接続を切断する
-    protected function disdbconnect(){
-        $dbh = null;
+    public function disdbconnect(){
+        $this->dbh = null;
     }
 }
 

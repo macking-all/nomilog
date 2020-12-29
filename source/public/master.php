@@ -1,19 +1,16 @@
 <?php
 
-    require('dbconnect.php');
+    require 'dbconnect.php';
+
+    $dbs = new Datebase();
+    $dbs->dbconnect();
+
     $sql = 'select * from MUser';
-    $list = '';
-    //foreachは ループされる要素 as 単体
-    try{
-        $dbh = connectDB();
-        foreach ($dbh->query($sql) as $row) {
-            //selectしてきたもののidカラムとvar_nameカラムを結合してリストに出すよ
-            $list .= '<li>'.$row['user_id'].':'.$row['user_name'].'</li>';
-        }
-    }catch(PDOException $e){
-        //dieしてもいいんだけどね
-        echo('DB接続時エラー:'.$e->getMessage());
+    $stmt = $dbs->query($sql);
+    foreach ($stmt as $value){
+        $records .= '<tr><th>'. $value['user_id'].'</th>'.'<th>'.$value['user_name'].'</th>'.'<th>'.$value['email'].'</th></tr>';
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +19,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>呑みログ</title>
+    <style>
+     table{
+         border: 1px solid #ccc;
+         border-collapse: collapse;
+     }
+     table th{
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+     }
+    </style>
 </head>
 <body>
-    <h1><?=$title?></h1>
-    <ul><?=$list?></ul>
+    <h1>ユーザマスタ</h1>
+    <ul><?= $li ?></ul>
+
+    <table>
+    <tbody>
+     <tr><th>id</th><th>ユーザ名</th><th>Eーメール</th></tr>
+     <?= $records ?>
+    </tbody>
+    </table>
 </body>
 </html>
