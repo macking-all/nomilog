@@ -9,9 +9,9 @@ services:
       - ./source:/project/nomilog/work
       - ./data/nlap/phinx/phinx.php:/project/nomilog/phinx.php
       - ./data/nlap/~/.bashrc:/root/.bashrc
-      - ./log/xdebug:/var/log/xdebug
-      - ./log/php:/var/log/php
-      - ./log/httpd:/etc/httpd/logs
+      - ./data/nlap/log/xdebug:/var/log/xdebug
+      - ./data/nlap/log/php:/var/log/php
+      - ./data/nlap/log/httpd:/etc/httpd/logs
     working_dir: /project/nomilog/
     ports:
       - 8080:80
