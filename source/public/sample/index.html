@@ -5,9 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>うごかなさそうなサンプルMVC</title>
+    <?=load_parts("../../nlfw/controls/stylesheets.html");?>
 </head>
 <body>
-    <?=create_input("text","test_id",['class1','class2'],"初期値")?>
-    <?php echo phpinfo();?>
+    <?=load_parts("../../nlfw/controls/header.html");?>
+    <section>
+        <h1>サンプルなんとやら</h1>
+
+    </section>
+    <section>
+        <h2>検索条件</h2>
+        <?=create_input("text","test_id",['class1','class2'],"初期値")?>
+    </section>
+    <section>
+        <h2>検索結果</h2>
+    </section>
+    <?=load_parts("../../nlfw/controls/footer.html");?>
 </body>
 </html>

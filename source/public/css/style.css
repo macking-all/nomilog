@@ -1,0 +1,14 @@
+@import "../master/css/stylesheet.css";
+
+header{
+  max-height: 92px;
+  min-height: 92px;
+  height:92px;
+}
+
+section:first-of-type{
+  margin-top: 92px;
+}
+section{
+  padding:5px 5vw;
+}
