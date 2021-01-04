@@ -9,17 +9,16 @@
 </head>
 <body>
     <?=load_parts("../../nlfw/controls/header.html");?>
-    <section>
-        <h1>サンプルなんとやら</h1>
-
-    </section>
+    <h1>サンプルなんとやら</h1>
     <section>
         <h2>検索条件</h2>
-        <?=create_input("text","test_id",['class1','class2'],"初期値")?>
+        <?=create_input_label("なにか：","text","test_id",['class1','class2'],"初期値")?>
+        <?=create_input_label("どれか：","option","select_nanika",['class3','class4'],"",[""=>"---","0"=>"なにか","1"=>"どれか"])?>
     </section>
     <section>
         <h2>検索結果</h2>
     </section>
     <?=load_parts("../../nlfw/controls/footer.html");?>
+    <?=load_parts("../../nlfw/controls/formcontrol.html");?>
 </body>
 </html>

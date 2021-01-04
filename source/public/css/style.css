@@ -6,9 +6,19 @@ header{
   height:92px;
 }
 
-section:first-of-type{
+footer{
+  padding-top:10px;
+  max-height: 92px;
+  min-height: 92px;
+  height:92px;
+}
+footer>div {
+  padding-top:0px !important;
+}
+
+body{
   margin-top: 92px;
 }
 section{
-  padding:5px 5vw;
+  padding:5px 20px;
 }

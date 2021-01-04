@@ -1,9 +1,15 @@
 <?php
+
+function create_input_label($label,$type,$id,$class,$value,$list = null) {
+    $__ = function ($v) { return $v;};
+    return "<div><label for=\"{$id}\">{$label}</label>{$__(create_input($type,$id,$class,$value,$list))}</div>";
+}
+
 function create_input($type,$id,$class,$value,$list = null) {
     return match(strtolower($type)) {
         'text' => create_inputElement($type,$id,$class,$value),
         'hidden' => create_inputElement($type,$id,$class,$value),
-        'option' => create_option($id,$class,$value),$list,
+        'option' => create_option($id,$class,$value,$list),
         'button' => create_button($type,$id,$class,$value),
         'submit' => create_button($type,$id,$class,$value),
     };
