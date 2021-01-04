@@ -23,11 +23,16 @@ class baseController {
     }
 
     protected function html($path) {
-
+        // VIEWへと転送をかける
+        header('Location: ./' . $path, true , 301);
+        // 出力を終了
+        exit;
     }
 
     protected function json($data) {
-
+        header("Content-Type: application/json; charset=UTF-8"); 
+        echo json_encode($data);
+        exit;  
     }
 }
 ?>

@@ -32,7 +32,7 @@ class baseDao {
         try {
             $stmt = $_conn->prepare($sql);
             $i = 1;
-            foreach($p as $params) {
+            foreach($params as $p) {
                 $stmt->bindParam($i++,$p);
             }
             if($stmt->execute()) {
