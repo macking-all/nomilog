@@ -1,4 +1,5 @@
 <?php
+namespace nomilog\models;
 require "../nlfw/dao/baseDao.php";
 require "../nlfw/config/daoConfig.php";
 
@@ -17,20 +18,28 @@ class baseModel extends baseDao {
         parent::disconnect();
     }
 
-    public function select() {
-        return parent::select();
+    protected function loadQuery($path) {
+        $sql = file_get_contents($path);
+        if ($sql === false) {
+            throw new \RuntimeException('file not found.');
+        }
+        return $sql;
     }
 
-    public function update() {
-        return parent::execute();
+    protected function select($sql,$params) {
+        return parent::select($sql,$params);
     }
 
-    public function insert() {
-        return parent::execute();
+    protected function update($sql,$params) {
+        return parent::execute($sql,$params);
+    }
+
+    protected function insert($sql,$params) {
+        return parent::execute($sql,$params);
     }
     
-    public function delete() {
-        return parent::execute();
+    protected function delete($sql,$params) {
+        return parent::execute($sql,$params);
     }
 }
 
