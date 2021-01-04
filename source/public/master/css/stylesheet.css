@@ -10,7 +10,7 @@ header{
   z-index: 1;
   min-height: 15vh;
   width: 100%;
-  background-color:#ccc;
+  background-color:#EEEEEE;
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -23,7 +23,7 @@ header:before  {
   position: absolute;
   bottom: 0px;
   width: 100%;
-  border-bottom: 3px solid  black;
+  border-bottom: 3px solid  #AAAAAA;
   /* left:5%; */
 }
 
@@ -33,6 +33,7 @@ header>div{
 
 header>div>h2{
   color: black;
+  font-size: 30px;
 }
 
 .my-white{
@@ -69,7 +70,7 @@ header img{
   border: 2px solid #00FFFF;
 }
 
-.Main{
+Main{
   min-height: 70vh;
   /* background-image: url(../img/nomilog_master.jpg); */
   /* 下記の説明 imgのサイズを丁度にする */
