@@ -8,6 +8,7 @@ class baseController {
         $_SESSION["__CURRENT"] = null;
 
         foreach($_REQUEST as $k => $v) {
+            if($k == "ACTION" && $v == "") $v = "default";
             $_SESSION["__CURRENT"][] = [$k => $v];
         }
 
