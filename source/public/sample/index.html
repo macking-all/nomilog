@@ -9,16 +9,22 @@
 </head>
 <body>
     <?=load_parts("../../nlfw/controls/header.html");?>
-    <h1>サンプルなんとやら</h1>
-    <section>
-        <h2>検索条件</h2>
-        <?=create_input_label("なにか：","text","test_id",['class1','class2'],"初期値")?>
-        <?=create_input_label("どれか：","option","select_nanika",['class3','class4'],"",[""=>"---","0"=>"なにか","1"=>"どれか"])?>
-    </section>
-    <section>
-        <h2>検索結果</h2>
-    </section>
+    <form action="index.php" method="POST">
+        <h1>サンプル</h1>
+        <section>
+            <h2>検索条件</h2>
+            <?=create_input_label("なにか：","text","test_id",['class1','class2'],"初期値")?>
+            <?=create_input_label("どれか：","option","select_nanika",['class3','class4'],"",[""=>"---","0"=>"なにか","1"=>"どれか"])?>
+            <?=create_button("検索","search","submit","search_exec",["exec"])?>
+        </section>
+        <section>
+            <h2>検索結果</h2>
+        </section>
+        <?=load_parts("../../nlfw/controls/formcontrol.html");?>
+    </form>
     <?=load_parts("../../nlfw/controls/footer.html");?>
-    <?=load_parts("../../nlfw/controls/formcontrol.html");?>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

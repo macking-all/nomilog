@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ログイン</title>
+</head>
+<body>
+	<h1>ログイン</h1>
+	<label for="user">アカウント</label><input type="text" name="user" id="user" /><br />
+	<label for="pass">パスワード</label><input type="password" name="pass" id="pass"  /><br />
+	<input type="button" value="ログイン" id="login" /><br />
+	<p id="message"></p>
+
+</body>
+<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#login').click(function(){
+			$.ajax({
+				type:"POST",
+				url:"login_logic.php",
+				data:{"name":$("#user").val(),"pass":$("#pass").val()},
+				success: function(data,dataType){
+					$('p#message').text(data.message);
+					if(data.url != "") location.href = data.url;
+				},
+				error:function(XMLHttpRequest,textStatus,errorThrown){
+					$('p#message').text(data.message);
+				}
+			});
+			return false;
+		});
+	});
+</script>
+</html>

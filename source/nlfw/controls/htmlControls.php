@@ -10,8 +10,6 @@ function create_input($type,$id,$class,$value,$list = null) {
         'text' => create_inputElement($type,$id,$class,$value),
         'hidden' => create_inputElement($type,$id,$class,$value),
         'option' => create_option($id,$class,$value,$list),
-        'button' => create_button($type,$id,$class,$value),
-        'submit' => create_button($type,$id,$class,$value),
     };
 }
 
@@ -22,7 +20,7 @@ function load_parts($name) {
 
 function create_inputElement($type,$id,$class,$value) {
     $__ = function ($v) { return $v;};
-    return "<input type=\"{$type}\" id=\"{$id}\" class=\"{$__(parse_class($class))}\" value=\"{$value}\" />";
+    return "<input type=\"{$type}\" id=\"{$id}\" name=\"{$id}\" class=\"{$__(parse_class($class))}\" value=\"{$value}\" />";
 }
 
 function create_option($id,$class,$value,$list) {
@@ -32,7 +30,7 @@ function create_option($id,$class,$value,$list) {
         $option .= "<option value=\"{$k}\"{$__(isSelected($k,$value))}>{$v}</option>";
     }
 
-    return "<select id=\"{$id}\" class=\"{$__(parse_class($class))}\">{$option}</select>";
+    return "<select id=\"{$id}\" name=\"{$id}\" class=\"{$__(parse_class($class))}\">{$option}</select>";
 }
 
 function isSelected($key,$value) {
@@ -42,9 +40,14 @@ function isSelected($key,$value) {
     };
 }
 
-function create_button($type,$id,$class,$value) {
+function create_block_button($value,$action,$type,$id,$class){
     $__ = function ($v) { return $v;};
-    return "<button type=\"{$type}\" id=\"{$id}\" class=\"{$__(parse_class($class))}\" value=\"{$value}\" />";
+    return "<div>{$__(create_button($value,$action,$type,$id,$class))}</div>";
+}
+
+function create_button($value,$action,$type,$id,$class) {
+    $__ = function ($v) { return $v;};
+    return "<button type=\"{$type}\" id=\"{$id}\" class=\"{$__(parse_class($class))}\"  x-action=\"$action\" >{$value}</button>";
 }
 
 

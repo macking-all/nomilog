@@ -11,14 +11,25 @@ footer{
   max-height: 92px;
   min-height: 92px;
   height:92px;
+  position: fixed;
+  bottom:0;
+  width:100%;
 }
 footer>div {
   padding-top:0px !important;
 }
-
+@media(max-height:400px) {
+  footer{
+    display: none;
+  }
+}
 body{
   margin-top: 92px;
+  min-height: 50px;
+}
+form{
+  margin:0px 20px;
 }
 section{
-  padding:5px 20px;
+  margin:5px 0px;
 }
