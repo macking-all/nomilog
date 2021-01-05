@@ -8,7 +8,7 @@ try{
 	$name = filter_input(INPUT_POST,"name");
 	$pass = filter_input(INPUT_POST,"pass");
 	$dao = new DAO();
-	$sql = 'select name,pass from public.user where name = ?';
+	$sql = 'select name,pass from SampleUser where name = ?';
 	$state = $dao->Query($sql,array($name));
 	$count = 0;
 	$msg = "";
@@ -24,7 +24,7 @@ try{
 			$_SESSION['login_user'] = $row["name"];
 		} else {
 			//失敗
-			$msg .= "だめだこりゃ";
+			$msg .= "ログイン失敗";
 		}
 	} else if($state->rowCount() === 0) {
 		$msg .= "だめだこりゃ";

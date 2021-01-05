@@ -20,25 +20,25 @@ try{
 		case "search":
 			break;
 		case "delete":
-			$sql = "delete from public.user where id=?";
+			$sql = "delete from SampleUser where id=?";
 			$dao->Query($sql,array($key));
 			$message = "ID:" . $key . " のデータを削除しました。";
 			break;
 		case "update":
-			$sql = "update public.user set name = ?, pass = ?, note = ? where id = ?";
+			$sql = "update SampleUser set name = ?, pass = ?, note = ? where id = ?";
 			$dao->Query($sql,array(filter_input(INPUT_POST,"name"),password_hash(filter_input(INPUT_POST,"pass"),PASSWORD_DEFAULT ),filter_input(INPUT_POST,"note"),filter_input(INPUT_POST,"key")));
 			$message = "ID:" . $key . " のデータを更新しました。";
 			break;
 		case "insert":
-			$id = " (select min(id)+1 id from (select 0 id union all select id from public.user) user2 where id+1 not in(select id id from public.user)) ";
-			$sql = "insert into public.user(id,name,pass,note) values(" . $id . " ,?,?,?)";
+			$id = " (select min(id)+1 id from (select 0 id union all select id from SampleUser) user2 where id+1 not in(select id id from SampleUser)) ";
+			$sql = "insert into SampleUser(id,name,pass,note) values(" . $id . " ,?,?,?)";
 			$dao->Query($sql,array(filter_input(INPUT_POST,"name"),password_hash(filter_input(INPUT_POST,"pass"),PASSWORD_DEFAULT),filter_input(INPUT_POST,"note")));
 			$message = "新規データを登録しました。";
 			break;
 		default:
 			return;
 	}
-	$sql = "select * from public.user order by id";
+	$sql = "select * from SampleUser order by id";
 	$body = "";
 	$num = 3;
 	$count = 1;

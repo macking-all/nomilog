@@ -1,9 +1,9 @@
 <?php
 class DAO
 {
-	private $dsn = 'pgsql:dbname=postgres host=localhost port=5432';
-	private $user = 'macking';
-	private $pass = 'iammacking';
+	private $dsn = 'mysql:host=nomilog_nldb_1;dbname=nomilog;port=3306';
+	private $user = 'root';
+	private $pass = 'root';
 	private $dbh = null;
 
 	public function __construct(){

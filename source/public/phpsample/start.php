@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Test</title>
-	<script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$('#exec').click(function(){
