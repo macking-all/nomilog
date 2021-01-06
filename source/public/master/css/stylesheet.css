@@ -63,10 +63,12 @@ header>div>h2{
 }
 
 header img{
-  height:40px;
-  width: 40px;
+  height:35px;
+  width: 35px;
   border-radius: 50%;
   border: 2px solid yellow;
+  /* 下記の説明 画像の高さを揃える */
+  vertical-align: bottom;
 }
 
 Main{
