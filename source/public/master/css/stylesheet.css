@@ -9,9 +9,9 @@ body {
 
 header{
   z-index: 1;
-  min-height: 15vh;
+  min-height: 12vh;
   width: 100%;
-  background-color:#EEEEEE;
+  background-color:#000;
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -24,8 +24,6 @@ header:before  {
   position: absolute;
   bottom: 0px;
   width: 100%;
-  border-bottom: 3px solid  #AAAAAA;
-  /* left:5%; */
 }
 
 header>div{
@@ -33,16 +31,17 @@ header>div{
 }
 
 header>div>h2{
-  color: black;
+  color: #fff;
   font-size: 30px;
 }
 
 .my-white{
-  color: black;
+  color: #fff;
 }
 
 .header-list{
   display: flex;
+  color: #fff;
 }
 
 .header-list-flex-column{
@@ -64,19 +63,19 @@ header>div>h2{
 }
 
 header img{
-  height:50px;
-  width: 50px;
+  height:40px;
+  width: 40px;
   border-radius: 50%;
   border: 2px solid yellow;
 }
 
 Main{
-  min-height: 70vh;
+  min-height: 60vh;
   /* background-image: url(../img/nomilog_master.jpg); */
   /* 下記の説明 imgのサイズを丁度にする */
   background-size: cover;
   /* 下記の説明　下記を充ててあげないとheaderが埋まる */
-  padding-top: 200px;
+  padding-top: 150px;
 }
 
 .Main-font{
@@ -102,8 +101,10 @@ Main{
 }
 
 .Main-button{
+  width: 70%;
   display:flex;
   flex-wrap: wrap;
+  margin: 0 auto;
   margin-top: 5%;
 }
 
@@ -112,29 +113,31 @@ Main{
 }
 
 .Main-button >div{
-  flex:auto;
   width:50%;
   text-align: center;
   margin-top: 30px;
 }
 
+
+
 a.btn--orange {
   font-size: large;
+  font-weight: bold;
   padding:20px 20px;
   display: inline-block;
   width: 200px;
 
   color: #fff;
-  background-color: #00FFFF;
-  border-bottom: 5px solid #00CCFF;
+  background-color:#00CCFF;
+  border-bottom: 5px solid#0081cc;
   border-radius: 10px;    
 }
 a.btn--orange:hover {
   margin-top: 3px;
   color: #fff;
-  background: #00FFFF;
+  background: #00CCFF;
   /* 下記の説明 border-bottomの値が減っています */
-  border-bottom: 2px solid #00FFFF;
+  border-bottom: 2px solid #00CCFF;
 }
 a.btn--shadow {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
