@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  color:#575757;;
 }
 
 header{
@@ -54,7 +55,6 @@ header>div>h2{
   display: inline;
   padding-left: 5px;
   padding-right: 5px;
-  color: black;
   font-size: large;
   font-weight: 700;
 }
@@ -67,7 +67,7 @@ header img{
   height:50px;
   width: 50px;
   border-radius: 50%;
-  border: 2px solid #00FFFF;
+  border: 2px solid yellow;
 }
 
 Main{
@@ -98,13 +98,17 @@ Main{
   height: 5px;
   content: '';
   border-radius: 3px;
-  background:#00FFFF;
+  background:yellow;
 }
 
 .Main-button{
   display:flex;
   flex-wrap: wrap;
   margin-top: 5%;
+}
+
+.Main-button a{
+  text-decoration: none;
 }
 
 .Main-button >div{
@@ -116,24 +120,24 @@ Main{
 
 a.btn--orange {
   font-size: large;
-  padding:10px 10px;
+  padding:20px 20px;
   display: inline-block;
   width: 200px;
 
   color: #fff;
-  background-color: #eb6100;
-  border-bottom: 5px solid #b84c00;
+  background-color: #00FFFF;
+  border-bottom: 5px solid #00CCFF;
   border-radius: 10px;    
 }
 a.btn--orange:hover {
   margin-top: 3px;
   color: #fff;
-  background: #f56500;
+  background: #00FFFF;
   /* 下記の説明 border-bottomの値が減っています */
-  border-bottom: 2px solid #b84c00;
+  border-bottom: 2px solid #00FFFF;
 }
 a.btn--shadow {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
@@ -141,7 +145,6 @@ footer{
  background-image:url("../img/nomilog_footer.jpg");
  background-size: cover;
  min-height: 40vh;
- /* 下記の設営 調べる */
  background-position:50%;
  position: relative;
 }
@@ -158,9 +161,9 @@ footer::before {
 
 footer a{
   color: White;
+  text-decoration: none;
 
 }
-
 
 .fotter-font{
   text-align: center;
