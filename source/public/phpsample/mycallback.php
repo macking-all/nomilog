@@ -30,8 +30,7 @@ try{
 			$message = "ID:" . $key . " のデータを更新しました。";
 			break;
 		case "insert":
-			$id = " (select min(id)+1 id from (select 0 id union all select id from SampleUser) user2 where id+1 not in(select id id from SampleUser)) ";
-			$sql = "insert into SampleUser(id,name,pass,note) values(" . $id . " ,?,?,?)";
+			$sql = "insert into SampleUser(name,pass,note) values(?,?,?)";
 			$dao->Query($sql,array(filter_input(INPUT_POST,"name"),password_hash(filter_input(INPUT_POST,"pass"),PASSWORD_DEFAULT),filter_input(INPUT_POST,"note")));
 			$message = "新規データを登録しました。";
 			break;
