@@ -9,7 +9,7 @@ body {
 
 header{
   z-index: 1;
-  min-height: 12vh;
+  min-height: 80px;
   width: 100%;
   background-color:#000;
   display: flex;
@@ -73,8 +73,6 @@ header img{
 
 Main{
   min-height: 60vh;
-  /* background-image: url(../img/nomilog_master.jpg); */
-  /* 下記の説明 imgのサイズを丁度にする */
   background-size: cover;
   /* 下記の説明　下記を充ててあげないとheaderが埋まる */
   padding-top: 150px;
@@ -120,23 +118,26 @@ Main{
   margin-top: 30px;
 }
 
-
-
-a.btn--orange {
+a.btn--blue {
   font-size: large;
   font-weight: bold;
   padding:20px 20px;
   display: inline-block;
   width: 200px;
 
-  color: #fff;
+  color: black;
   background-color:#00CCFF;
   border-bottom: 5px solid#0081cc;
   border-radius: 10px;    
 }
-a.btn--orange:hover {
+
+a.btn--blue:hover{
+  opacity: 0.7;
+}
+
+a.btn--blue:active {
   margin-top: 3px;
-  color: #fff;
+  color: black;
   background: #00CCFF;
   /* 下記の説明 border-bottomの値が減っています */
   border-bottom: 2px solid #00CCFF;
@@ -149,7 +150,7 @@ a.btn--shadow {
 footer{
  background-image:url("../img/nomilog_footer.jpg");
  background-size: cover;
- min-height: 40vh;
+ min-height: 300px;
  background-position:50%;
  position: relative;
 }
@@ -162,12 +163,11 @@ footer::before {
   bottom: 0;
   left: 0;
   background-color: rgba(0,0,0,.5);
-  }
+}
 
 footer a{
   color: White;
   text-decoration: none;
-
 }
 
 .fotter-font{
@@ -180,5 +180,4 @@ footer a{
   position: relative;
   /* 下記の説明　優先順位決めるよ */
   z-index: 1;
-
 }
