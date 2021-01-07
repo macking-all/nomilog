@@ -58,14 +58,15 @@ header ul li{
 
 .center{
   margin-top: 3%;
-  height: 1900px;
 }
 
 .center-one{
-  
+  display: flex;
+  justify-content: space-around;
 }
 
 .center-one-tokyo{
+  position: relative;
 }
 
 .tokyo-font{
@@ -75,7 +76,31 @@ header ul li{
   /* color: #DDDDDD;  */
   position: absolute;
   color:red;
-  bottom: 0px;
+  transform: translate(-50%,-50%);
+  top: 45%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  z-index: 999;
+}
+
+.center-one-osaka{
+  position: relative;
+}
+
+.osaka-font{
+   /* position: relative;
+  top:-100px;
+  z-index: 1;
+  /* color: #DDDDDD;  */
+  position: absolute;
+  color:red;
+  transform: translate(-50%,-50%);
+  top: 45%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  z-index: 999;
 }
 
 /* .tokyo-img{
