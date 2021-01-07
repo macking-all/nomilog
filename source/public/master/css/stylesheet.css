@@ -124,7 +124,6 @@ a.btn--blue {
   padding:20px 20px;
   display: inline-block;
   width: 200px;
-
   color: black;
   background-color:#00CCFF;
   border-bottom: 5px solid#0081cc;
@@ -142,6 +141,7 @@ a.btn--blue:active {
   /* 下記の説明 border-bottomの値が減っています */
   border-bottom: 2px solid #00CCFF;
 }
+
 a.btn--shadow {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);

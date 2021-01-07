@@ -1,0 +1,294 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+header{
+  display: flex;
+  color: aliceblue;
+  height: 130px;
+  position: fixed;
+  /* background-color:#000000 ; */
+  width: 100%;
+  opacity: 0.8;
+}
+
+header h1{
+  font-size:50px;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+}
+
+header ul li{
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 10%;
+}
+
+.top{
+  width: 100%;
+  height: 600px;
+  background-image: url("../img/nomilog-top.jpg");
+  background-size: cover;
+  color: aliceblue;
+  display: flex;
+  /* 下記の説明　左右方向の指定 */
+  justify-content: center;
+  /* 下記の説明　上下中央 */
+  align-items: center;
+}
+
+.top>div>div{
+  background-color: #2d2d2d;
+  text-align: center;
+  margin: 0 20%;
+  padding: 1px 0;
+  border-radius :30px;
+}
+
+.top>div>div:hover{
+  opacity: 0.9;
+}
+
+.center{
+  margin-top: 3%;
+  height: 1900px;
+}
+
+.center-one{
+  
+}
+
+.center-one-tokyo{
+}
+
+.tokyo-font{
+  /* position: relative;
+  top:-100px;
+  z-index: 1;
+  /* color: #DDDDDD;  */
+  position: absolute;
+  color:red;
+  bottom: 0px;
+}
+
+/* .tokyo-img{
+  position: absolute;
+  width: 40%;
+}
+
+.tokyo-font{
+  color: red;
+  position: absolute;
+  left: 50px;
+}
+
+.osaka-img{
+  position: absolute;
+  width: 40%;
+  left: 700px;
+}
+
+.osaka-font{
+  color: red;
+  position: absolute;
+  left: 700px;
+} */
+
+.center-one img:hover{
+opacity: 0.7;
+}
+
+.center-two-top{
+  display: flex;
+  margin-top: 1000px;
+}
+
+.center-two-top div{
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+
+.center-two-top div>p{
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.center-two{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 4% 4%;
+} 
+
+.center-two-fast{
+  flex:auto;
+  width: 70%;
+}
+
+.center-two-second{
+  flex:auto;
+  width: 30%;
+}
+
+.center-two-second-top{
+  padding: 2%;
+  border:solid 1px #DDDDDD;
+}
+
+.center-two-second-top img{
+  width: 100%;
+}
+
+.center-two-second-top-icon{
+  text-align: center;
+}
+
+.center-two-second-center div{
+display: flex;
+margin-top: 2%;
+}
+
+.center-two-second-center img{
+  width: 20%;
+}
+
+.center-two-second-center p{
+  width: 80%;
+  margin-left:2% ;
+}
+
+.contents img{
+  width:80%; 
+}
+
+.center-two-second>img{
+  width: 100%;
+}
+
+.contents img:hover{
+  /* 下記の説明　いろんなエフェクトがじんわりくる */
+  transition: .9s;
+  opacity: 0.5;
+}
+
+.center-two-fast{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contents{
+  flex: auto;
+  width: 30%;
+}
+
+.contents p:nth-of-type(1){
+  font-size: 12px;
+}
+
+.contents p:nth-of-type(2){
+  font-size: 8px;
+}
+
+footer{
+  height: 400px;
+  background: #2d2d2d;
+  display: flex;
+  width: 100%;
+
+  padding:0 4% ;
+
+}
+
+.footer-left{
+width: 30%;
+}
+
+select{
+  width: 80%;
+  height: 30px;
+}
+
+.footer-center{
+  width: 40%;
+}
+
+.footer-center div{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-center img{
+  display: block;
+  width: 15%;
+  padding-bottom:3% ;
+}
+
+.footer-center p{
+  width: 85%;
+}
+
+.footer-right{
+  width: 30%;
+}
+
+footer h3{
+  color: aliceblue;
+}
+
+footer p{
+  color: aliceblue;
+  font-size: 20px;
+  /* display:inline-block; */
+}
+
+.footer-center p{
+  font-size: 15px;
+}
+
+footer ul li{
+  list-style: none;
+  background-color: aliceblue;
+  display: inline;
+}
+
+aside{
+  background-color:black ;
+  height: 150px;
+  text-align: center;
+}
+
+aside i{
+  padding-top:2%;
+  color: aliceblue;
+}
+
+aside p{
+  color: aliceblue;
+  
+}
+
+#page_top {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+}
+#page_top a {
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  padding: 20px 20px;
+}
+#page_top a:hover {
+  background-color: #666;
+  text-decoration: none;
+}
+
+
