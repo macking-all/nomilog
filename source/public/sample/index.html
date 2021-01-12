@@ -24,7 +24,10 @@
     </form>
     <?=load_parts("../../nlfw/controls/footer.html");?>
 <script type="text/javascript">
-
+console.log($("#ACTION").val());
+console.log($("#search_exec").attr("X-ACTION"));
+$("section").on("click","#search_exec",function(){$("#ACTION").val($("#search_exec").attr("X-ACTION"))});
+$("section").on("click","#search_exec",function(){alert($("#search_exec").attr("X-ACTION"))});
 </script>
 </body>
 </html>

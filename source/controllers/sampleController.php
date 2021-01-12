@@ -14,7 +14,7 @@ class sampleController extends baseController {
     }
 
     function debug(){
-        var_dump($_SESSION);
+        var_dump($_SESSION["__CURRENT"]["ACTION"]);
     }
 }
 ?>
