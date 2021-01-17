@@ -3,19 +3,22 @@
     session_start();
 
     require 'dbconnect.php';
+    require 'functions.php';
 
     $dbs = new Datebase();
     $dbs->dbconnect();
     //テーブル名は変数にしたい⇨マスタ管理画面からどのボタンが押されたかで、テーブル名を指定したい
     $sql = 'select * from MUser';
     
-    //マスタの全レコードを取得する(全データだと多すぎるから、最初は何も表示しない方が良いのか・・・)
+    //マスタの全レコードを取得する
     $stmt = $dbs->query($sql);
-    //tableだと、各レコードの編集と削除ボタンを押した際に判定ができないか？
-    //編集または削除ボタンを押すと各レコードの編集画面に飛ぶ(URLクエリでID判定する？)
+    
+    $tableHeaderHtml = '<tr><th>表示名</th><th>メールアドレス</th><th>メール通知</th><th>管理者フラグ</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>最終ログイン日時</th><th>削除フラグ</th><th>ボタン</th>';
+    $tableHtml = '<form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete">削除</button></form>';
     foreach ($stmt as $value){
-        $records .= '<tr><th>'. $value['user_id'].'</th>'.'<th>'.$value['user_name'].'</th>'.'<th>'.$value['email'].'</th><th><button><a href="input_do.php?id=">編集</a></button> <button><a href="delete.php">削除</a></button></th></tr>';
+        $records .= '<tr><td>'.$value['user_name']. '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_name'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_name'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td>' . $value['delete_flag']. '</td><td>' . $tableHtml. '</td></tr>';
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -25,23 +28,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>呑みログ</title>
     <style>
+
+    h1{
+        text-align: center;
+    }
      table{
-         border: 1px solid #ccc;
-         border-collapse: collapse;
-     }
-     table th{
         border: 1px solid #ccc;
         border-collapse: collapse;
+        width: 100%;
+        margin: 0 auto;
+     }
+     table th{
+        
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        padding: 5px;
+     }
+
+     table td{
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        padding: 5px;
+     }
+
+     button{
+         margin-left: 5px;
      }
     </style>
 </head>
 <body>
-    <h1><!-- 管理画面から選択されたマスタ名を入れる --></h1>
+    <h1>ユーザマスタ<!-- 管理画面から選択されたマスタ名を入れる --></h1>
 
     <!-- マスタの中身を表示させる -->
     <table>
     <tbody>
-     <tr><th>id</th><th>ユーザ名</th><th>Eーメール</th><th></th></tr>
+     <?= $tableHeaderHtml ?>
      <?= $records ?>
     </tbody>
     </table>

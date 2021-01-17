@@ -6,8 +6,12 @@ CREATE TABLE `MUser` (
     `icon_image` varchar(200) DEFAULT NULL COMMENT 'アイコン画像',
     `password` varchar(400) NOT NULL COMMENT 'パスワード',
     `admin_flag` boolean COMMENT '管理者フラグ',
+    `register_name` varchar(200) DEFAULT NULL COMMENT '登録者',
     `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_name` varchar(200) DEFAULT NULL COMMENT '更新者',
     `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `delete_flag` boolean COMMENT '削除フラグ',
     PRIMARY KEY (`user_id`)
 );
 

@@ -31,8 +31,11 @@ class MUser extends AbstractSeed
                 "icon_image"=>$data[4],
                 "password"=>$data[5],
                 "admin_flag"=>$data[6],
-                "created"=>$data[7],
-                "updated"=>$data[8],
+                "register_user"=>$data[7],
+                "last_login"=>$data[8],
+                "created"=>$data[9],
+                "updated"=>$data[10],
+                "delete_flag"=>$data[12],
           ];
             //全部貯めてもメモリが爆発するので1000レコードごとに1回バルクインサートする
             if (count($insertData) >= 1000) {
