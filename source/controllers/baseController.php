@@ -7,30 +7,24 @@ class baseController {
         error_log("parent __construct");
         //パラメータをセッションに積み替える
         $_SESSION["__CURRENT"] = [];
-        var_dump($r);
         foreach($r as $k => $v) {
             error_log("{$k}=>{$v}");
             $f = ($k == "ACTION" && $v == null);
-            $_SESSION["__CURRENT"][$k] = $f?"default":$v;
-            error_log(var_dump($_SESSION["__CURRENT"][$k]));
+            $_SESSION["__CURRENT"][$k] = $f ? "default" : $v;
         }
-
     }
     protected function define($action) {
-        error_log("{$action}");
-        return $_SESSION["__CURRENT"]["ACTION"] == $action ? self : null;
+        return $_SESSION["__CURRENT"]["ACTION"] == $action ? $this : null;
     }
 
     protected function action($method) {
-        error_log("{$method}");
-        $ref_act = array(self, $method);
+        $ref_act = array($this, $method);
         $ref_act();
-        return self;
+        return $this;
     }
 
     protected function html($path) {
         // VIEWへと転送をかける
-        error_log("{$path}");
         header('Location: ./' . $path, true , 301);
         // 出力を終了
         exit;
