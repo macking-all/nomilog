@@ -6,7 +6,7 @@ body {
   margin: 0;
   color:#575757;;
 }
-
+/*【共通部分】「header」「開始」*/
 header{
   z-index: 1;
   min-height: 80px;
@@ -70,7 +70,9 @@ header img{
   /* 下記の説明 画像の高さを揃える */
   vertical-align: bottom;
 }
+/*【共通部分】「header」「終了」*/
 
+/*【master管理画面】「開始」*/
 Main{
   min-height: 60vh;
   background-size: cover;
@@ -101,6 +103,15 @@ Main{
 }
 
 .Main-button{
+  width: auto;
+  text-align: center;
+}
+
+.Main-button a{
+  text-decoration: none;
+}
+
+.Main-button-flex{
   width: 70%;
   display:flex;
   flex-wrap: wrap;
@@ -108,13 +119,8 @@ Main{
   margin-top: 5%;
 }
 
-.Main-button a{
-  text-decoration: none;
-}
-
-.Main-button >div{
+.Main-button-layout{
   width:50%;
-  text-align: center;
   margin-top: 30px;
 }
 
@@ -146,7 +152,9 @@ a.btn--shadow {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
+/*【master管理画面】「終了」*/
 
+/*【footer管理画面】「開始」*/
 footer{
  background-image:url("../img/nomilog_footer.jpg");
  background-size: cover;
@@ -181,3 +189,4 @@ footer a{
   /* 下記の説明　優先順位決めるよ */
   z-index: 1;
 }
+/*【footer管理画面】「終了」*/
