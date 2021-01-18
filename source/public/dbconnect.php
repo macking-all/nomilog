@@ -19,6 +19,10 @@ class Datebase
         return $this->dbh->query($sql);
     }
 
+    public function prepare($sql){
+        return $this->dbh->prepare($sql);
+    }
+
     //DBへの接続を切断する
     public function disdbconnect(){
         $this->dbh = null;

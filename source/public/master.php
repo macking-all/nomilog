@@ -14,11 +14,10 @@
     $stmt = $dbs->query($sql);
     
     $tableHeaderHtml = '<tr><th>表示名</th><th>メールアドレス</th><th>メール通知</th><th>管理者フラグ</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>最終ログイン日時</th><th>削除フラグ</th><th>ボタン</th>';
-    $tableHtml = '<form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete">削除</button></form>';
+    $tableHtml = '<form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete">削除</button><input type="hidden" name="'. $value['user_id'].'"></form>';
     foreach ($stmt as $value){
-        $records .= '<tr><td>'.$value['user_name']. '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_name'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_name'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td>' . $value['delete_flag']. '</td><td>' . $tableHtml. '</td></tr>';
+        $records .= '<tr><td>'.$value['user_name']. '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_name'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_name'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td>' . $value['delete_flag']. '</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete">削除</button><input type="hidden" name="row-x" value="'. $value['user_id'].'"></form></td></tr>';
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +38,10 @@
         margin: 0 auto;
      }
      table th{
-        
         border: 1px solid #ccc;
         border-collapse: collapse;
         padding: 5px;
+        background-color: #6495ed;
      }
 
      table td{
@@ -52,7 +51,7 @@
      }
 
      button{
-         margin-left: 5px;
+        margin-left: 5px;
      }
     </style>
 </head>
