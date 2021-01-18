@@ -73,25 +73,25 @@ header img{
 /*【共通部分】「header」「終了」*/
 
 /*【master管理画面】「開始」*/
-Main{
+main{
   min-height: 60vh;
   background-size: cover;
   /* 下記の説明　下記を充ててあげないとheaderが埋まる */
   padding-top: 150px;
 }
 
-.Main-font{
+.main-font{
   text-align: center;
   color:block;
 }
 
-.Main-font h1 {
+.main-font h1 {
   position: relative;
   padding: 0.5rem;
   text-align: center;
 }
 
-.Main-font h1:before {
+.main-font h1:before {
   position: absolute;
   bottom: -10px;
   left: calc(50% - 30px);
@@ -102,16 +102,16 @@ Main{
   background:yellow;
 }
 
-.Main-button{
-  width: auto;
-  text-align: center;
+.main-button{
+width: 200px;
+text-align: center;
 }
 
-.Main-button a{
+.main-button a{
   text-decoration: none;
 }
 
-.Main-button-flex{
+.main-button-flex{
   width: 70%;
   display:flex;
   flex-wrap: wrap;
@@ -119,28 +119,32 @@ Main{
   margin-top: 5%;
 }
 
-.Main-button-layout{
+.main-button-layout{
   width:50%;
   margin-top: 30px;
 }
 
-a.btn--blue {
+.btn--big{
+  padding:20px 20px;
+  width: 200px;
+}
+
+.btn--blue {
+  
   font-size: large;
   font-weight: bold;
-  padding:20px 20px;
   display: inline-block;
-  width: 200px;
   color: black;
   background-color:#00CCFF;
   border-bottom: 5px solid#0081cc;
   border-radius: 10px;    
 }
 
-a.btn--blue:hover{
+.btn--blue:hover{
   opacity: 0.7;
 }
 
-a.btn--blue:active {
+.btn--blue:active {
   margin-top: 3px;
   color: black;
   background: #00CCFF;
@@ -148,11 +152,60 @@ a.btn--blue:active {
   border-bottom: 2px solid #00CCFF;
 }
 
-a.btn--shadow {
+.btn--shadow {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 /*【master管理画面】「終了」*/
+
+
+/*【usremaster管理画面】「開始」*/
+
+
+.btn--small{
+  padding: 8px 8px;
+  width: 100px;
+  
+}
+
+.search{
+  display: flex;
+  width: 100%;
+}
+
+th,td {
+  /* 枠線指定 */
+    border: solid 1px;              
+}
+
+table {
+   /* セルの線を重ねる */
+  border-collapse:  collapse;    
+  margin: 0 auto;;
+}
+
+th{
+  background-color: #d3d3d3;
+}
+
+tr>td:nth-of-type(10){
+  border: solid 0px;
+}
+
+tr>td:nth-of-type(11){
+  border: solid 0px;
+}
+
+.error-message{
+  text-align: center;
+}
+
+.error-message li{
+  list-style: none;
+}
+
+/*【usremaster管理画面】「終了」*/
+
 
 /*【footer管理画面】「開始」*/
 footer{
