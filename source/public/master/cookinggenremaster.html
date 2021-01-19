@@ -4,29 +4,160 @@
 <head>
   <meta charset="utf-8">
 
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>呑みログmaster</title>
-  <link rel="stylesheet" href="master.css">
-  <link rel="stylesheet" href="responsive.css">
+  <title>呑みログ_料理マスタ管理画面</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css"
+    type="text/css" media="all" />
 
 </head>
 
 <body>
   <header>
-
+    <div>
+      <h2><i class="fas fa-beer fa-lg fa-fw my-white"></i>呑みログ</h2>
+    </div>
+    <div class="header-list">
+      <ul>
+        <!-- メモ2 遷移先のHTMLが作成できたら「href」要素を追加する -->
+        <li><a>マスタ管理画面</a></li>
+        <li><a>ヘルプ</a></li>
+        <li><a>ログアウト</a></li>
+        <li><a>ユーザー名</a></li>
+        <li class="icon-img"><img src="./img/nomilog-beer.jpg" alt="ユーザーアイコンを表示"> </li>
+      </ul>
+    </div>
   </header>
 
-  <div class="Main">
-    <div class="Main-font">
-      <h1>料理ジャンル画面</h1>
+  <main>
+    <div class="main-font">
+      <h1><span>料理マスタ管理画面</span></h1>
     </div>
 
-    <footer>
+    <div class="main-button">
+      <div class="user-button-layout">
+        <a href="./newuserregistration.html" class=" btn--blue btn--shadow btn--middle">新規追加</a>
+      </div>
+    </div>
 
-    </footer>
+    <section class="search">
+      <input type="text" placeholder="表示名">
+      <input type="text" placeholder="メールアドレス">
+      <input type="text" placeholder="権限フラグ">
+      <div class="main-button search-button-layout">
+        <div class="btn--blue btn--shadow btn--middle search-layout">検索</div>
+      </div>
+    </section>
 
-    <script src="main.js"></script>
+    <div class="usermaster-table">
+      <table>
+        <tr>
+          <th>料理ジャンル名</th>
+          <th>登録日時</th>
+          <th>更新日時</th>
+          <th>登録者</th>
+          <th>更新者</th>
+          <th>最終ログイン日時</th>
+          <th>ボタン</th>
+        </tr>
+        <tr>
+          <td>餃子</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              削除
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>ラーメン</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              削除
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>カツ丼</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              削除
+            </button>
+          </td>
+
+        </tr>
+        <tr>
+          <td>とんかつ</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              削除
+            </button>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+
+    <div class="error-message">
+      <ul>
+        <li>エラーメッセージ表示枠テスト1</li>
+        <li>エラーメッセージ表示枠テスト2</li>
+      </ul>
+    </div>
+
+    <div class="main-button">
+      <div class="user-button-layout">
+        <a href="./newuserregistration.html" class="btn--blue btn--shadow btn--middle">新規追加</a>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer>
+    <div class="fotter-font">
+      <a href="./contact.html">
+        <p>お問い合わせ</p>
+      </a>
+      <p>呑みログ制作委員会 All Rights Reserved. 2021</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 
 </body>
 
