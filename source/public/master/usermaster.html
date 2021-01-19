@@ -39,16 +39,16 @@
 
     <div class="main-button">
       <div class="user-button-layout">
-        <a href="../main/newregistrations.html" class=" btn--blue btn--shadow btn--small">新規追加</a>
+        <a href="../main/newregistrations.html" class=" btn--blue btn--shadow btn--middle">新規追加</a>
       </div>
     </div>
 
     <section class="search">
-      <input type="text">
-      <input type="text">
-      <input type="text">
-      <div class="main-button">
-        <div class="btn--blue btn--shadow btn--small search-layout">検索</div>
+      <input type="text" placeholder="表示名">
+      <input type="text" placeholder="メールアドレス">
+      <input type="text" placeholder="権限フラグ">
+      <div class="main-button search-button-layout">
+        <div class="btn--blue btn--shadow btn--middle search-layout">検索</div>
       </div>
     </section>
 
@@ -64,6 +64,7 @@
           <th>登録者</th>
           <th>更新者</th>
           <th>最終ログイン日時</th>
+          <th>ボタン</th>
         </tr>
         <tr>
           <td>ユーザーA</td>
@@ -76,16 +77,13 @@
           <td>suzukikoya</td>
           <td>yyyy/mm/dd hh:mm:ss</td>
           <td>
-            <div class="main-button">
-              <a href="../main/newregistrations.html" class="btn--blue btn--shadow btn--small">編集</a>
-            </div>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              削除
+            </button>
           </td>
-          <td>
-            <div class="main-button">
-              <div class="btn--blue btn--shadow btn--small">削除</div>
-            </div>
-          </td>
-
         </tr>
         <tr>
           <td>ユーザーB</td>
@@ -98,14 +96,12 @@
           <td>moritakaki</td>
           <td>yyyy/mm/dd hh:mm:ss</td>
           <td>
-            <div class="main-button">
-              <a href="../main/newregistrations.html" class="btn--blue btn--shadow btn--small">編集</a>
-            </div>
-          </td>
-          <td>
-            <div class="main-button">
-              <div class="btn--blue btn--shadow btn--small">削除</div>
-            </div>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              削除
+            </button>
           </td>
         </tr>
         <tr>
@@ -119,19 +115,17 @@
           <td>kawaiyutaka</td>
           <td>yyyy/mm/dd hh:mm:ss</td>
           <td>
-            <div class="main-button">
-              <a href="../main/newregistrations.html" class="btn--blue btn--shadow btn--small">編集</a>
-            </div>
-          </td>
-          <td>
-            <div class="main-button">
-              <div class="btn--blue btn--shadow btn--small">削除</div>
-            </div>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              削除
+            </button>
           </td>
 
         </tr>
         <tr>
-          <td>ユーザーA</td>
+          <td>ユーザーD</td>
           <td>zzzzz@xxx.yy</td>
           <td>あり</td>
           <td>なし</td>
@@ -141,31 +135,30 @@
           <td>kanaiyoshiro</td>
           <td>yyyy/mm/dd hh:mm:ss</td>
           <td>
-            <div class="main-button">
-              <a href="../main/newregistrations.html" class="btn--blue btn--shadow btn--small">編集</a>
-            </div>
-          </td>
-          <td>
-            <div class="main-button">
-              <div class="btn--blue btn--shadow btn--small">削除</div>
-            </div>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small">
+              削除
+            </button>
           </td>
 
         </tr>
       </table>
+    </div>
 
-      <div class="error-message">
-        <ul>
-          <li>エラーメッセージ表示枠テスト1</li>
-          <li>エラーメッセージ表示枠テスト2</li>
-        </ul>
-      </div>
+    <div class="error-message">
+      <ul>
+        <li>エラーメッセージ表示枠テスト1</li>
+        <li>エラーメッセージ表示枠テスト2</li>
+      </ul>
+    </div>
 
-      <div class="main-button">
-        <div class="user-button-layout">
-          <a href="./usermaster.html" class="btn--blue btn--shadow btn--small">新規追加</a>
-        </div>
+    <div class="main-button">
+      <div class="user-button-layout">
+        <a href="./usermaster.html" class="btn--blue btn--shadow btn--middle">新規追加</a>
       </div>
+    </div>
 
 
   </main>

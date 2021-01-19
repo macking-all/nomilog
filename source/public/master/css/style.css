@@ -103,7 +103,7 @@ main{
 }
 
 .main-button{
-width: 200px;
+width: 100px;
 text-align: center;
 }
 
@@ -130,7 +130,6 @@ text-align: center;
 }
 
 .btn--blue {
-  
   font-size: large;
   font-weight: bold;
   display: inline-block;
@@ -161,16 +160,73 @@ text-align: center;
 
 /*【usremaster管理画面】「開始」*/
 
+.user-button-layout{
+  margin-left:50px ;
+}
 
-.btn--small{
+.btn--middle{
   padding: 8px 8px;
   width: 100px;
   
 }
 
+.btn--small{
+  padding: 6px 6px;
+  width: 60px;
+}
+
+.btn--gray {
+  font-size: large;
+  display: inline-block;
+  color:black;
+  background-color:#d3d3d3;
+  border-bottom: 5px solid #808080;
+  border-radius: 10px;    
+}
+
+.btn--gray:hover{
+  opacity: 0.7;
+}
+
+.btn--gray:active {
+  margin-top: 3px;
+  color: black;
+  background:#d3d3d3;
+  /* 下記の説明 border-bottomの値が減っています */
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.user-button-layout{
+  padding: 25px 0;
+}
+
 .search{
   display: flex;
   width: 100%;
+  padding: 25px 0;
+}
+
+.search input:nth-of-type(1){
+  width: 20%;
+  margin: 0 30px;
+}
+
+.search input:nth-of-type(2){
+  width: 40%;
+  margin: 0 30px;
+}
+
+.search input:nth-of-type(3){
+  width: 20%;
+  margin: 0 30px;
+}
+
+.search-button-layout{
+  width: 20%;
+}
+
+.usermaster-table{
+  padding: 25px 25px ;
 }
 
 th,td {
@@ -181,23 +237,30 @@ th,td {
 table {
    /* セルの線を重ねる */
   border-collapse:  collapse;    
-  margin: 0 auto;;
+  margin: 0 auto;
+  /* padding: 25px 0; */
 }
 
 th{
-  background-color: #d3d3d3;
+  background-color: #87cefad3;
+  color: #000;
 }
 
-tr>td:nth-of-type(10){
+.usermaster-table td{
+  padding: 5px 5px;
+}
+
+/* tr>td:nth-of-type(10){
   border: solid 0px;
 }
 
 tr>td:nth-of-type(11){
   border: solid 0px;
-}
+} */
 
 .error-message{
   text-align: center;
+  padding: 25px 0;
 }
 
 .error-message li{
