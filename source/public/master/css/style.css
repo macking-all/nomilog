@@ -4,7 +4,8 @@
 
 body {
   margin: 0;
-  color:#575757;;
+  /* color:#575757; */
+  color:#444;
 }
 /*【共通部分】「header」「開始」*/
 header{
@@ -133,7 +134,7 @@ main{
   font-size: large;
   font-weight: bold;
   display: inline-block;
-  color: black;
+  color:#444;
   background-color:#00CCFF;
   border-bottom: 5px solid#0081cc;
   border-radius: 10px;    
@@ -145,7 +146,7 @@ main{
 
 .btn--blue:active {
   margin-top: 3px;
-  color: black;
+  color: #444;
   background: #00CCFF;
   /* 下記の説明 border-bottomの値が減っています */
   border-bottom: 2px solid #00CCFF;
@@ -161,7 +162,7 @@ main{
 /*【usremaster管理画面】「開始」*/
 
 .user-button-layout{
-  margin-left:50px ;
+  margin-left:90px ;
 }
 
 .btn--middle{
@@ -178,19 +179,35 @@ main{
 .btn--gray {
   font-size: large;
   display: inline-block;
-  color:black;
+  color:#444;
   background-color:#d3d3d3;
   border-bottom: 5px solid #808080;
-  border-radius: 10px;    
+  border-radius: 10px;  
 }
 
 .btn--gray:hover{
   opacity: 0.7;
 }
 
-.btn--gray:active {
+.editing--btn--gray:active {
   margin-top: 3px;
-  color: black;
+  color: #444;
+  background:#d3d3d3;
+  /* 下記の説明 border-bottomの値が減っています */
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.delete--btn--gray:active {
+  margin-top: 3px;
+  color: #444;
+  background:#d3d3d3;
+  /* 下記の説明 border-bottomの値が減っています */
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.restoration--btn--gray:active{
+  margin-top: 3px;
+  color: #444;
   background:#d3d3d3;
   /* 下記の説明 border-bottomの値が減っています */
   border-bottom: 2px solid #d3d3d3;
@@ -200,33 +217,60 @@ main{
   padding: 25px 0;
 }
 
+.usermaster-table td{
+  height: 50px;
+}
+
 .search{
   display: flex;
   width: 100%;
   padding: 25px 0;
+  height: 80px;
 }
 
-.search input:nth-of-type(1){
+.search div:nth-of-type(1){
   width: 20%;
-  margin: 0 30px;
+  margin: 0 85px;
+  display :flex;
+  flex-direction: column;
 }
 
-.search input:nth-of-type(2){
+.search label{
+ padding-left: 13px;
+}
+
+input{
+  height: 30px;
+  border-radius:30px;
+  outline: none;
+  padding-left: 15px;
+}
+
+.search div:nth-of-type(2){
   width: 40%;
   margin: 0 30px;
+  display :flex;
+  flex-direction: column;
 }
 
-.search input:nth-of-type(3){
+.search div:nth-of-type(3){
   width: 20%;
   margin: 0 30px;
+  display :flex;
+  flex-direction: column;
 }
 
 .search-button-layout{
   width: 20%;
+  margin-top:15px ;
 }
 
 .usermaster-table{
   padding: 25px 25px ;
+}
+
+.usermaster-table table tr:nth-of-type(5){
+  background-color: red;
 }
 
 th,td {
@@ -240,9 +284,22 @@ table {
   margin: 0 auto;
 }
 
-th{
-  background-color: #87cefad3;
-  color: #000;
+/* th{
+  background-color: #87cefad3 !important;
+  /* background-color: #87cefad3; */
+  /* color: #444; */
+/* } */ 
+
+.usermaster-table table tr:nth-child(odd){
+background-color: #f5f5f5;
+}
+
+.table-header-color{
+  background-color: #87cefad3 !important;
+}
+
+.table-restoration-color{
+  background-color: #ccc !important;
 }
 
 .usermaster-table td{
@@ -256,6 +313,11 @@ th{
 
 .error-message li{
   list-style: none;
+  color: red;
+}
+
+.footer-button-layout{
+  margin-bottom:50px ;
 }
 
 /*【usremaster管理画面】「終了」*/

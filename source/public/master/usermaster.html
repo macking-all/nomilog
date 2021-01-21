@@ -37,116 +37,6 @@
       <h1><span>ユーザーマスタ管理画面</span></h1>
     </div>
 
-    <div class="main-button">
-      <div class="user-button-layout">
-        <a href="./newuserregistration.html" class=" btn--blue btn--shadow btn--middle">新規追加</a>
-      </div>
-    </div>
-
-    <section class="search">
-      <input type="text" placeholder="表示名">
-      <input type="text" placeholder="メールアドレス">
-      <input type="text" placeholder="権限フラグ">
-      <div class="main-button search-button-layout">
-        <div class="btn--blue btn--shadow btn--middle search-layout">検索</div>
-      </div>
-    </section>
-
-    <div class="usermaster-table">
-      <table>
-        <tr>
-          <th>表示名</th>
-          <th>メールアドレス</th>
-          <th>admin権限フラグ</th>
-          <th>メール通知</th>
-          <th>登録日時</th>
-          <th>更新日時</th>
-          <th>登録者</th>
-          <th>更新者</th>
-          <th>最終ログイン日時</th>
-          <th>ボタン</th>
-        </tr>
-        <tr>
-          <td>ユーザーA</td>
-          <td>zzzzz@xxx.yy</td>
-          <td>あり</td>
-          <td>なし</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>suzukikoya</td>
-          <td>suzukikoya</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>
-            <button class="main-button btn--gray btn--shadow btn--small">
-              編集
-            </button>
-            <button class="main-button btn--gray btn--shadow btn--small">
-              削除
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>ユーザーB</td>
-          <td>zzzzz@xxx.yy</td>
-          <td>あり</td>
-          <td>なし</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>moritakaki</td>
-          <td>moritakaki</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>
-            <button class="main-button btn--gray btn--shadow btn--small">
-              編集
-            </button>
-            <button class="main-button btn--gray btn--shadow btn--small">
-              削除
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>ユーザーC</td>
-          <td>zzzzz@xxx.yy</td>
-          <td>あり</td>
-          <td>なし</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>kawaiyutaka</td>
-          <td>kawaiyutaka</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>
-            <button class="main-button btn--gray btn--shadow btn--small">
-              編集
-            </button>
-            <button class="main-button btn--gray btn--shadow btn--small">
-              削除
-            </button>
-          </td>
-
-        </tr>
-        <tr>
-          <td>ユーザーD</td>
-          <td>zzzzz@xxx.yy</td>
-          <td>あり</td>
-          <td>なし</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>kanaiyoshiro</td>
-          <td>kanaiyoshiro</td>
-          <td>yyyy/mm/dd hh:mm:ss</td>
-          <td>
-            <button class="main-button btn--gray btn--shadow btn--small">
-              編集
-            </button>
-            <button class="main-button btn--gray btn--shadow btn--small">
-              削除
-            </button>
-          </td>
-
-        </tr>
-      </table>
-    </div>
-
     <div class="error-message">
       <ul>
         <li>エラーメッセージ表示枠テスト1</li>
@@ -154,7 +44,235 @@
       </ul>
     </div>
 
+    <section class="search">
+      <div>
+        <label for="">表示名</label>
+        <input>
+      </div>
+      <div>
+        <label for="">メールアドレス</label>
+        <input>
+      </div>
+      <div>
+        <label for="">権限</label>
+        <input>
+      </div>
+      <div class="main-button search-button-layout">
+        <div class="btn--blue btn--shadow btn--middle search-layout">検索</div>
+      </div>
+    </section>
+
     <div class="main-button">
+      <div class="user-button-layout">
+        <a href="./newuserregistration.html" class=" btn--blue btn--shadow btn--middle">新規追加</a>
+      </div>
+    </div>
+
+    <div class="usermaster-table">
+      <table>
+        <tr class="table-header-color">
+          <th>表示名</th>
+          <th>メールアドレス</th>
+          <th>メール通知</th>
+          <th>権限</th>
+          <th>最終ログイン日時</th>
+          <th>登録者</th>
+          <th>登録日時</th>
+          <th>更新者</th>
+          <th>更新日時</th>
+          <th>ボタン</th>
+        </tr>
+        <tr>
+          <td>ユーザーA</td>
+          <td>zzzzz@xxx.yy</td>
+          <td>あり</td>
+          <td>あり</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small editing--btn--gray">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small delete--btn--gray">
+              削除
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>ユーザーA</td>
+          <td>zzzzz@xxx.yy</td>
+          <td>あり</td>
+          <td>あり</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small editing--btn--gray">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small delete--btn--gray">
+              削除
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>ユーザーA</td>
+          <td>zzzzz@xxx.yy</td>
+          <td>あり</td>
+          <td>あり</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small editing--btn--gray">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small delete--btn--gray">
+              削除
+            </button>
+          </td>
+        </tr>
+        <tr class="table-restoration-color">
+          <td>ユーザーA</td>
+          <td>zzzzz@xxx.yy</td>
+          <td>あり</td>
+          <td>あり</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small restoration--btn--gray">
+              復元
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>ユーザーA</td>
+          <td>zzzzz@xxx.yy</td>
+          <td>あり</td>
+          <td>あり</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small editing--btn--gray">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small delete--btn--gray">
+              削除
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>ユーザーA</td>
+          <td>zzzzz@xxx.yy</td>
+          <td>あり</td>
+          <td>あり</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small editing--btn--gray">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small delete--btn--gray">
+              削除
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>ユーザーA</td>
+          <td>zzzzz@xxx.yy</td>
+          <td>あり</td>
+          <td>あり</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small editing--btn--gray">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small delete--btn--gray">
+              削除
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>ユーザーA</td>
+          <td>zzzzz@xxx.yy</td>
+          <td>あり</td>
+          <td>あり</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small editing--btn--gray">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small delete--btn--gray">
+              削除
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>ユーザーA</td>
+          <td>zzzzz@xxx.yy</td>
+          <td>あり</td>
+          <td>あり</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small editing--btn--gray">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small delete--btn--gray">
+              削除
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>ユーザーA</td>
+          <td>zzzzz@xxx.yy</td>
+          <td>あり</td>
+          <td>あり</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>suzukikoya</td>
+          <td>yyyy/mm/dd hh:mm:ss</td>
+          <td>
+            <button class="main-button btn--gray btn--shadow btn--small editing--btn--gray">
+              編集
+            </button>
+            <button class="main-button btn--gray btn--shadow btn--small delete--btn--gray">
+              削除
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="main-button footer-button-layout">
       <div class="user-button-layout">
         <a href="./newuserregistration.html" class="btn--blue btn--shadow btn--middle">新規追加</a>
       </div>
