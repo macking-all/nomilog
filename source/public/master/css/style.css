@@ -221,6 +221,10 @@ main{
   height: 50px;
 }
 
+.usermaster-table{
+  
+}
+
 .search{
   display: flex;
   width: 100%;
@@ -266,7 +270,8 @@ main{
 }
 
 .usermaster-table{
-  padding: 25px 25px ;
+  width: 73%;
+  margin: 0 auto;
 }
 
 th,td {
@@ -277,7 +282,7 @@ th,td {
 table {
    /* セルの線を重ねる */
   border-collapse:  collapse;    
-  margin: 0 auto;
+  
 }
 
 .usermaster-table table tr:nth-child(odd){
