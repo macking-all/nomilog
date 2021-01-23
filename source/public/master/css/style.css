@@ -162,7 +162,7 @@ main{
 /*【usremaster管理画面】「開始」*/
 
 .user-button-layout{
-  margin-left:90px ;
+  margin-left:190px ;
 }
 
 .btn--middle{
@@ -226,51 +226,47 @@ main{
   width: 100%;
   padding: 25px 0;
   height: 80px;
-}
-
-.search div:nth-of-type(1){
-  width: 20%;
-  margin: 0 85px;
-  display :flex;
-  flex-direction: column;
+  flex-wrap : wrap;
 }
 
 .search label{
  padding-left: 13px;
 }
 
-input{
+.search input{
   height: 30px;
   border-radius:30px;
   outline: none;
   padding-left: 15px;
 }
+.usermaster-search>div:nth-of-type(1){
+  width: 200px;
+  margin: 0 85px;
+  display :flex;
+  flex-direction: column;
+}
 
-.search div:nth-of-type(2){
-  width: 40%;
+.usermaster-search>div:nth-of-type(2){
+  width: 300px;
   margin: 0 30px;
   display :flex;
   flex-direction: column;
 }
 
-.search div:nth-of-type(3){
-  width: 20%;
+.usermaster-search>div:nth-of-type(3){
+  width: 200px;
   margin: 0 30px;
   display :flex;
   flex-direction: column;
 }
 
 .search-button-layout{
-  width: 20%;
   margin-top:15px ;
+  padding-left:100px ;
 }
 
 .usermaster-table{
   padding: 25px 25px ;
-}
-
-.usermaster-table table tr:nth-of-type(5){
-  background-color: red;
 }
 
 th,td {
@@ -284,14 +280,8 @@ table {
   margin: 0 auto;
 }
 
-/* th{
-  background-color: #87cefad3 !important;
-  /* background-color: #87cefad3; */
-  /* color: #444; */
-/* } */ 
-
 .usermaster-table table tr:nth-child(odd){
-background-color: #f5f5f5;
+background-color: #DDDDDD;
 }
 
 .table-header-color{
@@ -299,7 +289,7 @@ background-color: #f5f5f5;
 }
 
 .table-restoration-color{
-  background-color: #ccc !important;
+  background-color: #999999 !important;
 }
 
 .usermaster-table td{
@@ -322,6 +312,37 @@ background-color: #f5f5f5;
 
 /*【usremaster管理画面】「終了」*/
 
+/* 【各マスタ管理画面】「開始」 */
+.each-master-search{
+  margin-left: 300px;
+}
+
+.each-master-search>div:nth-of-type(1){
+  width: 500px;
+  margin: 0 85px;
+  display :flex;
+  flex-direction: column;
+}
+
+.each-master-search-button-layout{
+  margin-top:15px ;
+}
+/* 【各マスタ管理画面】「終了」 */
+
+/*【新規登録画面画面】「開始」*/
+.newuser-main-flex{
+  display: flex;
+}
+
+.newuser-main-flex label{
+  width: 50%;
+}
+
+.newuser-main-flex{
+  width: 50%;
+}
+
+/*【新規登録画面画面】「終了」*/
 
 /*【footer管理画面】「開始」*/
 footer{
