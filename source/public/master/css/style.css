@@ -168,7 +168,6 @@ main{
 .btn--middle{
   padding: 8px 8px;
   width: 100px;
-  
 }
 
 .btn--small{
@@ -213,24 +212,16 @@ main{
   border-bottom: 2px solid #d3d3d3;
 }
 
-.user-button-layout{
-  padding: 25px 0;
-}
-
 .usermaster-table td{
   height: 50px;
 }
 
-.usermaster-table{
-  
-}
-
 .search{
   display: flex;
-  width: 100%;
   padding: 25px 0;
   height: 80px;
   flex-wrap : wrap;
+  justify-content: center;
 }
 
 .search label{
@@ -243,34 +234,39 @@ main{
   outline: none;
   padding-left: 15px;
 }
+
 .usermaster-search>div:nth-of-type(1){
   width: 200px;
-  margin: 0 85px;
   display :flex;
   flex-direction: column;
+  margin-right: 5%;
 }
 
 .usermaster-search>div:nth-of-type(2){
   width: 300px;
-  margin: 0 30px;
+  margin-right:5% ;
   display :flex;
   flex-direction: column;
 }
 
 .usermaster-search>div:nth-of-type(3){
   width: 200px;
-  margin: 0 30px;
+  margin-right: 5%;
   display :flex;
   flex-direction: column;
 }
 
 .search-button-layout{
   margin-top:15px ;
-  padding-left:100px ;
+  /* padding-left:100px ; */
+}
+
+.master-new-button{
+  margin:50px 0;
 }
 
 .usermaster-table{
-  width: 73%;
+  display: table;
   margin: 0 auto;
 }
 
@@ -281,8 +277,7 @@ th,td {
 
 table {
    /* セルの線を重ねる */
-  border-collapse:  collapse;    
-  
+  border-collapse:  collapse;     
 }
 
 .usermaster-table table tr:nth-child(odd){
@@ -311,16 +306,9 @@ background-color: #DDDDDD;
   color: red;
 }
 
-.footer-button-layout{
-  margin-bottom:50px ;
-}
-
 /*【usremaster管理画面】「終了」*/
 
 /* 【各マスタ管理画面】「開始」 */
-.each-master-search{
-  margin-left: 300px;
-}
 
 .each-master-search>div:nth-of-type(1){
   width: 500px;
@@ -335,17 +323,16 @@ background-color: #DDDDDD;
 /* 【各マスタ管理画面】「終了」 */
 
 /*【新規登録画面画面】「開始」*/
-.newuser-main-flex{
-  display: flex;
+
+form div label{
+  /* display: block; */
 }
 
-.newuser-main-flex label{
-  width: 50%;
+form div input{
+  
 }
 
-.newuser-main-flex{
-  width: 50%;
-}
+
 
 /*【新規登録画面画面】「終了」*/
 
