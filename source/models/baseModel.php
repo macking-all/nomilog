@@ -6,6 +6,10 @@ require "../nlfw/config/daoConfig.php";
 use nlfw\dao\baseDao;
 use nlfw\dao\daoConfig;
 
+/**
+ * データ操作
+ */
+
 class baseModel extends baseDao {
     //コンストラクタ
     //クラスのインスタンスが生成される時に動作する
