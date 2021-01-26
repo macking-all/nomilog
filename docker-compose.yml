@@ -39,3 +39,10 @@ services:
       # このDBはmysql内でデフォルトで作成され
       # rootと一般ユーザ( `MYSQL_USER` )がグローバル権限を持ってる
       MYSQL_DATABASE: nomilog
+#  nlrc:
+#    build: './data/nlrc'
+#    volumes:
+#     - ./react:/usr/src/app
+#    command: sh -c "cd react-sample && yarn start"
+#    ports:
+#     - "3000:3000"
