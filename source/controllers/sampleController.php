@@ -1,20 +1,19 @@
 <?php
 namespace nomilog\controllers;
-require("baseController.php");
-use nomilog\controllers\baseController;
-class sampleController extends baseController {
-    function __construct($r) {
-        error_log("sample __construct");
-        parent::__construct($r);
+require("../models/sampleController.php");
+
+use nomilog\models;
+
+/**
+ * データ操作側のコントローラー
+ * だいたい画面ごとに作っちゃってた記憶があるけどデータ区分ごとが正だろうな
+ * まあこれは無視してもいいかもしれない
+ * 主にModelを呼び出したりする
+*/
+
+class sampleController {
+    function __construct() {
     }
 
-    function postAction(){
-        $this->define("default")?->html("index.html");
-        $this->define("search")?->action("debug")->html("index.html");
-    }
-
-    function debug(){
-        var_dump($_SESSION["__CURRENT"]["ACTION"]);
-    }
 }
 ?>

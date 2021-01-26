@@ -27,7 +27,7 @@ function create_option($id,$class,$value,$list) {
     $__ = function ($v) { return $v;};
     $option = "";
     foreach($list as $k => $v) {
-        $option .= "<option value=\"{$k}\"{$__(isSelected($k,$value))}>{$v}</option>";
+        $option .= "<option value=\"{$k}\"{$__(isSelected($k,$value))}>{$v}</option>\n";
     }
 
     return "<select id=\"{$id}\" name=\"{$id}\" class=\"{$__(parse_class($class))}\">{$option}</select>";
@@ -42,12 +42,12 @@ function isSelected($key,$value) {
 
 function create_block_button($value,$action,$type,$id,$class){
     $__ = function ($v) { return $v;};
-    return "<div>{$__(create_button($value,$action,$type,$id,$class))}</div>";
+    return "<div>{$__(create_button($value,$action,$type,$id,$class))}</div>\n";
 }
 
 function create_button($value,$action,$type,$id,$class) {
     $__ = function ($v) { return $v;};
-    return "<button type=\"{$type}\" id=\"{$id}\" class=\"{$__(parse_class($class))}\"  x-action=\"$action\" >{$value}</button>";
+    return "<button type=\"{$type}\" id=\"{$id}\" class=\"{$__(parse_class($class))}\"  x-action=\"$action\" >{$value}</button>\n";
 }
 
 
