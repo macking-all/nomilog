@@ -144,14 +144,6 @@ main{
   opacity: 0.7;
 }
 
-.btn--blue:active {
-  /* margin-top: 3px; */
-  color: #444;
-  background: #00CCFF;
-  /* 下記の説明 border-bottomの値が減っています */
-  border-bottom: 2px solid #00CCFF;
-}
-
 .btn--shadow {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
@@ -186,30 +178,6 @@ main{
 
 .btn--gray:hover{
   opacity: 0.7;
-}
-
-.editing--btn--gray:active {
-  margin-top: 3px;
-  color: #444;
-  background:#d3d3d3;
-  /* 下記の説明 border-bottomの値が減っています */
-  border-bottom: 2px solid #d3d3d3;
-}
-
-.delete--btn--gray:active {
-  /* margin-top: 3px; */
-  color: #444;
-  background:#d3d3d3;
-  /* 下記の説明 border-bottomの値が減っています */
-  border-bottom: 2px solid #d3d3d3;
-}
-
-.restoration--btn--gray:active{
-  /* margin-top: 3px; */
-  color: #444;
-  background:#d3d3d3;
-  /* 下記の説明 border-bottomの値が減っています */
-  border-bottom: 2px solid #d3d3d3;
 }
 
 .usermaster-table td{
@@ -330,6 +298,10 @@ form label{
   text-align: right;
   width: 50%;
   margin:0 auto;  
+}
+
+form input {
+  width: 25%;
 }
 
 .newuser-button-layout{
