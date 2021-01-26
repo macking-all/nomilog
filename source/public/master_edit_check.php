@@ -9,27 +9,27 @@
     $confirm_pass = h($_POST['confirm_pass']);
     $icon_image = $_POST['icon_image'];
 
-    $errorMessage = '';
+    // $errorMessage = '';
 
-    if($user_name === '')
-    {
-        $errorMessage .= 'ユーザ名を入力してください' . '<br>';
-    } 
+    // if($user_name === '')
+    // {
+    //     $errorMessage .= 'ユーザ名を入力してください' . '<br>';
+    // } 
 
-    if($email === '')
-    {
-        $errorMessage .= 'メールアドレスを入力してください' . '<br>';
-    }
+    // if($email === '')
+    // {
+    //     $errorMessage .= 'メールアドレスを入力してください' . '<br>';
+    // }
 
-    if($password === '')
-    {
-        $errorMessage .= 'パスワードを入力してください' . '<br>';
-    }
+    // if($password === '')
+    // {
+    //     $errorMessage .= 'パスワードを入力してください' . '<br>';
+    // }
 
-    if($password !== $confirm_pass)
-    {
-        $errorMessage .= 'パスワードが一致しません' . '<br>';
-    }
+    // if($password !== $confirm_pass)
+    // {
+    //     $errorMessage .= 'パスワードが一致しません' . '<br>';
+    // }
 ?>
 
 <!DOCTYPE html>
