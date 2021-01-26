@@ -145,7 +145,7 @@ main{
 }
 
 .btn--blue:active {
-  margin-top: 3px;
+  /* margin-top: 3px; */
   color: #444;
   background: #00CCFF;
   /* 下記の説明 border-bottomの値が減っています */
@@ -197,7 +197,7 @@ main{
 }
 
 .delete--btn--gray:active {
-  margin-top: 3px;
+  /* margin-top: 3px; */
   color: #444;
   background:#d3d3d3;
   /* 下記の説明 border-bottomの値が減っています */
@@ -205,7 +205,7 @@ main{
 }
 
 .restoration--btn--gray:active{
-  margin-top: 3px;
+  /* margin-top: 3px; */
   color: #444;
   background:#d3d3d3;
   /* 下記の説明 border-bottomの値が減っています */
@@ -324,12 +324,19 @@ background-color: #DDDDDD;
 
 /*【新規登録画面画面】「開始」*/
 
-form div label{
-  /* display: block; */
+form label{
+  /* 下記の説明　「label」はインライン要素なので、ブロック要素に変更する。 */
+  display: inline-block;
+  text-align: right;
+  width: 50%;
+  margin:0 auto;  
 }
 
-form div input{
-  
+.newuser-button-layout{
+  width: 50%;
+  margin:0 auto;  
+  text-align: center;
+  margin-top:3%;
 }
 
 
