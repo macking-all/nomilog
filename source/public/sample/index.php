@@ -4,6 +4,12 @@ require("../../controllers/sampleController.php");
 use nomilog\controllers\baseController;
 use nomilog\controllers\sampleController;
 
+/**
+ * とりあえず画面からのPOSTをここで受け取るコントローラー
+ * baseCotrollerのメソッドを利用して制御する
+ */
+
+
 $instance = new baseController($_REQUEST);
 
 /*
