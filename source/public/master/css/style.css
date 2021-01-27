@@ -292,26 +292,38 @@ background-color: #DDDDDD;
 
 /*【新規登録画面画面】「開始」*/
 
-form label{
-  /* 下記の説明　「label」はインライン要素なので、ブロック要素に変更する。 */
-  display: inline-block;
-  text-align: right;
-  width: 50%;
-  margin:0 auto;  
+.newuser-main{
+
 }
 
-form input {
-  width: 25%;
+form {
+  margin:0 auto;
+  width: 40%;
+  text-align: left;
 }
 
-.newuser-button-layout{
-  width: 50%;
-  margin:0 auto;  
+form span{
+  background-color:red;
+  color: White;
+}
+
+.from-margin-layout{
+  margin: 2% 0;
+}
+
+.input-size-checkbox{
+  /* height: 20px; */
+}
+
+.input-size{
+  width: 100%;
+  height: 30px;
+}
+
+.submit-layout{
   text-align: center;
-  margin-top:3%;
+  margin: 4% 0;
 }
-
-
 
 /*【新規登録画面画面】「終了」*/
 
