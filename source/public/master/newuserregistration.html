@@ -43,26 +43,41 @@
     </div>
 
     <form action="">
-      <label for="">表示名：</label>
-      <input type="text"><br />
-      <label for="">メールアドレス：</label>
-      <input type="email"><br />
-      <label for="">メール通知仮：</label>
-      <input type="checkbox"><br />
-      <label for="">画像：</label>
-      <input type="file"><br />
-      <label for="">パスワード：</label>
-      <input type="password"><br />
-      <label for="">パスワード確認用：</label>
-      <input type="text"><br />
-      <label for="">権限：</label>
-      <input type="checkbox"><br />
-      <div class="newuser-button-layout">
-        <input class="btn--blue btn--shadow btn--middle" type="submit" value="登録">
-        <input class="btn--blue btn--shadow btn--middle" type="submit" value="テスト">
+      <div class="from-margin-layout">
+        <label for="">表示名 <span>※必須</span></label><br />
+        <input type="text" placeholder="suzukikoya" class="input-size"><br />
+        ※半角英数字8文字以上<br />
+      </div>
+      <div class="from-margin-layout">
+        <label for="">メールアドレス <span>※必須</span></label><br />
+        <input type="email" placeholder="abcdefghijk@xxx.jp" class="input-size"><br />
+      </div>
+      <div class="from-margin-layout">
+        <label for="">メール通知を受け取る </label>
+        <input type="checkbox" class="input-size-checkbox"><br />
+      </div>
+      <div class="from-margin-layout">
+        <label for="">画像 </label><br />
+        <input type="file"><br />
+      </div>
+      <div class="from-margin-layout">
+        <label for="">パスワード <span>※必須</span></label><br />
+        <input type="password" placeholder="パスワードを入力してください" class="input-size"><br />
+        ※半角英数字8文字以上<br />
+      </div>
+      <div class="from-margin-layout">
+        <label for="">パスワード確認用 <span>※必須</span></label><br />
+        <input type="text" placeholder="パスワードを再入力してください" class="input-size"><br />
+      </div>
+      <div class="from-margin-layout">
+        <label for="">管理者</label>
+        <input type="checkbox" class="input-size-checkbox"><br>
+      </div>
+      <div class="submit-layout">
+        <input class="main-button btn--blue btn--shadow btn--middle" type="submit" value="送信">
+        <input class="main-button btn--blue btn--shadow btn--middle" type="submit" value="テスト">
       </div>
     </form>
-
   </main>
 
   <footer>
