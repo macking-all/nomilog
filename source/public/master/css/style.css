@@ -131,6 +131,7 @@ main{
 }
 
 .btn--blue {
+  border: none;
   font-size: large;
   font-weight: bold;
   display: inline-block;
@@ -157,8 +158,12 @@ main{
   margin-left:190px ;
 }
 
+button{
+  outline: none;
+}
+
 .btn--middle{
-  padding: 8px 8px;
+  padding: 8px 0px;
   width: 100px;
 }
 
@@ -168,6 +173,7 @@ main{
 }
 
 .btn--gray {
+  border: none;
   font-size: large;
   display: inline-block;
   color:#444;
@@ -292,13 +298,15 @@ background-color: #DDDDDD;
 
 /*【新規登録画面画面】「開始」*/
 
-.newuser-main{
-
+form>.required-font>label::after{
+content: "※必須";
+background-color: red;
+color: White;
 }
 
 form {
   margin:0 auto;
-  width: 40%;
+  width: 30%;
   text-align: left;
 }
 
@@ -322,7 +330,15 @@ form span{
 
 .submit-layout{
   text-align: center;
-  margin: 4% 0;
+  margin: 4%;
+}
+
+.submit-layout input:nth-of-type(1){
+  margin-right: 5%;
+}
+
+.submit-layout input:nth-of-type(2){
+  margin-left: 5%;
 }
 
 /*【新規登録画面画面】「終了」*/
