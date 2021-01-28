@@ -1,35 +1,43 @@
 <?php 
 
+    //session_start();
+
     require 'functions.php';
 
+    $_SESSION['user_id'] = $user_id;
     $user_name = h($_POST['user_name']);
     $email = h($_POST['email']);
     $email_flag = $_POST['email_flag'];
-    $passwaord = h($_POST['password']);
-    $confirm_pass = h($_POST['confirm_pass']);
-    $icon_image = $_POST['icon_image'];
+    $admin_flag = $_POST['admin_flag'];
 
-    // $errorMessage = '';
+    $errorMessage = '';
 
-    // if($user_name === '')
-    // {
-    //     $errorMessage .= 'ユーザ名を入力してください' . '<br>';
-    // } 
+    if($user_name === '')
+    {
+        $errorMessage .= 'ユーザ名を入力してください' . '<br>';
+    } else {
+        $validateName = 'success';
+    } 
 
-    // if($email === '')
-    // {
-    //     $errorMessage .= 'メールアドレスを入力してください' . '<br>';
-    // }
+    if($email === '')
+    {
+        $errorMessage .= 'メールアドレスを入力してください' . '<br>';
+    } else {
+        $validateEmail = 'success';
+    }
 
-    // if($password === '')
-    // {
-    //     $errorMessage .= 'パスワードを入力してください' . '<br>';
-    // }
-
-    // if($password !== $confirm_pass)
-    // {
-    //     $errorMessage .= 'パスワードが一致しません' . '<br>';
-    // }
+    if($validateName === 'success' && $validateEmail === 'success'){
+        $dbs = new Datebase();
+        $dbs->dbconnect();
+        $sql = 'update MUser set user_name=:user_name email=:email email_flag=:email_flag admin_flag=:admin_flag where user_id=:id';
+        $stmt = $dbs->prepare($sql);
+        $stmt->bindParam(':user_name', $user_name, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':email_flag', $email_flag, PDO::PARAM_STR);
+        $stmt->bindParam(':admin_flag', $admin_flag, PDO::PARAM_STR); 
+        $stmt->execute();
+        header('Location: http://localhost:8080/master.php');
+    }
 ?>
 
 <!DOCTYPE html>

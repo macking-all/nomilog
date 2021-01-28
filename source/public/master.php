@@ -2,6 +2,8 @@
 
     session_start();
 
+    $_SESSION['user_id'] = 
+
     require 'dbconnect.php';
     require 'functions.php';
 

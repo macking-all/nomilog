@@ -23,8 +23,6 @@
         //初期状態設定
         btn.disabled = true;
 
-        //event
-
         //name
         name.addEventListener("keyup", (e) => {
             if (name.value === '') {

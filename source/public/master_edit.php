@@ -1,5 +1,6 @@
 <?php
     
+    //session_start();
     require 'dbconnect.php';
 
     $dbs = new Datebase();
@@ -8,18 +9,6 @@
     //POSTで送信されたユーザIDを変数に格納
     $user_id = $_POST['row-x'];
 
-    // function setDeleteFlag(){
-    //     $sql = 'update MUser set delete_flag=1 where user_id=?';
-    //     $stmt = $dbs->prepare($sql);
-    //     $data[] = $user_id;
-    //     $stmt->execute($data);
-    //     header('Location: master.php');
-    // }
-
-    function editForm(){
-        
-    }
-    
     if(isset($_POST['edit'])){
         
         //対象のユーザIDのレコードを取得
@@ -29,6 +18,7 @@
         $stmt->execute($data);
         $record = $stmt->fetch(PDO::FETCH_ASSOC);
         echo $record['user_name'];
+        
 
         
     } else if(isset($_POST['delete'])){
@@ -37,7 +27,6 @@
         $data[] = $user_id;
         $stmt->execute($data);
         $message = 'アカウントを削除しました。';
-        //header('Location: master.php');
         $backButton = '<a href="master.php">';
     }
 ?>
@@ -65,22 +54,18 @@
 <body>
     <?= $message ?><br>
     <form action="master_edit_check.php" method="post" id="form">
-        <input type="hidden" value="<?= $user_id ?>">
         <label for="user_name">ユーザ名前：</label>
         <input type="text" name="user_name" id="user_name" value="<?= $record['user_name']; ?>"><br>
         <label for="email">メールアドレス：</label>
         <input type="text" name="email" id="email" value="<?= $record['email']; ?>"><br>
         <label for="email_flag">メール通知を受け取る：</label>
         <input type="checkbox" name="email_flag" id="email_flag" value="<?= $record['email_flag']; ?>"><br>
-        <!--
-            <label for="password">パスワード：</label>
-            <input type="password" name="password" id="password" value=""><br>
-            
-            <label for="confirm_pass">確認用パスワード：</label>
-            <input type="password" name="confirm_pass" id="confirm_pass" value=""><br>
-        -->
-        <label for="icon_image">アイコン画像：</label>
-        <input type="file" name="icon_image" id="icon_image" value="<?= $record['icon_image']; ?>"><br>
+        <label for="admin_flag">管理者フラグ</label>
+        <?php if($record['admin_flag'] === "1"): ?>
+        <input type="checkbox" checked="checked" name="admin_flag" id="admin_flag" value="<?= $record['admin_flag']; ?>"><br>
+        <?php elseif($record['admin_flag'] === "0"): ?>
+        <input type="checkbox" name="admin_flag" id="admin_flag" value="<?= $record['admin_flag']; ?>"><br>
+        <?php endif;?>
         <input type="button" onclick="history.back()" value="戻る">
         <input type="submit" value="更新" id="btn">
     </form>
@@ -89,7 +74,6 @@
     <span id="email-error-message">メールアドレスの形式で入力してください</span>
     <span id="pass-error-message">半角英数字8文字以上30文字以下で入力してください</span>
 
-    <script src="js/validate.js"></script>
 </body>
 </html>
 
