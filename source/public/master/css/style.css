@@ -298,7 +298,7 @@ background-color: #DDDDDD;
 
 /*【新規登録画面画面】「開始」*/
 
-form>.required-font>label::after{
+form>.required>label::after{
 content: "※必須";
 background-color: red;
 color: White;
@@ -319,8 +319,8 @@ form span{
   margin: 2% 0;
 }
 
-.input-size-checkbox{
-  /* height: 20px; */
+.from-margin-button-layout{
+margin: 5% 0;
 }
 
 .input-size{
@@ -328,10 +328,11 @@ form span{
   height: 30px;
 }
 
-.submit-layout{
-  text-align: center;
-  margin: 4%;
+.btn-long{
+  width: 100%;
+  padding:7px 7px;
 }
+
 
 .submit-layout input:nth-of-type(1){
   margin-right: 5%;
