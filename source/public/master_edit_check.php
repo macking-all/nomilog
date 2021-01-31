@@ -2,42 +2,60 @@
 
     //session_start();
 
-    require 'functions.php';
+    //require 'functions.php';
+    require 'dbconnect.php';
 
-    $_SESSION['user_id'] = $user_id;
-    $user_name = h($_POST['user_name']);
-    $email = h($_POST['email']);
+    $dbs = new Datebase();
+    $dbs->dbconnect();
+    
+    $user_id = $_POST['user_id'];
+    $user_name = $_POST['user_name'];
+    $email = $_POST['email'];
     $email_flag = $_POST['email_flag'];
     $admin_flag = $_POST['admin_flag'];
 
-    $errorMessage = '';
+    //$errorMessage = ''; 
+    var_dump($user_id . ':' . $user_name);
 
-    if($user_name === '')
-    {
-        $errorMessage .= 'ユーザ名を入力してください' . '<br>';
-    } else {
-        $validateName = 'success';
-    } 
+    $sql = "UPDATE MUser SET user_name=:name email=:email email_flag=:email_flag admin_flag=:admin_flag WHERE user_id=:id";
+    $stmt = $dbs->prepare($sql);
 
-    if($email === '')
-    {
-        $errorMessage .= 'メールアドレスを入力してください' . '<br>';
-    } else {
-        $validateEmail = 'success';
-    }
+    $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
+    $stmt->bindParam(':email', $email,PDO::PARAM_STR);
+    $stmt->bindParam(':email_flag', $email_flag,PDO::PARAM_STR);
+    $stmt->bindParam(':admin_flag', $admin_flag,PDO::PARAM_STR);
+    $stmt->execute();
+    
+    //header('Location: http://localhost:8080/master.php');
 
-    if($validateName === 'success' && $validateEmail === 'success'){
-        $dbs = new Datebase();
-        $dbs->dbconnect();
-        $sql = 'update MUser set user_name=:user_name email=:email email_flag=:email_flag admin_flag=:admin_flag where user_id=:id';
-        $stmt = $dbs->prepare($sql);
-        $stmt->bindParam(':user_name', $user_name, PDO::PARAM_STR);
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-        $stmt->bindParam(':email_flag', $email_flag, PDO::PARAM_STR);
-        $stmt->bindParam(':admin_flag', $admin_flag, PDO::PARAM_STR); 
-        $stmt->execute();
-        header('Location: http://localhost:8080/master.php');
-    }
+    // if($user_name === '')
+    // {
+    //     $errorMessage .= 'ユーザ名を入力してください' . '<br>';
+    // } else {
+    //     $validateName = 'success';
+    // } 
+
+    // if($email === '')
+    // {
+    //     $errorMessage .= 'メールアドレスを入力してください' . '<br>';
+    // } else {
+    //     $validateEmail = 'success';
+    // }
+
+    // if($validateName === 'success' && $validateEmail === 'success'){
+    //     $dbs = new Datebase();
+    //     $dbs->dbconnect();
+    //     $sql = 'update MUser set user_name=:user_name email=:email email_flag=:email_flag admin_flag=:admin_flag where user_id=:id';
+    //     $stmt = $dbs->prepare($sql);
+    //     $stmt->bindParam(':user_name', $user_name, PDO::PARAM_STR);
+    //     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    //     $stmt->bindParam(':email_flag', $email_flag, PDO::PARAM_STR);
+    //     $stmt->bindParam(':admin_flag', $admin_flag, PDO::PARAM_STR); 
+    //     $stmt->execute();
+    //     header('Location: http://localhost:8080/master.php');
+    // }
+    
+        
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +66,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?= $errorMessage ?>
+    
 </body>
 </html>
