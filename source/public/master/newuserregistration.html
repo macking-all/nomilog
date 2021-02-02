@@ -12,6 +12,7 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css"
     type="text/css" media="all" />
+  <script src="../js/jquery-3.5.1.slim.min.js"></script>
 </head>
 
 <body>
@@ -45,7 +46,7 @@
     <form action="">
       <div class="from-margin-layout required">
         <label for="">表示名</label><br />
-        <input type="text" placeholder="呑みログ　太郎" class="input-size">
+        <input type="text" placeholder="呑みログ　太郎" class="input-size" name="user-name">
       </div>
       <div class="from-margin-layout required">
         <label for="">メールアドレス</label><br />
@@ -73,7 +74,7 @@
         <input type="checkbox" class="input-size-checkbox"><br>
       </div>
       <div class="from-margin-button-layout">
-        <input class="main-button btn--blue btn--shadow btn-long" type="submit" value="登録">
+        <input class="main-button btn--blue btn--shadow btn-long" id="submitbtn" type="" value="登録">
       </div>
       <div class="from-margin-button-layout">
         <input class="main-button btn--darkblue btn--shadow btn-long" type="submit" value="キャンセル">
@@ -90,7 +91,7 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="../js/functions.js"></script>
 
 </body>
 
