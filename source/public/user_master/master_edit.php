@@ -1,7 +1,7 @@
 <?php
     
     //session_start();
-    require 'dbconnect.php';
+    require '../dbconnect.php';
 
     $dbs = new Datebase();
     $dbs->dbconnect();
@@ -19,12 +19,11 @@
         echo $record['user_name'];
         
     } else if(isset($_POST['delete'])){
-        $sql = 'update MUser set delete_flag=0 where user_id=?';
+        $sql = 'update MUser set delete_flag=1 where user_id=?';
         $stmt = $dbs->prepare($sql);
         $data[] = $user_id;
         $stmt->execute($data);
-        $message = 'アカウントを削除しました。';
-        $backButton = '<a href="master.php">';
+        header('Location: master.php');
     }
 ?>
 
@@ -56,8 +55,13 @@
         <input type="text" name="user_name" id="user_name" value="<?= $record['user_name']; ?>"><br>
         <label for="email">メールアドレス：</label>
         <input type="text" name="email" id="email" value="<?= $record['email']; ?>"><br>
+        
         <label for="email_flag">メール通知を受け取る：</label>
-        <input type="checkbox" name="email_flag" id="email_flag" value="<?= $record['email_flag']; ?>"><br>
+        <?php if($record['email_flag'] === "1"): ?>
+            <input type="checkbox" name="email_flag" checked="checked" id="email_flag" value="<?= $record['email_flag']; ?>"><br>
+        <?php elseif($record['email_flag'] === "0"): ?> 
+            <input type="checkbox" name="email_flag" id="email_flag" value="<?= $record['email_flag']; ?>"><br>
+        <?php endif; ?>
 
         <label for="admin_flag">管理者フラグ</label>
         <?php if($record['admin_flag'] === "1"): ?>

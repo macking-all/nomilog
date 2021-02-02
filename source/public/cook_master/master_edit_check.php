@@ -1,32 +1,30 @@
 <?php 
 
     //session_start();
-
-    //require 'functions.php';
-    require 'dbconnect.php';
+    require '../dbconnect.php';
 
     $dbs = new Datebase();
     $dbs->dbconnect();
     
-    $user_id = $_POST['user_id'];
-    $user_name = $_POST['user_name'];
+    $cook_id = $_POST['cook_id'];
+    $cook_name = $_POST['cook_name'];
     $email = $_POST['email'];
     $email_flag = $_POST['email_flag'];
     $admin_flag = $_POST['admin_flag'];
 
-    //$errorMessage = ''; 
     var_dump($user_id . ':' . $user_name);
 
-    $sql = "UPDATE MUser SET user_name=:name email=:email email_flag=:email_flag admin_flag=:admin_flag WHERE user_id=:id";
+    $sql = "UPDATE MCook SET user_name=:name, email=:email, email_flag=:email_flag, admin_flag=:admin_flag WHERE user_id=:id";
     $stmt = $dbs->prepare($sql);
-
-    $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
+    
+    $stmt->bindParam(':name', $user_name, PDO::PARAM_STR);
     $stmt->bindParam(':email', $email,PDO::PARAM_STR);
-    $stmt->bindParam(':email_flag', $email_flag,PDO::PARAM_STR);
-    $stmt->bindParam(':admin_flag', $admin_flag,PDO::PARAM_STR);
+    $stmt->bindParam(':email_flag', $email_flag,PDO::PARAM_INT);
+    $stmt->bindParam(':admin_flag', $admin_flag,PDO::PARAM_INT);
+    $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
     
-    //header('Location: http://localhost:8080/master.php');
+    header('Location: master.php');
 
     // if($user_name === '')
     // {

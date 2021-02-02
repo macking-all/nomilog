@@ -2,10 +2,8 @@
 
     //session_start();
 
-    $_SESSION['user_id'] = 
-
-    require 'dbconnect.php';
-    require 'functions.php';
+    require '../dbconnect.php';
+    require '../functions.php';
 
     $dbs = new Datebase();
     $dbs->dbconnect();
@@ -15,9 +13,9 @@
     //マスタの全レコードを取得する
     $stmt = $dbs->query($sql);
     
-    $tableHeaderHtml = '<tr><th>表示名</th><th>メールアドレス</th><th>メール通知</th><th>管理者フラグ</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>最終ログイン日時</th><th>削除フラグ</th>';
+    $tableHeaderHtml = '<tr><th>表示名</th><th>メールアドレス</th><th>メール通知</th><th>管理者フラグ</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>最終ログイン日時</th><th>削除フラグ</th><th>ボタン</th>';
     foreach ($stmt as $value){
-        $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_name'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_name'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td>' . $value['delete_flag'] . '</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['user_id'].'"></form></td></tr>';
+        $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_name'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_name'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td>' . $value['delete_flag'] . '</td><td><form action="u_master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['user_id'].'"></form></td></tr>';
     }
 ?>
 
