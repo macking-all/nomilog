@@ -1,7 +1,7 @@
 <?php 
 
     //session_start();
-    require 'dbconnect.php';
+    require '../dbconnect.php';
 
     $dbs = new Datebase();
     $dbs->dbconnect();

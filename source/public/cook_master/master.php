@@ -2,21 +2,34 @@
 
     //session_start(); 
 
-    require 'dbconnect.php';
-    require 'functions.php';
+    require '../dbconnect.php';
+    require '../functions.php';
 
     $dbs = new Datebase();
     $dbs->dbconnect();
-    //テーブル名は変数にしたい⇨マスタ管理画面からどのボタンが押されたかで、テーブル名を指定したい
-    $sql = 'select * from MCook';
+
     
-    //マスタの全レコードを取得する
-    $stmt = $dbs->query($sql);
-    
-    $tableHeaderHtml = '<tr><th>料理ジャンル名</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>削除フラグ</th><th>ボタン</th>';
-    foreach ($stmt as $value){
-        $records .= '<tr><td>'. $value['cook_name'] . '</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>'.$value['delete_flag'].'</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['cook_id'].'"></form></td></tr>';
-    }
+        $serchWord = $_POST['serch_word'];
+        $sql = 'select * from MCook';
+        $data = null;
+        if(isset($_POST['serch'])){
+            $data = array($serchWord);
+            $sql .= ' where cook_name like ?';
+        }
+        $stmt->prepare($sql);
+        //マスタの全レコードを取得する
+        //$stmt = $dbs->query($sql);
+        try{
+            $stmt->execute($data);
+        } catch(Error $e) {
+            var_dump($e);
+        }
+        
+
+        $tableHeaderHtml = '<tr><th>料理ジャンル名</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>削除フラグ</th><th>ボタン</th>';
+        foreach ($stmt as $value){
+            $listRecords .= '<tr><td>'. $value['cook_name'] . '</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>'.$value['delete_flag'].'</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['cook_id'].'"></form></td></tr>';
+        }
 ?>
 
 <!DOCTYPE html>
@@ -56,17 +69,25 @@
 </head>
 <body>
     <script>
+        //レコード削除の確認
         function popup(){
             return confirm('このマスタを削除しもよろしいですか?');
         }
     </script>
+
     <h1>料理ジャンルマスタ<!-- 管理画面から選択されたマスタ名を入れる --></h1>
+
+    <form action="" method="post" id="serch">
+        <input type="text" name="serch_word" placeholder="和食">
+        <input type="submit" name="serch" value="検索">
+    </form>
 
     <!-- マスタの中身を表示させる -->
     <table>
     <tbody>
      <?= $tableHeaderHtml ?>
-     <?= $records ?>
+     <?= $serchRecords ?>
+     <?= $listRecords ?>
     </tbody>
     </table>
 </body>

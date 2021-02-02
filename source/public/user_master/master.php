@@ -2,8 +2,8 @@
 
     //session_start();
 
-    require 'dbconnect.php';
-    require 'functions.php';
+    require '../dbconnect.php';
+    require '../functions.php';
 
     $dbs = new Datebase();
     $dbs->dbconnect();
