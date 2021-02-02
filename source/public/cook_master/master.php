@@ -8,27 +8,22 @@
     $dbs = new Datebase();
     $dbs->dbconnect();
 
-    
         $serchWord = $_POST['serch_word'];
+        $serchWord =  $serchWord . '%';
         $sql = 'select * from MCook';
         $data = null;
         if(isset($_POST['serch'])){
             $data = array($serchWord);
             $sql .= ' where cook_name like ?';
         }
-        $stmt->prepare($sql);
+        $stmt = $dbs->prepare($sql);
         //マスタの全レコードを取得する
         //$stmt = $dbs->query($sql);
-        try{
-            $stmt->execute($data);
-        } catch(Error $e) {
-            var_dump($e);
-        }
-        
+        $stmt->execute($data);
 
         $tableHeaderHtml = '<tr><th>料理ジャンル名</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>削除フラグ</th><th>ボタン</th>';
         foreach ($stmt as $value){
-            $listRecords .= '<tr><td>'. $value['cook_name'] . '</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>'.$value['delete_flag'].'</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['cook_id'].'"></form></td></tr>';
+            $records .= '<tr><td>'. $value['cook_name'] . '</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>'.$value['delete_flag'].'</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['cook_id'].'"></form></td></tr>';
         }
 ?>
 
@@ -86,8 +81,8 @@
     <table>
     <tbody>
      <?= $tableHeaderHtml ?>
-     <?= $serchRecords ?>
-     <?= $listRecords ?>
+     <?= $records ?>
+     
     </tbody>
     </table>
 </body>
