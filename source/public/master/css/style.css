@@ -298,7 +298,7 @@ background-color: #DDDDDD;
 
 /*【新規登録画面画面】「開始」*/
 
-form>.required>label::after{
+form>.required>label:nth-of-type(1)::after{
 content: "※必須";
 background-color: red;
 color: White;
@@ -316,11 +316,11 @@ form span{
 }
 
 .from-margin-layout{
-  margin: 2% 0;
+  margin: 10px 0;
 }
 
 .from-margin-button-layout{
-margin: 5% 0;
+margin: 30px 0;
 }
 
 .input-size{
@@ -355,6 +355,18 @@ margin: 5% 0;
 
 .btn--darkblue:hover{
   opacity: 0.7;
+}
+
+.required-error-text-color{
+  color: red;
+}
+
+.error-border-color{
+  border-color: red;
+}
+
+form>div>aside{
+  height: 30px;
 }
 
 /*【新規登録画面画面】「終了」*/
