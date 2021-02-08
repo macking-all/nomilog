@@ -26,9 +26,11 @@ class MArea extends AbstractSeed
                 //みんなが修正する部分
                 //ここにcsvのデータをつける読み込んでインサートの元ネタ作るコードを書く
                 "area_name"=>$data[1],
-                "delete_flag"=>$data[2],
+                "register_user"=>$data[2],
                 "created"=>$data[3],
-                "updated"=>$data[4],
+                "updated_user"=>$data[4],
+                "updated"=>$data[5],
+                "delete_flag"=>$data[6],
           ];
             //全部貯めてもメモリが爆発するので1000レコードごとに1回バルクインサートする
             if (count($insertData) >= 1000) {

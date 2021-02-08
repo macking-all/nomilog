@@ -12,6 +12,34 @@
     
     //マスタの全レコードを取得する
     $stmt = $dbs->query($sql);
+    $serchName = $_POST['serch_name'];
+    $serchEmail = $_POST['serch_email'];
+    $serchFlag = $_POST['serch_flag'];
+    
+    $keywords = [$serchName, $serchEmail, $serchFlag];
+    // $serchName = filter_input(INPUT_POST, 'serch_name');
+    // $serchEmail = filter_input(INPUT_POST, 'serch_email');
+    // $serchFlag = filter_input(INPUT_POST, 'serch_flag');
+
+    foreach($keywords as $keyword){
+        $values[] = '%' . $keyword . '%';
+    }
+
+    $sql = 'select * from MUser';
+    $sql = "SELECT * FROM MUser WHERE ((user_name LIKE ?) AND (email LIKE ? )";
+    $values[] = null;
+    //$data = null;
+    if(isset($_POST['serch'])){
+        // $data = array($serchName, $serchEmail, $serchFlag);
+        // $sql .= ' where user_name like ? OR email like ? OR admin_flag ?';
+        $sql = 'select * from MUser';
+    $sql = "SELECT * FROM MUser WHERE ((user_name LIKE ?) AND (email LIKE ? )";
+
+    }
+    $stmt = $dbs->prepare($sql);
+    //マスタの全レコードを取得する
+    //$stmt = $dbs->query($sql);
+    $stmt->execute($values);
     
     $tableHeaderHtml = '<tr><th>表示名</th><th>メールアドレス</th><th>メール通知</th><th>管理者フラグ</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>最終ログイン日時</th><th>削除フラグ</th><th>ボタン</th>';
     foreach ($stmt as $value){
@@ -60,7 +88,15 @@
             return confirm('アカウントを削除しもよろしいですか?');
         }
     </script>
+
+    
     <h1>ユーザマスタ<!-- 管理画面から選択されたマスタ名を入れる --></h1>
+    <form action="" method="post">
+        <input type="text" name="serch_name">
+        <input type="text" name="serch_email">
+        <input type="text" name="serch_flag">
+        <input type="submit" value="検索" name="serch">
+    </form>
 
     <!-- マスタの中身を表示させる -->
     <table>

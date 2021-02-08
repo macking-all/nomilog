@@ -6,17 +6,17 @@
     $dbs = new Datebase();
     $dbs->dbconnect();
     
-    $cook_id = $_POST['cook_id'];
-    $cook_name = $_POST['cook_name'];
+    $price_id = $_POST['price_id'];
+    $price_range = $_POST['price_name'];
     $delete_flag = $_POST['delete_flag'];
 
 
-    $sql = "UPDATE MCook SET cook_name=:name, delete_flag=:delete_flag, WHERE cook_id=:id";
+    $sql = "UPDATE MPrice SET price_range=:name, delete_flag=:delete_flag, WHERE price_id=:id";
     $stmt = $dbs->prepare($sql);
     
-    $stmt->bindParam(':name', $cook_name, PDO::PARAM_STR);
+    $stmt->bindParam(':name', $price_range, PDO::PARAM_STR);
     $stmt->bindParam(':delete_flag', $delete_flag,PDO::PARAM_INT);
-    $stmt->bindParam(':id', $cook_id, PDO::PARAM_INT);
+    $stmt->bindParam(':id', $price_id, PDO::PARAM_INT);
     $stmt->execute();
     
     header('Location: master.php');
