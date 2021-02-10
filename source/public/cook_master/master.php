@@ -10,11 +10,24 @@
 
         $serchWord = $_POST['serch_word'];
         $serchWord = $serchWord . '%';
-        $sql = 'select * from MCook';
+        $sql = 'select
+                    st1.cook_id,
+                    st1.cook_name,
+                    st2.user_name as register_user,
+                    st1.created,
+                    st3.user_name as updated_user,
+                    st1.updated,
+                    st1.delete_flag
+                from 
+                    MCook st1
+                    left join MUser st2 on st1.register_user = st2.user_id
+                    left join MUser st3 on st1.updated_user = st3.user_id';
+
+
         $data = null;
         if(isset($_POST['serch'])){
             $data = array($serchWord);
-            $sql .= ' where cook_name like ?';
+            $sql .= ' where st1.cook_name like ?';
         }
         $stmt = $dbs->prepare($sql);
         //マスタの全レコードを取得する

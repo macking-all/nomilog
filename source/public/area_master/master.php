@@ -9,16 +9,26 @@
     $dbs->dbconnect();
 
         $serchWord = $_POST['serch_word'];
-        $serchWord =  $serchWord . '%';
-        $sql = 'select * from MArea';
-        $data = null;
+        $serchWord =  '%' . $serchWord . '%';
+
+        $sql = 'select
+                    st1.area_id,
+                    st1.area_name,
+                    st2.user_name as register_user,
+                    st1.created,
+                    st3.user_name as updated_user,
+                    st1.updated,
+                    st1.delete_flag
+                from 
+                    MArea st1
+                    left join MUser st2 on st1.register_user = st2.user_id
+                    left join MUser st3 on st1.updated_user = st3.user_id';
+
         if(isset($_POST['serch'])){
             $data = array($serchWord);
-            $sql .= ' where area_name like ?';
+            $sql .= ' where st1.area_name like ?';
         }
         $stmt = $dbs->prepare($sql);
-        //マスタの全レコードを取得する
-        //$stmt = $dbs->query($sql);
         $stmt->execute($data);
 
         $tableHeaderHtml = '<tr><th>地域名</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>削除フラグ</th><th>ボタン</th>';

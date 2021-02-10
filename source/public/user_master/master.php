@@ -1,5 +1,7 @@
 <?php
 
+//管理者フラグのところは、ドロップダウンにする
+
     //session_start();
 
     require '../dbconnect.php';
@@ -7,43 +9,49 @@
 
     $dbs = new Datebase();
     $dbs->dbconnect();
-    //テーブル名は変数にしたい⇨マスタ管理画面からどのボタンが押されたかで、テーブル名を指定したい
-    $sql = 'select * from MUser';
     
-    //マスタの全レコードを取得する
-    $stmt = $dbs->query($sql);
+    //検索フォーム取得
     $serchName = $_POST['serch_name'];
     $serchEmail = $_POST['serch_email'];
-    $serchFlag = $_POST['serch_flag'];
-    
+    $serchFlag = $_POST['serch_flag']; 
     $keywords = [$serchName, $serchEmail, $serchFlag];
-    // $serchName = filter_input(INPUT_POST, 'serch_name');
-    // $serchEmail = filter_input(INPUT_POST, 'serch_email');
-    // $serchFlag = filter_input(INPUT_POST, 'serch_flag');
-
-    foreach($keywords as $keyword){
-        $values[] = '%' . $keyword . '%';
-    }
-
-    $sql = 'select * from MUser';
-    $sql = "SELECT * FROM MUser WHERE ((user_name LIKE ?) AND (email LIKE ? )";
-    $values[] = null;
-    //$data = null;
-    if(isset($_POST['serch'])){
-        // $data = array($serchName, $serchEmail, $serchFlag);
-        // $sql .= ' where user_name like ? OR email like ? OR admin_flag ?';
-        $sql = 'select * from MUser';
-    $sql = "SELECT * FROM MUser WHERE ((user_name LIKE ?) AND (email LIKE ? )";
-
-    }
-    $stmt = $dbs->prepare($sql);
-    //マスタの全レコードを取得する
-    //$stmt = $dbs->query($sql);
-    $stmt->execute($values);
     
+    $sql = "select
+                st1.user_id,
+                st1.user_name,
+                st1.email,
+                case st1.email_flag
+                    when 0 then 'なし'
+                    when 1 then 'あり'
+                end as email_flag,
+                case st1.admin_flag
+                    when 1 then '管理者'
+                    when 0 then ''
+                end as admin_flag,
+                st2.user_name as register_user,
+                st1.created,
+                st3.user_name as updated_user,
+                st1.updated,
+                st1.last_login,
+                st1.delete_flag
+            from
+                MUser st1
+                left join MUser st2 on st1.register_user = st2.user_id
+                left join MUser st3 on st1.updated_user = st3.user_id";
+
+    if(isset($_POST['serch'])){
+        $sql .= ' where st1.user_name like ? and st1.email like ? and st1.admin_flag like ?';
+        foreach($keywords as $keyword){
+            $values[] = '%' . $keyword . '%';
+        }
+    }
+    
+    $stmt = $dbs->prepare($sql);
+    $stmt->execute($values);
+
     $tableHeaderHtml = '<tr><th>表示名</th><th>メールアドレス</th><th>メール通知</th><th>管理者フラグ</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>最終ログイン日時</th><th>削除フラグ</th><th>ボタン</th>';
     foreach ($stmt as $value){
-        $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_name'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_name'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td>' . $value['delete_flag'] . '</td><td><form action="u_master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['user_id'].'"></form></td></tr>';
+        $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td>' . $value['delete_flag'] . '</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['user_id'].'"></form></td></tr>';
     }
 ?>
 
@@ -94,9 +102,16 @@
     <form action="" method="post">
         <input type="text" name="serch_name">
         <input type="text" name="serch_email">
-        <input type="text" name="serch_flag">
+        <!-- <input type="text" name="serch_flag"> -->
+        <select name="serch_flag" id="">
+            <option value=""></option>
+            <option value="0">一般ユーザ</option>
+            <option value="1">管理者</option>
+        </select>
         <input type="submit" value="検索" name="serch">
     </form>
+
+    <a href="new_register.php">登録</a>
 
     <!-- マスタの中身を表示させる -->
     <table>

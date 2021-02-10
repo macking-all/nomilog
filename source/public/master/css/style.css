@@ -198,11 +198,13 @@ button{
   justify-content: center;
 }
 
-.search label{
- padding-left: 13px;
+label{
+  display: block;
+  padding-left: 5px;
 }
 
-.search input{
+.search input[type="text"]{
+  width: 200px;
   height: 30px;
   border-radius:30px;
   outline: none;
@@ -407,3 +409,4 @@ footer a{
   z-index: 1;
 }
 /*【footer管理画面】「終了」*/
+

@@ -51,14 +51,14 @@
         <input type="hidden" name="cook_id" value="<?= $record['cook_id']; ?>">
         <label for="cook_name">料理ジャンル名：</label>
         <input type="text" name="cook_name" id="cook_name" value="<?= $record['cook_name']; ?>"><br>
-        <label for="register_user">登録者：</label>
+        <!-- <label for="register_user">登録者：</label>
         <input type="text" name="register_user" id="register_user" value="<?= $record['register_user']; ?>"><br>
         <label for="created">登録日時：</label>
         <input type="text" name="created" id="created" value="<?= $record['created']; ?>"><br>
         <label for="updated_user">更新者</label>
         <input type="text" name="updated_user" id="updated_user" value="<?= $record['updated_user']; ?>"><br>
         <label for="updated">更新日時：</label>
-        <input type="text" name="updated" id="updated" value="<?= $record['updated']; ?>"><br>
+        <input type="text" name="updated" id="updated" value="<?= $record['updated']; ?>"><br> -->
         <input type="button" onclick="history.back()" value="戻る">
         <input type="submit" value="更新" id="btn">
     </form>
