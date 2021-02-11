@@ -30,9 +30,9 @@
         $stmt = $dbs->prepare($sql);
         $stmt->execute($data);
 
-        $tableHeaderHtml = '<tr class="table-header-color"><th>価格帯</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>削除フラグ</th><th>ボタン</th>';
+        $tableHeaderHtml = '<tr><th>価格帯</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>削除フラグ</th><th>ボタン</th>';
         foreach ($stmt as $value){
-            $records .= '<tr><td>'. $value['price_range'] . '</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>'.$value['delete_flag'].'</td><td><form action="master_edit.php" method="post"><button class="main-button btn--gray btn--shadow btn--small editing--btn--gray" type="submit" name="edit">編集</button><button class="main-button btn--gray btn--shadow btn--small delete--btn--gray" type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['price_id'].'"></form></td></tr>';
+            $records .= '<tr><td>'. $value['price_range'] . '</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>'.$value['delete_flag'].'</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button class="main-button btn--gray btn--shadow btn--small delete--btn--gray" type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['price_id'].'"></form></td></tr>';
         }
 ?>
 
@@ -45,15 +45,9 @@
         }
     </script>
 
-    <form action="" method="post" id="serch">
-        
-    </form>
-
     <!-- マスタの中身を表示させる -->
     <main>
-    <div class="main-font">
-      <h1><span>価格マスタ管理画面</span></h1>
-    </div>
+      <h1>価格マスタ管理画面</h1>
 
     <div class="error-message">
       <ul>
@@ -62,31 +56,25 @@
       </ul>
     </div>
     
-    <div class="search each-master-search">
+    <div id="search">
         <form action="" method="post">
             <label for="price_name">価格帯</label>
             <input id="price_name" type="text" name="serch_word" placeholder="価格帯">
-            <input class="btn--blue btn--shadow btn--middle" type="submit" name="serch" value="検索">
+            <input type="submit" name="serch" value="検索">
         </form>
-      </div>
-      <!-- <div class="main-button each-master-search-button-layout">
-        <div class="btn--blue btn--shadow btn--middle search-layout">検索</div>
-      </div> -->
     </div>
 
-    <div class="usermaster-table">
-      <div class="main-button master-new-button">
-        <a href="./addprice.html" class=" btn--blue btn--shadow btn--middle">新規追加</a>
-      </div>
+    <div id="master_lists">
+      <button type="button" value="新規追加"><a href="new_register.php">新規登録</a></button>
+      <!-- マスタ一覧表示-->
       <table>
         <tbody>
             <?= $tableHeaderHtml ?>
             <?= $records ?>   
         </tbody>
       </table>
-      <div class="main-button master-new-button">
-        <a href="./addprice.html" class=" btn--blue btn--shadow btn--middle">新規追加</a>
-      </div>
+
+      <button type="button" value="新規追加"><a href="new_register.php">新規登録</a></button>
     </div>
   </main>
 

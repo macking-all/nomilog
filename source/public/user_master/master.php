@@ -49,47 +49,14 @@
     $stmt = $dbs->prepare($sql);
     $stmt->execute($values);
 
-    $tableHeaderHtml = '<tr><th>表示名</th><th>メールアドレス</th><th>メール通知</th><th>管理者フラグ</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>最終ログイン日時</th><th>削除フラグ</th><th>ボタン</th>';
+    $tableHeaderHtml = '<tr><th>表示名</th><th>メールアドレス</th><th>メール通知</th><th>管理者フラグ</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>最終ログイン日時</th><th>ボタン</th>';
     foreach ($stmt as $value){
-        $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td>' . $value['delete_flag'] . '</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['user_id'].'"></form></td></tr>';
+        $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['user_id'].'"></form></td></tr>';
     }
 ?>
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>呑みログ</title>
-    <style>
+<?php include('../common/_header.php'); ?>
 
-    h1{
-        text-align: center;
-    }
-     table{
-        border: 1px solid #ccc;
-        border-collapse: collapse;
-        width: 95%;
-        margin: 0 auto;
-     }
-     table th{
-        border: 1px solid #ccc;
-        border-collapse: collapse;
-        padding: 5px;
-        background-color: #6495ed;
-     }
-
-     table td{
-        border: 1px solid #ccc;
-        border-collapse: collapse;
-        padding: 5px;
-     }
-
-     button{
-        margin-left: 5px;
-     }
-    </style>
-</head>
 <body>
     <script>
         function popup(){
@@ -97,28 +64,51 @@
         }
     </script>
 
-    
-    <h1>ユーザマスタ<!-- 管理画面から選択されたマスタ名を入れる --></h1>
-    <form action="" method="post">
-        <input type="text" name="serch_name">
-        <input type="text" name="serch_email">
-        <!-- <input type="text" name="serch_flag"> -->
-        <select name="serch_flag" id="">
-            <option value=""></option>
-            <option value="0">一般ユーザ</option>
-            <option value="1">管理者</option>
-        </select>
-        <input type="submit" value="検索" name="serch">
-    </form>
+    <main>
+    <h1>ユーザマスタ</h1>
 
-    <a href="new_register.php">登録</a>
+    <div class="error-message">
+      <ul>
+        <li>エラーメッセージ表示枠テスト1</li>
+        <li>エラーメッセージ表示枠テスト2</li>
+      </ul>
+    </div>
 
-    <!-- マスタの中身を表示させる -->
+    <div id="search">
+        <form action="" method="post" class="user_serach_form">
+            <div>
+                <label for="">表示名</label>
+                <input type="text" name="serch_name">
+            </div>
+            <div>
+                <label for="">メールアドレス</label>
+                <input type="text" name="serch_email">
+            </div>
+            <!-- <input type="text" name="serch_flag"> -->
+            <div>
+            <label for="">管理者権限有無</label>
+            <select name="serch_flag" id="">
+                <option value=""></option>
+                <option value="0">一般ユーザ</option>
+                <option value="1">管理者</option>
+            </select>
+            </div>
+            <div style="margin-top: 20px;">
+                <input type="submit" value="検索" name="serch">
+            </div>
+        </form>
+    </div>
+
+     <div id="master_lists">
+      <button type="button" value="新規追加"><a href="new_register.php">新規登録</a></button>
+      <!-- マスタ一覧表示-->
     <table>
-    <tbody>
-     <?= $tableHeaderHtml ?>
-     <?= $records ?>
-    </tbody>
+        <tbody>
+            <?= $tableHeaderHtml ?>
+            <?= $records ?>
+        </tbody>
     </table>
-</body>
-</html>
+    <button type="button" value="新規追加"><a href="new_register.php">新規登録</a></button>
+    </div>
+</main>
+<?php include('../common/_footer.php'); ?>

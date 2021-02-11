@@ -1,0 +1,238 @@
+body {
+  margin: 0;
+  /* color:#575757; */
+  color:#444;
+}
+
+input, button {
+  outline: none;
+}
+/* header */
+header{
+  z-index: 1;
+  min-height: 80px;
+  width: 100%;
+  background-color:#000;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top:0;
+  opacity: 0.7;
+}
+
+header:before  {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+header>div{
+  display: flex;
+}
+
+header>div>h2{
+  color: #fff;
+  font-size: 30px;
+}
+
+.header-list{
+  display: flex;
+  color: #fff;
+}
+
+.header-list-flex-column{
+  display: flex;
+  flex-direction:column;
+}
+
+.header-list li{
+  list-style: none;
+  display: inline;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: large;
+  font-weight: 700;
+}
+
+.header-list div{
+  text-align: right;
+}
+
+header img{
+  height:35px;
+  width: 35px;
+  border-radius: 50%;
+  border: 2px solid yellow;
+  vertical-align: bottom;
+}
+
+/* contents */
+
+main {
+  min-height: 60vh;
+  width: 100%;
+  margin: 0 auto;
+  background-size: cover;
+}
+
+h1 {
+  position: relative;
+  margin-top: 150px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+h1::before {
+  position: absolute;
+  bottom: -10px;
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 5px;
+  content: '';
+  border-radius: 3px;
+  background:yellow;
+}
+
+.error-message {
+  text-align: center;
+  padding: 25px 0;
+}
+
+.error-message li{
+  list-style: none;
+  color: red;
+}
+
+#search {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#search input[type="text"] {
+  width: 250px;
+  height: 30px;
+  border-radius: 20px;
+  border: 2px solid #444;
+  padding-left: 15px;
+}
+
+#search select {
+  width: 270px;
+  height: 35px;
+  border-radius: 20px;
+  border: 2px solid #444;
+  padding-left: 15px;
+  outline: none;
+}
+
+label {
+  display: block;
+  width: 120px;
+}
+
+#master_lists {
+  width: 90%;
+  margin: 40px auto;
+  margin-bottom: 100px;
+}
+
+#master_lists table {
+  width: 100%;
+  margin: 15px auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+#master_lists table th {
+  border: 1px solid;
+  background-color: #87cefad3;
+  padding: 6px;
+}
+
+#master_lists table td {
+  border: 1px solid;
+  padding: 6px;
+  font-size: 15px;
+}
+
+#master_lists table tr:nth-child(odd) {
+  background-color: #ddd;
+}
+
+#master_lists button,
+#search input[type="submit"] {
+  border: none;
+  font-size: large;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color:#00CCFF;
+  border-bottom: 5px solid#0081cc;
+  border-radius: 10px;
+}
+
+#master_lists button:hover,
+#search input[type="submit"]:hover {
+  opacity: 0.7;
+}
+
+#master_lists button a {
+  text-decoration: none;
+  color:#444;
+}
+
+#master_lists button[type="submit"] {
+  border: none;
+  font-weight: normal;
+  display: inline-block;
+  margin-right: 5px;
+  padding: 2px 10px;
+  color:#444;
+  background-color:#d3d3d3;
+  border-bottom: 3px solid #808080;
+  border-radius: 10px;  
+}
+
+.user_serach_form {
+  display: flex;
+  justify-content: left;
+}
+
+.user_serach_form > div {
+  margin-right: 30px;
+}
+
+/* footer */
+footer{
+  background-image:url("../master/img/nomilog_footer.jpg");
+  background-size: cover;
+  min-height: 300px;
+  background-position:50%;
+  position: relative;
+ }
+ 
+ footer::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-color: rgba(0,0,0,.5);
+ }
+ 
+ footer a{
+   color: White;
+   text-decoration: none;
+ }
+ 
+ .fotter-font{
+   text-align: center;
+   padding-top: 3%;
+   margin: 0;
+   color: #FFF;
+   font-weight: bold;
+   position: relative;
+   z-index: 1;
+ }

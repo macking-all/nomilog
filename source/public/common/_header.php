@@ -6,8 +6,8 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>呑みログ_価格マスタ管理画面</title>
-  <link rel="stylesheet" href="../master/css/style.css">
+  <title>マスタ管理画面</title>
+  <link rel="stylesheet" href="../css/style_m.css">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css"

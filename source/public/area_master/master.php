@@ -37,41 +37,7 @@
         }
 ?>
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>呑みログ</title>
-    <style>
-
-    h1{
-        text-align: center;
-    }
-     table{
-        border: 1px solid #ccc;
-        border-collapse: collapse;
-        width: 90%;
-        margin: 0 auto;
-     }
-     table th{
-        border: 1px solid #ccc;
-        border-collapse: collapse;
-        padding: 5px;
-        background-color: #6495ed;
-     }
-
-     table td{
-        border: 1px solid #ccc;
-        border-collapse: collapse;
-        padding: 5px;
-     }
-
-     button{
-        margin-left: 5px;
-     }
-    </style>
-</head>
+<?php include('../common/_header.php'); ?>
 <body>
     <script>
         //レコード削除の確認
@@ -80,20 +46,34 @@
         }
     </script>
 
-    <h1>地域マスタ<!-- 管理画面から選択されたマスタ名を入れる --></h1>
+    <mian>    
+    <h1>地域マスタ</h1>
 
-    <form action="" method="post" id="serch">
-        <input type="text" name="serch_word" placeholder="地域名">
-        <input type="submit" name="serch" value="検索">
-    </form>
+    <div class="error-message">
+      <ul>
+        <li>エラーメッセージ表示枠テスト1</li>
+        <li>エラーメッセージ表示枠テスト2</li>
+      </ul>
+    </div>
 
-    <!-- マスタの中身を表示させる -->
+    <div id="search">
+        <form action="" method="post">
+            <label for="price_name">地域名</label>
+            <input type="text" name="serch_word" placeholder="地域名">
+            <input type="submit" name="serch" value="検索">
+        </form>
+    </div>
+
+    <div id="master_lists">
+      <button type="button" value="新規追加"><a href="new_register.php">新規登録</a></button>
+      <!-- マスタ一覧表示-->
     <table>
-    <tbody>
-     <?= $tableHeaderHtml ?>
-     <?= $records ?>
-     
-    </tbody>
+      <tbody>
+        <?= $tableHeaderHtml ?>
+        <?= $records ?>
+      </tbody>
     </table>
-</body>
-</html>
+    <button type="button" value="新規追加"><a href="new_register.php">新規登録</a></button>
+    </div>
+  </main>
+<?php include('../common/_footer.php'); ?>
