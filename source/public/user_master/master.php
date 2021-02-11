@@ -49,7 +49,6 @@
     $stmt = $dbs->prepare($sql);
     $stmt->execute($values);
 
-    $tableHeaderHtml = '<tr><th>表示名</th><th>メールアドレス</th><th>メール通知</th><th>管理者フラグ</th><th>登録者</th><th>登録日時</th><th>更新者</th><th>更新日時</th><th>最終ログイン日時</th><th>ボタン</th>';
     foreach ($stmt as $value){
         $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['user_id'].'"></form></td></tr>';
     }
@@ -84,7 +83,7 @@
                 <label for="">メールアドレス</label>
                 <input type="text" name="serch_email">
             </div>
-            <!-- <input type="text" name="serch_flag"> -->
+            
             <div>
             <label for="">管理者権限有無</label>
             <select name="serch_flag" id="">
@@ -99,12 +98,23 @@
         </form>
     </div>
 
-     <div id="master_lists">
+     <div id="contents">
       <button type="button" value="新規追加"><a href="new_register.php">新規登録</a></button>
       <!-- マスタ一覧表示-->
     <table>
-        <tbody>
-            <?= $tableHeaderHtml ?>
+      <tbody>
+        <tr>
+            <th>表示名</th>
+            <th>メールアドレス</th>
+            <th>メール通知</th>
+            <th>管理者フラグ</th>
+            <th>登録者</th>
+            <th>登録日時</th>
+            <th>更新者</th>
+            <th>更新日時</th>
+            <th>最終ログイン日時</th>
+            <th>ボタン</th>
+        </tr>
             <?= $records ?>
         </tbody>
     </table>

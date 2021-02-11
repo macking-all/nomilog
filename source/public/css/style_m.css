@@ -131,36 +131,36 @@ label {
   width: 120px;
 }
 
-#master_lists {
+#contents {
   width: 90%;
   margin: 40px auto;
   margin-bottom: 100px;
 }
 
-#master_lists table {
+#contents table {
   width: 100%;
   margin: 15px auto;
   border-collapse: collapse;
   text-align: center;
 }
 
-#master_lists table th {
+#contents table th {
   border: 1px solid;
   background-color: #87cefad3;
   padding: 6px;
 }
 
-#master_lists table td {
+#contents table td {
   border: 1px solid;
   padding: 6px;
   font-size: 15px;
 }
 
-#master_lists table tr:nth-child(odd) {
+#contents table tr:nth-child(odd) {
   background-color: #ddd;
 }
 
-#master_lists button,
+#contents button,
 #search input[type="submit"] {
   border: none;
   font-size: large;
@@ -172,17 +172,17 @@ label {
   border-radius: 10px;
 }
 
-#master_lists button:hover,
+#contents button:hover,
 #search input[type="submit"]:hover {
   opacity: 0.7;
 }
 
-#master_lists button a {
+#contents button a {
   text-decoration: none;
   color:#444;
 }
 
-#master_lists button[type="submit"] {
+#contents button[type="submit"] {
   border: none;
   font-weight: normal;
   display: inline-block;
@@ -192,6 +192,20 @@ label {
   background-color:#d3d3d3;
   border-bottom: 3px solid #808080;
   border-radius: 10px;  
+}
+
+#contents input {
+  display: block;
+  margin-bottom: 25px;
+}
+
+#contents label {
+  width: 300px;
+}
+
+#contents form {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .user_serach_form {

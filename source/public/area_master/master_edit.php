@@ -1,6 +1,4 @@
 <?php
-    
-    //session_start();
     require '../dbconnect.php';
 
     $dbs = new Datebase();
@@ -51,24 +49,9 @@
         <input type="hidden" name="area_id" value="<?= $record['area_id']; ?>">
         <label for="area_name">地域名：</label>
         <input type="text" name="area_name" id="area_name" value="<?= $record['area_name']; ?>"><br>
-        
-        <!-- <label for="register_user">登録者：</label>
-        <input type="text" name="register_user" id="register_user" value="<?= $record['register_user']; ?>"><br>
-        <label for="created">登録日時：</label>
-        <input type="text" name="created" id="created" value="<?= $record['created']; ?>"><br>
-        <label for="updated_user">更新者</label>
-        <input type="text" name="updated_user" id="updated_user" value="<?= $record['updated_user']; ?>"><br>
-        <label for="updated">更新日時：</label>
-        <input type="text" name="updated" id="updated" value="<?= $record['updated']; ?>"><br> -->
-
         <input type="button" onclick="history.back()" value="戻る">
         <input type="submit" value="更新" id="btn">
     </form>
-    
-    <!-- <span id="name-error-message">名前を入力してください</span>
-    <span id="email-error-message">メールアドレスの形式で入力してください</span>
-    <span id="pass-error-message">半角英数字8文字以上30文字以下で入力してください</span> -->
-
 </body>
 </html>
 
