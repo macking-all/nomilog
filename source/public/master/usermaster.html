@@ -40,23 +40,29 @@
         <li>エラーメッセージ表示枠テスト2</li>
       </ul>
     </div>
-    <div class="search usermaster-search">
+
+    <form action="" class="search usermaster-search">
       <div>
         <label for="">表示名</label>
-        <input>
+        <input type="text" name="search_name" id="search_name">
       </div>
       <div>
         <label for="">メールアドレス</label>
-        <input>
+        <input type="text" name="search_email" id="search_email">
       </div>
       <div>
         <label for="">権限</label>
-        <input>
+        <select name="serch_flag" id="serch_flag">
+          <option value=""></option>
+          <option value="0">一般ユーザ</option>
+          <option value="1">管理者</option>
+        </select>
       </div>
       <div class="main-button search-button-layout">
-        <div class="btn--blue btn--shadow btn--middle search-layout">検索</div>
+        <input class="btn--blue btn--shadow btn--middle search-layout" value="検索" name="search_btn" type="submit">
       </div>
-    </div>
+    </form>
+
     <div class="usermaster-table">
       <div class="main-button master-new-button">
         <a href="./newuserregistration.html" class=" btn--blue btn--shadow btn--middle">新規追加</a>
