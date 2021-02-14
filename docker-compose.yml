@@ -4,15 +4,7 @@ services:
   # PHP-FPMの設定（PHPの設定）
   # ===============================================
   nlap:
-    build: './data/nlap'
-    volumes:
-      - ./source:/project/nomilog/work
-      - ./data/nlap/phinx/phinx.php:/project/nomilog/phinx.php
-      - ./data/nlap/~/.bashrc:/root/.bashrc
-      - ./data/nlap/log/xdebug:/var/log/xdebug
-      - ./data/nlap/log/php:/var/log/php
-      - ./data/nlap/log/httpd:/etc/httpd/logs
-    working_dir: /project/nomilog/
+    image: 'centos:8'
     ports:
       - 8080:80
     links:
@@ -23,26 +15,14 @@ services:
   # MySQLの設定
   # ===============================================
   nldb:
-    build: './data/nldb'
+    image: 'mysql'
     ports:
       - "3306:3306"
     user: "1000:50"
     command: --innodb-use-native-aio=0
-    volumes:
-      - ./data/nldb/data/:/var/lib/mysql
-      - ./data/nldb/log/:/var/log/mysql
-      - ./data/nldb/conf/:/etc/mysql/conf.d/
-      - ./data/nldb/db:/docker-entrypoint-initdb.d  #初期データ
     environment:
       MYSQL_PORT: 3306
       MYSQL_ROOT_PASSWORD: root
       # このDBはmysql内でデフォルトで作成され
       # rootと一般ユーザ( `MYSQL_USER` )がグローバル権限を持ってる
       MYSQL_DATABASE: nomilog
-#  nlrc:
-#    build: './data/nlrc'
-#    volumes:
-#     - ./react:/usr/src/app
-#    command: sh -c "cd react-sample && yarn start"
-#    ports:
-#     - "3000:3000"
