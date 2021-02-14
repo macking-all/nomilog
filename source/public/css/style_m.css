@@ -99,6 +99,10 @@ h1::before {
   padding: 25px 0;
 }
 
+.error-message ul {
+  padding-left: 0px;
+}
+
 .error-message li{
   list-style: none;
   color: red;

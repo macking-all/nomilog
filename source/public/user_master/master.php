@@ -2,8 +2,6 @@
 
 //管理者フラグのところは、ドロップダウンにする
 
-    //session_start();
-
     require '../dbconnect.php';
     require '../functions.php';
 
@@ -77,11 +75,11 @@
         <form action="" method="post" class="user_serach_form">
             <div>
                 <label for="">表示名</label>
-                <input type="text" name="serch_name">
+                <input type="text" name="serch_name" value="">
             </div>
             <div>
                 <label for="">メールアドレス</label>
-                <input type="text" name="serch_email">
+                <input type="text" name="serch_email" value="">
             </div>
             
             <div>
@@ -99,7 +97,9 @@
     </div>
 
      <div id="contents">
-      <button type="button" value="新規追加"><a href="new_register.php">新規登録</a></button>
+    <form action="">
+      <input type="button" action="new_register.php" value="新規登録">
+      </form>
       <!-- マスタ一覧表示-->
     <table>
       <tbody>
@@ -118,7 +118,9 @@
             <?= $records ?>
         </tbody>
     </table>
-    <button type="button" value="新規追加"><a href="new_register.php">新規登録</a></button>
+    <form action="">
+        <input type="button" action="new_register.php" value="新規登録">
+    </form>
     </div>
 </main>
 <?php include('../common/_footer.php'); ?>
