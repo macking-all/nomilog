@@ -1,7 +1,5 @@
 <?php
 
-//管理者フラグのところは、ドロップダウンにする
-
     require '../dbconnect.php';
     require '../functions.php';
 
@@ -42,10 +40,11 @@
         foreach($keywords as $keyword){
             $values[] = '%' . $keyword . '%';
         }
-    }
+    } 
     
     $stmt = $dbs->prepare($sql);
     $stmt->execute($values);
+    $dbs = null;
 
     foreach ($stmt as $value){
         $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['user_id'].'"></form></td></tr>';
@@ -96,11 +95,10 @@
         </form>
     </div>
 
-     <div id="contents">
-    <form action="">
-      <input type="button" action="new_register.php" value="新規登録">
-      </form>
-      <!-- マスタ一覧表示-->
+    <div id="contents">
+    <button><a href="new_register.php">新規登録</a></button>
+
+    <!--マスタ一覧表示-->
     <table>
       <tbody>
         <tr>
@@ -118,9 +116,8 @@
             <?= $records ?>
         </tbody>
     </table>
-    <form action="">
-        <input type="button" action="new_register.php" value="新規登録">
-    </form>
+
+   <button><a href="new_register.php">新規登録</a></button>
     </div>
 </main>
 <?php include('../common/_footer.php'); ?>
