@@ -7,9 +7,9 @@
     $dbs->dbconnect();
     
     //検索フォーム取得
-    $serchName = $_POST['serch_name'];
-    $serchEmail = $_POST['serch_email'];
-    $serchFlag = $_POST['serch_flag']; 
+    $serchName = filter_input(INPUT_POST,'serch_name');
+    $serchEmail = filter_input(INPUT_POST,'serch_email');
+    $serchFlag = filter_input(INPUT_POST,'serch_flag'); 
     $keywords = [$serchName, $serchEmail, $serchFlag];
     
     $sql = "select
@@ -47,7 +47,7 @@
     $dbs = null;
 
     foreach ($stmt as $value){
-        $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="row-x" value="'. $value['user_id'].'"></form></td></tr>';
+        $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="user_id" value="'. $value['user_id'].'"></form></td></tr>';
     }
 ?>
 
