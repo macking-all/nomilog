@@ -43,19 +43,19 @@
       </ul>
     </div>
     <!-- Each-masterで各マスタの「検索」の中身を指定してあげている※usermaster以外 -->
-    <div class="search each-master-search">
+    <form action="" class="search each-master-search">
       <div>
         <label for="">地域名</label>
-        <input>
+        <input type="text" name="search_name" id="search_name">
       </div>
-      <div class="main-button each-master-search-button-layout">
-        <div class="btn--blue btn--shadow btn--middle search-layout">検索</div>
+      <div class="main-button search-button-layout">
+        <input class="btn--blue btn--shadow btn--middle search-layout" value="検索" name="search_btn" type="submit">
       </div>
-    </div>
+    </form>
 
     <div class="usermaster-table">
       <div class="main-button master-new-button">
-        <a href="./addregion.html" class=" btn--blue btn--shadow btn--middle">新規追加</a>
+        <input class=" btn--blue btn--shadow btn--middle" value="新規追加" name="newuser_btn" type="submit">
       </div>
 
       <table>
@@ -216,7 +216,7 @@
         </tr>
       </table>
       <div class="main-button master-new-button">
-        <a href="./addregion.html" class=" btn--blue btn--shadow btn--middle">新規追加</a>
+        <input class=" btn--blue btn--shadow btn--middle" value="新規追加" name="newuser_btn" type="submit">
       </div>
     </div>
 
