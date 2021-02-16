@@ -283,6 +283,10 @@ background-color: #DDDDDD;
   padding: 25px 0;
 }
 
+.error-message ul{
+  padding-inline-start:0px;
+}
+
 .error-message li{
   list-style: none;
   color: red;
