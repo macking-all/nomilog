@@ -22,7 +22,7 @@ $('#submitbtn').click(function () {
     if (valtest2 === '') {
         $('.input-error-border2').addClass("error-border-color");
         $('#required-error-text2').text("未入力です");
-        // return false;
+        return false;
     } else {
         console.log("いいいいいいいいいい");
     }
@@ -33,7 +33,7 @@ $('#submitbtn').click(function () {
     if (valtest3 === '') {
         $('.input-error-border3').addClass("error-border-color");
         $('#required-error-text3').text("未入力です");
-        // return false;
+        return false;
     } else {
         console.log("いいいいいいいいいい");
     }
@@ -44,12 +44,25 @@ $('#submitbtn').click(function () {
     if (valtest4 === '') {
         $('.input-error-border4').addClass("error-border-color");
         $('#required-error-text4').text("再入力したパスワードが違います");
-        // return false;
+        return false;
     } else {
         console.log("いいいいいいいいいい");
     }
 
 });
+
+//新規登録画面遷移テスト利用中
+$('#aaa').click(function () {
+    window.location.href = "../master/newuserregistration.html";
+});
+
+//キャンセルボタン
+$('#cancelbtn').click(function () {
+    // console.log(`キャンセルボタンテスト`);
+    // return false;
+    window.location.href = "../master/usermaster.html";
+});
+
 
 //一個のinput属性で完璧に動作するようにする
 //0203やることinputタグ中にエラーメッセージの表示する(値を設定する)

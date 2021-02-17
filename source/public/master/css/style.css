@@ -50,6 +50,10 @@ header>div>h2{
   flex-direction:column;
 }
 
+ul{
+  padding-inline-start: 0px;
+}
+
 .header-list li{
   list-style: none;
   display: inline;
@@ -295,6 +299,10 @@ background-color: #DDDDDD;
 /*【usremaster管理画面】「終了」*/
 
 /* 【各マスタ管理画面】「開始」 */
+
+.each-master-search{
+
+}
 
 .each-master-search>div:nth-of-type(1){
   width: 500px;
