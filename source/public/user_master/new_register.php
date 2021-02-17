@@ -42,7 +42,7 @@ if(isset($_POST['register'])){
         $stmt = $dbs->prepare($sql);
         $data[] = $user_name;
         $data[] = $email;
-        $data[] = $email_flag === null ? 0 : 1;
+        $data[] = $email_flag === null ? 1 : 0;
         $data[] = $icon_image;
         $data[] = password_hash($password, PASSWORD_DEFAULT);
         $data[] = $admin_flag === null ? 0 : 1;
@@ -88,7 +88,7 @@ if(isset($_POST['register'])){
                 <label for="email_flag">管理者フラグ</label>
                 <input id="admin_flag" type="checkbox" name="admin_flag" <?= $email_flag === null ? '' : 'checked=checked' ?>>
                 <input type="submit" value="登録" name="register">
-                <input type="submit" onclick="" value="キャンセル">
+                <input type="button" onclick="history.back()" value="キャンセル">
             </form>
         </div>
     </main>

@@ -12,6 +12,7 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css"
     type="text/css" media="all" />
+    <script src="../js/jquery-3.5.1.slim.min.js"></script>
 
 </head>
 
@@ -27,7 +28,7 @@
         <li><a>ヘルプ</a></li>
         <li><a>ログアウト</a></li>
         <li><a>ユーザー名</a></li>
-        <li class="icon-img"><img src="./img/nomilog-beer.jpg" alt="ユーザーアイコンを表示"></li>
+        <li class="icon-img"><img src="../master/img/nomilog-beer.jpg" alt=""></li>
       </ul>
     </div>
   </header>

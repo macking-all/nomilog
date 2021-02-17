@@ -43,7 +43,7 @@
 <?php include('../common/_header.php'); ?>
 <body>
 <main>
-    <h1>ユーザマスタ編集</h1>
+<h1>ユーザマスタ編集</h1>
 <div id="contents">
     <form action="" method="post" id="form">
         <input type="hidden" name="user_id" value="<?= $record['user_id']; ?>">
@@ -53,12 +53,13 @@
         <input type="text" name="email" id="email" value="<?= $record['email']; ?>"><br>
         <label for="email_flag">メール通知を受け取る：</label>
         <input type="checkbox" name="email_flag" <?= $record['email_flag'] === '1' ? 'checked="checked"' : '';?> id="email_flag" value="<?= $record['email_flag']; ?>"><br>
+        <label for="icon_img">アイコン画像</label>
+        <input id="icon_img" type="file" name="icon_image">
         <label for="admin_flag">管理者フラグ</label>
         <input type="checkbox" <?= $record['admin_flag'] === '1' ? 'checked="checked"' : '';?> name="admin_flag" id="admin_flag" value="<?= $record['admin_flag']; ?>"><br>
-        <input type="button" onclick="history.back()" value="戻る">
+        <input type="button" onclick="history.back();" value="戻る">
         <input type="submit" value="更新" name="update" id="btn">
     </form>
-
-    </div>
+</div>
 </main>
 <?php include('../common/_footer.php'); ?>
