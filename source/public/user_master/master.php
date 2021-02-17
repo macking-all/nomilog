@@ -63,22 +63,15 @@
     <main>
     <h1>ユーザマスタ</h1>
 
-    <div class="error-message">
-      <ul>
-        <li>エラーメッセージ表示枠テスト1</li>
-        <li>エラーメッセージ表示枠テスト2</li>
-      </ul>
-    </div>
-
     <div id="search">
         <form action="" method="post" class="user_serach_form">
             <div>
-                <label for="">表示名</label>
-                <input type="text" name="serch_name" value="">
+                <label for="">ユーザ名</label>
+                <input type="text" name="serch_name" value="<?= $serchName ?>">
             </div>
             <div>
                 <label for="">メールアドレス</label>
-                <input type="text" name="serch_email" value="">
+                <input type="text" name="serch_email" value="<?= $serchEmail ?>">
             </div>
             
             <div>
@@ -120,4 +113,16 @@
    <button><a href="new_register.php">新規登録</a></button>
     </div>
 </main>
+<script>
+'use strict';
+{
+    let getCurrentDropValue = ;
+    
+    let getChangeDropValue = '<?= $serchFlag; ?>';
+    $(function(){
+        console.log(getDropValue);
+    });
+}
+   
+</script>
 <?php include('../common/_footer.php'); ?>
