@@ -81,7 +81,7 @@ header img{
 main{
   min-height: 70vh;
   background-size: cover;
-  /* 下記の説明　下記を充ててあげないとheaderが埋まる */
+  /* 下記の説明 下記を充ててあげないとheaderが埋まる */
   padding-top: 150px;
 }
 
@@ -219,6 +219,7 @@ label{
   border-radius:30px;
   outline: none;
   padding-left: 15px;
+  border: 2px black solid; 
 }
 
 .usermaster-search>div:nth-of-type(1){
