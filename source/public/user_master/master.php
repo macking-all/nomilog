@@ -47,8 +47,12 @@
     $dbs = null;
 
     foreach ($stmt as $value){
-        $records .= '<tr><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag'].'</td><td>'.$value['admin_flag'].'</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>' . $value['last_login'] . '</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="user_id" value="'. $value['user_id'].'"></form></td></tr>';
+        $records .= '<tr '.$value['delete_flag'] === '0' ? 'class="table-restoration-color"' : '' . '><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag']
+        .'</td><td>'.$value['admin_flag'].'</td><td>'.$value['last_login'] .'</td><td>'.$value['register_user'].'</td><td>'
+        .$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button>
+        <button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="user_id" value="'. $value['user_id'].'"></form></td></tr>';
     }
+  
 ?>
 
 <?php include('../common/_header.php'); ?>
@@ -75,12 +79,12 @@
             </div>
             
             <div>
-            <label for="">管理者権限有無</label>
-            <select name="serch_flag" id="">
-                <option value=""></option>
-                <option value="0">一般ユーザ</option>
-                <option value="1">管理者</option>
-            </select>
+                <label for="">管理者権限</label>
+                <select name="serch_flag" id="serch_form">
+                    <option value="" <?php if(empty($serchFlag)) echo 'selected'; ?>></option>
+                    <option value="0" <?= $serchFlag === '0' ? 'selected' : ''; ?>>一般ユーザ</option>
+                    <option value="1" <?= $serchFlag === '1' ? 'selected' : ''; ?>>管理者</option>
+                </select>
             </div>
             <div style="margin-top: 20px;">
                 <input type="submit" value="検索" name="serch">
@@ -93,36 +97,27 @@
 
     <!--マスタ一覧表示-->
     <table>
-      <tbody>
-        <tr>
-            <th>表示名</th>
-            <th>メールアドレス</th>
-            <th>メール通知</th>
-            <th>管理者フラグ</th>
-            <th>登録者</th>
-            <th>登録日時</th>
-            <th>更新者</th>
-            <th>更新日時</th>
-            <th>最終ログイン日時</th>
-            <th>ボタン</th>
-        </tr>
-            <?= $records ?>
+        <thead>
+            <tr>
+                <th>ユーザ名</th>
+                <th>メールアドレス</th>
+                <th>メール通知</th>
+                <th>管理者フラグ</th>
+                <th>最終ログイン日時</th>
+                <th>登録者</th>
+                <th>登録日時</th>
+                <th>更新者</th>
+                <th>更新日時</th>
+                <th>ボタン</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?= $records; ?>
         </tbody>
     </table>
 
    <button><a href="new_register.php">新規登録</a></button>
     </div>
 </main>
-<script>
-'use strict';
-{
-    let getCurrentDropValue = ;
-    
-    let getChangeDropValue = '<?= $serchFlag; ?>';
-    $(function(){
-        console.log(getDropValue);
-    });
-}
-   
-</script>
+
 <?php include('../common/_footer.php'); ?>

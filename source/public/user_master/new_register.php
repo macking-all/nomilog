@@ -7,7 +7,7 @@ $dbs = new Datebase();
 $dbs->dbconnect();
 
 $user_name = filter_input(INPUT_POST, 'user_name');
-$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+$email = filter_input(INPUT_POST, 'email');
 $email_flag = filter_input(INPUT_POST, 'email_flag');
 $icon_image = filter_input(INPUT_POST, 'icon_image');
 $password = filter_input(INPUT_POST, 'password');
@@ -21,10 +21,11 @@ if(isset($_POST['register'])){
 
     // ユーザ名空チェック
     if(!$user_name){
-        $errs[] = 'ユーザ名を記入してください';
+        $errs[] = 'ユーザ名を入力してください';
     }
-    // メールアドレス形式チェック
-    if(!preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/', $email)){
+    if(!$email){
+        $errs[] = 'メールアドレスを入力してください';
+    }else if(!preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/', $email)){
         $errs[] = 'メールアドレスの形式で入力してください';
     }
     // パスワードルールチェック（英数字記号８文字以上２０文字以内）
@@ -73,7 +74,7 @@ if(isset($_POST['register'])){
         
         <div id="contents">
             <form action="" method="post">
-                <label for="user_name">表示名</label>
+                <label for="user_name">ユーザ名</label>
                 <input id="user_name" type="text" name="user_name" value="<?= $user_name; ?>">
                 <label for="email">メールアドレス</label>
                 <input id="email" type="text" name="email" value="<?= $email; ?>">
@@ -82,11 +83,11 @@ if(isset($_POST['register'])){
                 <label for="icon_img">アイコン画像</label>
                 <input id="icon_img" type="file" name="icon_image">
                 <label for="password">パスワード</label>
-                <input id="password" type="password" name="password" value="">
+                <input id="password" type="password" name="password">
                 <label for="confirm_pass">確認用パスワード</label>
-                <input type="password" name="confirm_pass" value="">
-                <label for="email_flag">管理者フラグ</label>
-                <input id="admin_flag" type="checkbox" name="admin_flag" <?= $email_flag === null ? '' : 'checked=checked' ?>>
+                <input type="password" name="confirm_pass">
+                <label for="admin_flag">管理者フラグ</label>
+                <input id="admin_flag" type="checkbox" name="admin_flag" <?= $admin_flag === null ? '' : 'checked=checked' ?>>
                 <input type="submit" value="登録" name="register">
                 <input type="button" onclick="history.back()" value="キャンセル">
             </form>
