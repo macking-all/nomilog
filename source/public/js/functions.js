@@ -37,8 +37,16 @@ $('#submitbtn').click(function () {
     if (valtest3 === '') {
         status = false;
         $('.input-error-border3').addClass("error-border-color");
-        $('#required-error-text3').text("未入力です");
-    } else {
+        $('#required-error-text3').text("パスワードが未入力です");
+
+        //文字列中で一致するものを検索する String のメソッドです。結果情報の配列を返します。マッチしない場合は null を返します。
+        // ここはエラーメッセージを厳格に分けるために分けて書く
+    } else if (!valtest3.match(/^([a-zA-Z0-9]{8,})$/)) {
+        status = false;
+        $('.input-error-border3').addClass("error-border-color");
+        $('#required-error-text3').text("※半角英数字8文字以上を入力してください");
+    }
+    else {
         $('.input-error-border3').removeClass("error-border-color");
         $('#required-error-text3').text('');
         console.log("入力okです3");
