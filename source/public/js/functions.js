@@ -25,7 +25,11 @@ $('#submitbtn').click(function () {
         status = false;
         $('.input-error-border2').addClass("error-border-color");
         $('#required-error-text2').text("未入力です");
-    } else {
+    } else if (!valtest2.match(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i)) {
+        $('.input-error-border2').addClass("error-border-color");
+        $('#required-error-text2').text("メールアドレスの形式で入力してください");
+    }
+    else {
         $('.input-error-border2').removeClass("error-border-color");
         $('#required-error-text2').text('');
         console.log("入力okです2");
