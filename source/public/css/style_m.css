@@ -162,7 +162,7 @@ label {
 }
 
 #contents table tr:nth-child(odd) {
-  background-color: #ddd;
+  background-color: #eee;
 }
 
 #contents button,
@@ -225,7 +225,7 @@ label {
 }
 
 .table-restoration-color {
-  background-color: #999999 !important;
+  background: #999 !important;
 }
 
 /* footer */

@@ -40,19 +40,23 @@
         foreach($keywords as $keyword){
             $values[] = '%' . $keyword . '%';
         }
-    } 
+    }
     
     $stmt = $dbs->prepare($sql);
     $stmt->execute($values);
     $dbs = null;
 
     foreach ($stmt as $value){
-        $records .= '<tr '.$value['delete_flag'] === '0' ? 'class="table-restoration-color"' : '' . '><td>'. $value['user_name'] . '</td><td>'.$value['email'].'</td><td>'.$value['email_flag']
+        // 論理削除のレコードの背景色を変更する
+        $setBackgroundColor = $value['delete_flag'] === '1' ? ' class="table-restoration-color"' : '';
+        // 削除フラグを判定しボタンの表示を切り替える
+        $setButton = $value['delete_flag'] === '1' ? '<button type="submit" name="restore" onclick="return popup2()";>復元</button>' : '<button type="submit" name="edit">編集</button>
+        <button type="submit" name="delete" onclick="return popup();">削除</button>';
+
+        $records .= '<tr'. $setBackgroundColor.'><td>'.$value['user_name'].'</td><td>'.$value['email'].'</td><td>'.$value['email_flag']
         .'</td><td>'.$value['admin_flag'].'</td><td>'.$value['last_login'] .'</td><td>'.$value['register_user'].'</td><td>'
-        .$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td><form action="master_edit.php" method="post"><button type="submit" name="edit">編集</button>
-        <button type="submit" name="delete" onclick="return popup();">削除</button><input type="hidden" name="user_id" value="'. $value['user_id'].'"></form></td></tr>';
+        .$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td><form action="master_edit.php" method="post">'. $setButton . '<input type="hidden" name="user_id" value="'. $value['user_id'].'"></form></td></tr>';
     }
-  
 ?>
 
 <?php include('../common/_header.php'); ?>
@@ -60,8 +64,12 @@
 <body>
     <script>
         function popup(){
-            return confirm('アカウントを削除しもよろしいですか?');
+            return confirm('アカウントを削除してもよろしいですか?');
         }
+        function popup2(){
+            return confirm('アカウントを復元してもよろしいですか?');
+        }
+        
     </script>
 
     <main>
@@ -95,7 +103,6 @@
     <div id="contents">
     <button><a href="new_register.php">新規登録</a></button>
 
-    <!--マスタ一覧表示-->
     <table>
         <thead>
             <tr>

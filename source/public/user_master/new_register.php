@@ -8,11 +8,21 @@ $dbs->dbconnect();
 
 $user_name = filter_input(INPUT_POST, 'user_name');
 $email = filter_input(INPUT_POST, 'email');
-$email_flag = filter_input(INPUT_POST, 'email_flag');
+$email_flag = filter_input(INPUT_POST, 'email_flag'); // filter_inutの処理はいるか？？
+if(isset($email_flag)){
+    $email_flag = '1';
+} else {
+    $email_flag = '0';
+}
 $icon_image = filter_input(INPUT_POST, 'icon_image');
 $password = filter_input(INPUT_POST, 'password');
 $confirm_pass = filter_input(INPUT_POST, 'confirm_pass');
-$admin_flag = filter_input(INPUT_POST, 'admin_flag');
+$admin_flag = filter_input(INPUT_POST, 'admin_flag'); // filter_inutの処理はいるか？？
+if(isset($admin_flag)){
+    $admin_flag = '1';
+} else {
+    $admin_flag = '0';
+}
 
 // エラーメッセージ
 $err_msgs = '';
@@ -43,10 +53,10 @@ if(isset($_POST['register'])){
         $stmt = $dbs->prepare($sql);
         $data[] = $user_name;
         $data[] = $email;
-        $data[] = $email_flag === null ? 1 : 0;
+        $data[] = $email_flag;
         $data[] = $icon_image;
         $data[] = password_hash($password, PASSWORD_DEFAULT);
-        $data[] = $admin_flag === null ? 0 : 1;
+        $data[] = $admin_flag;
         $stmt->execute($data);
         $dbs = null;
 
@@ -79,7 +89,7 @@ if(isset($_POST['register'])){
                 <label for="email">メールアドレス</label>
                 <input id="email" type="text" name="email" value="<?= $email; ?>">
                 <label for="email_flag">メール通知を受け取る</label>
-                <input id="email_flag" type="checkbox" name="email_flag" <?= $email_flag === null ? '' : 'checked=checked' ?>>
+                <input id="email_flag" type="checkbox" name="email_flag">
                 <label for="icon_img">アイコン画像</label>
                 <input id="icon_img" type="file" name="icon_image">
                 <label for="password">パスワード</label>
@@ -87,7 +97,7 @@ if(isset($_POST['register'])){
                 <label for="confirm_pass">確認用パスワード</label>
                 <input type="password" name="confirm_pass">
                 <label for="admin_flag">管理者フラグ</label>
-                <input id="admin_flag" type="checkbox" name="admin_flag" <?= $admin_flag === null ? '' : 'checked=checked' ?>>
+                <input id="admin_flag" type="checkbox" name="admin_flag">
                 <input type="submit" value="登録" name="register">
                 <input type="button" onclick="history.back()" value="キャンセル">
             </form>
