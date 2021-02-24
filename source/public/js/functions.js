@@ -65,9 +65,11 @@ $('#submitbtn').click(function () {
         $('#required-error-text4').text("確認用パスワードを入力してください");
     } else if (valtest4 === valtest3) {
         console.log("入力okです444444444");
+        $('.input-error-border4').removeClass("error-border-color")
+        $('#required-error-text4').text('');
     } else {
         status = false;
-        $('.input-error-border4').removeClass("error-border-color");
+        $('.input-error-border4').addClass("error-border-color");
         $('#required-error-text4').text('確認用パスワードが違います');
     }
 
