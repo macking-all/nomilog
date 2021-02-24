@@ -32,7 +32,7 @@ $('#submitbtn').click(function () {
     }
 
     //ps-nameが空の時の処理
-    let valtest3 = $('input[name = "ps-name"]').val();
+    let valtest3 = $('input[name = "ps-name1"]').val();
 
     if (valtest3 === '') {
         status = false;
@@ -53,16 +53,18 @@ $('#submitbtn').click(function () {
     }
 
     //sps-nameが空の時の処理
-    let valtest4 = $('input[name = "sps-name"]').val();
+    let valtest4 = $('input[name = "ps-name2"]').val();
 
     if (valtest4 === '') {
         status = false;
         $('.input-error-border4').addClass("error-border-color");
-        $('#required-error-text4').text("再入力したパスワードが違います");
+        $('#required-error-text4').text("確認用パスワードを入力してください");
+    } else if (valtest4 === valtest3) {
+        console.log("入力okです444444444");
     } else {
+        status = false;
         $('.input-error-border4').removeClass("error-border-color");
-        $('#required-error-text4').text('');
-        console.log("入力okです4");
+        $('#required-error-text4').text('確認用パスワードが違います');
     }
 
     if (status === false) {
