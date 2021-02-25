@@ -6,29 +6,33 @@ $('#submitbtn').click(function () {
 
     //user-nameが空の時の処理
     let valtest1 = $('input[name = "user-name"]').val();
+    //email-nameが空の時の処理
+    let valtest2 = $('input[name = "email-name"]').val();
+    //ps-name1が空の時の処理
+    let valtest3 = $('input[name = "ps-name1"]').val();
+    //ps-name2が空の時の処理
+    let valtest4 = $('input[name = "ps-name2"]').val();
     let status = true;
     let errorborder = 'error-border-color';
-
-    const nameExp = /^[a-zA-Z0-9]{0,5}$/i;
+    const nameExp = /^.{0,20}$/i;
 
     if (valtest1 === '') {
         status = false;
         $('.input-error-border1').addClass(errorborder);
         $('#required-error-text1').text("表示名が未入力です");
     }
-    else if (nameExp.test(valtest1)) {
+    //!がない場合 nameExp.test(valtest1) 五文字までだよね??
+    //!がある場合 nameExp.test(valtest1) 六文字以上だよね??
+    else if (!nameExp.test(valtest1)) {
         status = false;
         $('.input-error-border1').addClass(errorborder);
-        $('#required-error-text1').text("100文字以上は入力できません");
+        $('#required-error-text1').text("20文字以内で入力してください");
     }
     else {
         $('.input-error-border1').removeClass(errorborder);
         $('#required-error-text1').text('');
         console.log("入力okです1");
     }
-
-    //email-nameが空の時の処理
-    let valtest2 = $('input[name = "email-name"]').val();
 
     if (valtest2 === '') {
         status = false;
@@ -44,9 +48,6 @@ $('#submitbtn').click(function () {
         $('#required-error-text2').text('');
         console.log("入力okです2");
     }
-
-    //ps-name1が空の時の処理
-    let valtest3 = $('input[name = "ps-name1"]').val();
 
     if (valtest3 === '') {
         status = false;
@@ -68,9 +69,6 @@ $('#submitbtn').click(function () {
         $('#required-error-text3').text('');
         console.log("入力okです3");
     }
-
-    //ps-name2が空の時の処理
-    let valtest4 = $('input[name = "ps-name2"]').val();
 
     if (valtest4 === '') {
         status = false;
