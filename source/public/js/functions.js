@@ -9,15 +9,19 @@ $('#submitbtn').click(function () {
     let status = true;
     let errorborder = 'error-border-color';
 
+    const nameExp = /^[a-zA-Z0-9]{0,5}$/i;
+
     if (valtest1 === '') {
         status = false;
         $('.input-error-border1').addClass(errorborder);
         $('#required-error-text1').text("表示名が未入力です");
-    } else if (!valtest1.match(/^[a-z\d]{0,10}$/i)) {
+    }
+    else if (nameExp.test(valtest1)) {
         status = false;
         $('.input-error-border1').addClass(errorborder);
         $('#required-error-text1').text("100文字以上は入力できません");
-    } else {
+    }
+    else {
         $('.input-error-border1').removeClass(errorborder);
         $('#required-error-text1').text('');
         console.log("入力okです1");
@@ -31,7 +35,7 @@ $('#submitbtn').click(function () {
         $('.input-error-border2').addClass(errorborder);
         $('#required-error-text2').text("メールアドレスが未入力です");
 
-    } else if (!valtest2.match(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/)) {
+    } else if (!valtest2.match(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/i)) {
         $('.input-error-border2').addClass(errorborder);
         $('#required-error-text2').text("メールアドレスの形式で入力してください");
     }
@@ -48,9 +52,6 @@ $('#submitbtn').click(function () {
         status = false;
         $('.input-error-border3').addClass(errorborder);
         $('#required-error-text3').text("パスワードが未入力です");
-
-        //文字列中で一致するものを検索する String のメソッドです。結果情報の配列を返します。マッチしない場合は null を返します。
-        // ここはエラーメッセージを厳格に分けるために分けて書く
     }
     //  else if (!valtest3.match(/^([a-zA-Z0-9]{0,8})$/i)) {
     //     status = false;
