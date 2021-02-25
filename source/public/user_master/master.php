@@ -55,7 +55,7 @@
 
         $records .= '<tr'. $setBackgroundColor.'><td>'.$value['user_name'].'</td><td>'.$value['email'].'</td><td>'.$value['email_flag']
         .'</td><td>'.$value['admin_flag'].'</td><td>'.$value['last_login'] .'</td><td>'.$value['register_user'].'</td><td>'
-        .$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td><form action="master_edit.php" method="post">'. $setButton . '<input type="hidden" name="user_id" value="'. $value['user_id'].'"></form></td></tr>';
+        .$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td><form action="master_edit.php" method="post">'. $setButton .'<input type="hidden" name="user_id" value="'. $value['user_id'].'"></form></td></tr>';
     }
 ?>
 
@@ -69,7 +69,6 @@
         function popup2(){
             return confirm('アカウントを復元してもよろしいですか?');
         }
-        
     </script>
 
     <main>
