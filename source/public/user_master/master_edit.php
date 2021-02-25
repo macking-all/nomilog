@@ -42,7 +42,7 @@
         $stmt->execute($data);
         header('Location: master.php');
 
-    }else if(isset($_POST['restore'])){
+    } else if(isset($_POST['restore'])){
         $sql = 'update MUser set delete_flag=0 where user_id=?';
         $stmt = $dbs->prepare($sql);
         $data[] = $user_id;
