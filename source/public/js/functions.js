@@ -12,7 +12,11 @@ $('#submitbtn').click(function () {
     if (valtest1 === '') {
         status = false;
         $('.input-error-border1').addClass(errorborder);
-        $('#required-error-text1').text("未入力です");
+        $('#required-error-text1').text("表示名が未入力です");
+    } else if (!valtest1.match(/^[a-z\d]{0,10}$/i)) {
+        status = false;
+        $('.input-error-border1').addClass(errorborder);
+        $('#required-error-text1').text("100文字以上は入力できません");
     } else {
         $('.input-error-border1').removeClass(errorborder);
         $('#required-error-text1').text('');
@@ -25,7 +29,7 @@ $('#submitbtn').click(function () {
     if (valtest2 === '') {
         status = false;
         $('.input-error-border2').addClass(errorborder);
-        $('#required-error-text2').text("未入力です");
+        $('#required-error-text2').text("メールアドレスが未入力です");
 
     } else if (!valtest2.match(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/)) {
         $('.input-error-border2').addClass(errorborder);
@@ -47,10 +51,16 @@ $('#submitbtn').click(function () {
 
         //文字列中で一致するものを検索する String のメソッドです。結果情報の配列を返します。マッチしない場合は null を返します。
         // ここはエラーメッセージを厳格に分けるために分けて書く
-    } else if (!valtest3.match(/^([a-zA-Z0-9]{8,})$/)) {
+    }
+    //  else if (!valtest3.match(/^([a-zA-Z0-9]{0,8})$/i)) {
+    //     status = false;
+    //     $('.input-error-border3').addClass(errorborder);
+    //     $('#required-error-text3').text("※半角英数字8文字以上を入力してください");
+    // } 
+    else if (!valtest3.match(/^[a-zA-Z0-9]{0,40}$/i)) {
         status = false;
         $('.input-error-border3').addClass(errorborder);
-        $('#required-error-text3').text("※半角英数字8文字以上を入力してください");
+        $('#required-error-text3').text("400文字以上は入力できません");
     }
     else {
         $('.input-error-border3').removeClass(errorborder);
