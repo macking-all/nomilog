@@ -77,7 +77,7 @@ $('#submitbtn').click(function () {
         $('.input-error-border4').addClass(errorborder);
         $('#required-error-text4').text("確認用パスワードを入力してください");
     } else if (valtest4 === valtest3) {
-        console.log("入力okです444444444");
+        console.log("入力okです4");
         $('.input-error-border4').removeClass(errorborder)
         $('#required-error-text4').text('');
     } else {
