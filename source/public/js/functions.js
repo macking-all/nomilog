@@ -15,6 +15,8 @@ $('#submitbtn').click(function () {
     let status = true;
     let errorborder = 'error-border-color';
     const nameExp = /^.{0,20}$/i;
+    const emailExp = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/i;
+    const psExp = /^[a-zA-Z0-9]{0,400}$/i;
 
     if (valtest1 === '') {
         status = false;
@@ -39,7 +41,7 @@ $('#submitbtn').click(function () {
         $('.input-error-border2').addClass(errorborder);
         $('#required-error-text2').text("メールアドレスが未入力です");
 
-    } else if (!valtest2.match(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/i)) {
+    } else if (!emailExp.test(valtest2)) {
         $('.input-error-border2').addClass(errorborder);
         $('#required-error-text2').text("メールアドレスの形式で入力してください");
     }
@@ -59,7 +61,7 @@ $('#submitbtn').click(function () {
     //     $('.input-error-border3').addClass(errorborder);
     //     $('#required-error-text3').text("※半角英数字8文字以上を入力してください");
     // } 
-    else if (!valtest3.match(/^[a-zA-Z0-9]{0,40}$/i)) {
+    else if (!psExp.test(valtest3)) {
         status = false;
         $('.input-error-border3').addClass(errorborder);
         $('#required-error-text3').text("400文字以上は入力できません");
