@@ -7,7 +7,8 @@
     $dbs->dbconnect();
 
     //POSTで送信されたユーザIDを変数に格納
-    $cook_id = $_POST['row-x'];
+    $cook_id = filter_input(INPUT_POST, 'cook_id');
+    $cook_name = filter_input(INPUT_POST, 'cook_name');
 
     if(isset($_POST['edit'])){
         //対象のユーザIDのレコードを取得
@@ -16,8 +17,32 @@
         $data[] = $cook_id;
         $stmt->execute($data);
         $record = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    } else if(isset($_POST['update'])){
+        if(!$cook_name){
+            $errs[] = '料理ジャンル名を入力してください';
+        }
+        if(!isset($errs)){
+            $sql = 'update MCook set cook_name=:cook_name where cook_id=:id';
+            $stmt = $dbs->prepare($sql);
+            $stmt->bindParam(':cook_name', $cook_name, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $cook_id, PDO::PARAM_INT);
+            $stmt->execute();
+            header('Location: master.php');
+        } else {
+            foreach($errs as $err){
+                $err_msgs .= '<li>'. $err . '</li>';
+            }
+        }
     } else if(isset($_POST['delete'])){
         $sql = 'update MCook set delete_flag=1 where cook_id=?';
+        $stmt = $dbs->prepare($sql);
+        $data[] = $cook_id;
+        $stmt->execute($data);
+        header('Location: master.php');
+
+    } else if(isset($_POST['restore'])){
+        $sql = 'update MCook set delete_flag=0 where cook_id=?';
         $stmt = $dbs->prepare($sql);
         $data[] = $cook_id;
         $stmt->execute($data);
@@ -25,48 +50,26 @@
     }
 ?>
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>料理ジャンルマスタ</title>
-
-    <style>
-        /* エラーメッセージの非表示 */
-        #name-error-message {
-            display: none;
-        }
-        #email-error-message {
-            display: none;
-        }
-        #pass-error-message {
-            display: none;
-        }
-    </style>
-</head>
+<?php include('../common/_header.php'); ?>
 <body>
-    <?= $message ?><br>
-    <form action="master_edit_check.php" method="post" id="form">
+
+<main>
+    <h1>料理ジャンルマスタ編集</h1>
+        <div class="error-message">
+            <ul>
+                <?= $err_msgs; ?>
+            </ul>
+        </div>
+        
+    <div id="contents">
+    <form action="" method="post" id="form">
         <input type="hidden" name="cook_id" value="<?= $record['cook_id']; ?>">
         <label for="cook_name">料理ジャンル名：</label>
         <input type="text" name="cook_name" id="cook_name" value="<?= $record['cook_name']; ?>"><br>
-        <!-- <label for="register_user">登録者：</label>
-        <input type="text" name="register_user" id="register_user" value="<?= $record['register_user']; ?>"><br>
-        <label for="created">登録日時：</label>
-        <input type="text" name="created" id="created" value="<?= $record['created']; ?>"><br>
-        <label for="updated_user">更新者</label>
-        <input type="text" name="updated_user" id="updated_user" value="<?= $record['updated_user']; ?>"><br>
-        <label for="updated">更新日時：</label>
-        <input type="text" name="updated" id="updated" value="<?= $record['updated']; ?>"><br> -->
         <input type="button" onclick="history.back()" value="戻る">
-        <input type="submit" value="更新" id="btn">
+        <input type="submit" value="更新" name="update" id="btn">
     </form>
     
-    <!-- <span id="name-error-message">名前を入力してください</span>
-    <span id="email-error-message">メールアドレスの形式で入力してください</span>
-    <span id="pass-error-message">半角英数字8文字以上30文字以下で入力してください</span> -->
-
-</body>
-</html>
-
+    </div>
+<main>
+<?php include('../common/_footer.php'); ?>

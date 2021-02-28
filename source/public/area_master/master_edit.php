@@ -8,6 +8,7 @@
     $area_id = filter_input(INPUT_POST, 'area_id');
     $area_name = filter_input(INPUT_POST, 'area_name');
 
+    
     if(isset($_POST['edit'])){
         //対象のユーザIDのレコードを取得
         $sql = 'select * from MArea where area_id=?';

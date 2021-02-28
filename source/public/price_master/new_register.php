@@ -6,7 +6,7 @@ require '../functions.php';
 $dbs = new Datebase();
 $dbs->dbconnect();
 
-$area_name = filter_input(INPUT_POST, 'area_name');
+$price_range = filter_input(INPUT_POST, 'price_range');
 
 // エラーメッセージ
 $err_msgs = '';
@@ -14,15 +14,16 @@ $err_msgs = '';
 if(isset($_POST['register'])){
 
     // ユーザ名空チェック
-    if(!$area_name){
-        $errs[] = '地域名を入力してください';
+    if(!$price_range){
+        $errs[] = '価格帯を入力してください';
+    } else if(!preg_match('/^\d{4,}-\d{4,}$/', $price_range)){
+        $errs[] = '1000円単位で「価格-価格」の形式で入力してください';
     }
-    
     if(!isset($errs)){
-        $sql = 'insert into MArea (area_name) values (?)';
+        $sql = 'insert into MPrice (price_range) values (?)';
 
         $stmt = $dbs->prepare($sql);
-        $data[] = $area_name;
+        $data[] = $price_range;
         $stmt->execute($data);
         $dbs = null;
 
@@ -40,7 +41,7 @@ if(isset($_POST['register'])){
 
 <body>
     <main>
-        <h1>新規地域登録</h1>
+        <h1>価格マスタ登録</h1>
 
         <div class="error-message">
             <ul>
@@ -50,8 +51,8 @@ if(isset($_POST['register'])){
         
         <div id="contents">
             <form action="" method="post">
-                <label for="area_name">地域名</label>
-                <input id="area_name" type="text" name="area_name" value="<?= $area_name; ?>">
+                <label for="price_range">価格帯</label>
+                <input id="price_range" type="text" name="price_range" placeholder="例：1000-2000" value="<?= $price_range; ?>">
                 <input type="submit" value="登録" name="register">
                 <input type="button" onclick="history.back()" value="キャンセル">
             </form>

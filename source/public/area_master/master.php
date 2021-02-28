@@ -40,7 +40,10 @@
     <script>
         //レコード削除の確認
         function popup(){
-            return confirm('このマスタを削除しもよろしいですか?');
+            return confirm('このマスタを削除してもよろしいですか?');
+        }
+        function popup2(){
+            return confirm('このマスタを復元してもよろしいですか?');
         }
     </script>
 

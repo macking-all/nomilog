@@ -6,7 +6,7 @@ require '../functions.php';
 $dbs = new Datebase();
 $dbs->dbconnect();
 
-$area_name = filter_input(INPUT_POST, 'area_name');
+$cook_name = filter_input(INPUT_POST, 'cook_name');
 
 // エラーメッセージ
 $err_msgs = '';
@@ -14,15 +14,15 @@ $err_msgs = '';
 if(isset($_POST['register'])){
 
     // ユーザ名空チェック
-    if(!$area_name){
-        $errs[] = '地域名を入力してください';
+    if(!$cook_name){
+        $errs[] = '料理ジャンル名を入力してください';
     }
     
     if(!isset($errs)){
-        $sql = 'insert into MArea (area_name) values (?)';
+        $sql = 'insert into MCook (cook_name) values (?)';
 
         $stmt = $dbs->prepare($sql);
-        $data[] = $area_name;
+        $data[] = $cook_name;
         $stmt->execute($data);
         $dbs = null;
 
@@ -40,7 +40,7 @@ if(isset($_POST['register'])){
 
 <body>
     <main>
-        <h1>新規地域登録</h1>
+        <h1>料理ジャンル登録</h1>
 
         <div class="error-message">
             <ul>
@@ -50,8 +50,8 @@ if(isset($_POST['register'])){
         
         <div id="contents">
             <form action="" method="post">
-                <label for="area_name">地域名</label>
-                <input id="area_name" type="text" name="area_name" value="<?= $area_name; ?>">
+                <label for="cook_name">料理ジャンル名</label>
+                <input id="cook_name" type="text" name="cook_name" value="<?= $cook_name; ?>">
                 <input type="submit" value="登録" name="register">
                 <input type="button" onclick="history.back()" value="キャンセル">
             </form>
