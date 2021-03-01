@@ -3,7 +3,7 @@
     //session_start();
     require '../dbconnect.php';
 
-    $dbs = new Datebase();
+    $dbs = new Database();
     $dbs->dbconnect();
     
     $user_id = $_POST['user_id'];

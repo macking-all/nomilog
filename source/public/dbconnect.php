@@ -1,6 +1,6 @@
 <?php
 
-class Datebase
+class Database
 {
     const user = 'root';
     const pass = 'root';

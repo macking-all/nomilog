@@ -3,7 +3,7 @@
     require '../dbconnect.php';
     require '../functions.php';
 
-    $dbs = new Datebase();
+    $dbs = new Database();
     $dbs->dbconnect();
     
     //検索フォーム取得

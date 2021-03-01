@@ -3,7 +3,7 @@
 require '../dbconnect.php';
 require '../functions.php';
 
-$dbs = new Datebase();
+$dbs = new Database();
 $dbs->dbconnect();
 
 $cook_name = filter_input(INPUT_POST, 'cook_name');

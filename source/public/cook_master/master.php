@@ -2,7 +2,7 @@
     require '../dbconnect.php';
     require '../functions.php';
 
-    $dbs = new Datebase();
+    $dbs = new Database();
     $dbs->dbconnect();
 
         $serchWord = $_POST['serch_word'];

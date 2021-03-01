@@ -1,7 +1,7 @@
 <?php
     require '../dbconnect.php';
 
-    $dbs = new Datebase();
+    $dbs = new Database();
     $dbs->dbconnect();
 
     //POSTで送信されたユーザIDを変数に格納

@@ -3,7 +3,7 @@
 require '../dbconnect.php';
 require '../functions.php';
 
-$dbs = new Datebase();
+$dbs = new Database();
 $dbs->dbconnect();
 
 $price_range = filter_input(INPUT_POST, 'price_range');

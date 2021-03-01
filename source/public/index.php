@@ -1,45 +1,29 @@
 <?php
-//接続設定
-$dsn = 'mysql:host=nomilog_nldb_1;dbname=nomilog;port=3306';
-$user = 'root';
-$password = 'root';
 
-try{
-    $title = 'Test';
+require './functions.php';
 
-    //接続する
-    //$dbh = new PDO($dsn, $user, $password, array( PDO::ATTR_PERSISTENT => false));
-    $dbh = new PDO($dsn, $user, $password);
-
-    $sql = 'select * from MUser';
-    $list = '';
-    //foreachは ループされる要素 as 単体
-    foreach ($dbh->query($sql) as $row) {
-        //selectしてきたもののidカラムとvar_nameカラムを結合してリストに出すよ
-        $list .= '<li>'.$row['user_id'].':'.$row['user_name'].'</li>';
-    }
-    
-    
-}catch (PDOException $e){
-    //dieしてもいいんだけどね
-    echo('Error:'.$e->getMessage());
-}finally {
-    //まあ多分ここで閉じとけばいいと思う
-    //実際のコードだとこのあたりは共通化して触れないようになると思われるけど
-    $dbh=null;
+session_start();
+//ログイン済みの場合
+if (isset($_SESSION['EMAIL'])) {
+  echo 'ようこそ' .  h($_SESSION['EMAIL']) . "さん<br>";
+  echo "<a href='/logout.php'>ログアウトはこちら。</a>";
+  exit;
 }
+
 ?>
 
-<!DOCTYPE html>
-<html lang="ja_JP">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>呑みログ</title>
-</head>
+<?php include('./common/_header.php'); ?>
 <body>
-    <h1><?=$title?></h1>
-    <ul><?=$list?></ul>
-    <?php phpinfo();?>
-</body>
-</html>
+  <main>
+    <h1>ログイン</h1>
+    <div id="contents">
+        <form action="login.php" method="post">
+          <label for="email">メールアドレス</label>
+          <input type="email" name="email">
+          <label for="password">パスワード</label>
+          <input type="password" name="password">
+          <input type="submit" value="ログイン">
+        </form>
+    </div>
+  </main>
+<?php include('./common/_footer.php'); ?>

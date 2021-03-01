@@ -2,7 +2,7 @@
     
     require '../dbconnect.php';
 
-    $dbs = new Datebase();
+    $dbs = new Database();
     $dbs->dbconnect();
 
     $user_id = filter_input(INPUT_POST,'user_id');
