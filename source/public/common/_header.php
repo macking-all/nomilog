@@ -23,12 +23,12 @@
 <body>
   <header>
     <div>
-      <h2><i class="fas fa-beer fa-lg fa-fw my-white"></i>呑みログ</h2>
+      <h2><i class="fas fa-beer fa-lg fa-fw my-white"></i><a href="../post_list.php">呑みログ</a></h2>
     </div>
     <div class="header-list">
       <ul>
         <!-- メモ2 遷移先のHTMLが作成できたら「href」要素を追加する -->
-        <li><a>マスタ管理画面</a></li>
+        <li><a href="../management.php">マスタ管理画面</a></li>
         <li><a>ヘルプ</a></li>
         <li><a href="<?= '../logout.php' ?>">ログアウト</a></li>
         <li><a><?= $_SESSION['USER_NAME']; ?></a></li>

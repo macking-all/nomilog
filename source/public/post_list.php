@@ -13,7 +13,9 @@ $user_name = $_SESSION['EMAIL'];
 <body>
 <main>
     <div class="contents">
-        <?= $user_name; ?>
+        <div style="margin-top: 300px;">
+            <a href="post.php">新規投稿</a>
+        </div>
     </div>
     </main>
     <?php include('./common/_footer.php'); ?>

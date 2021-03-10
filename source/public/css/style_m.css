@@ -249,6 +249,50 @@ label {
   background: #999 !important;
 }
 
+.main-button-layout{
+  width:250px;
+  margin-top: 40px;
+}
+
+.main-button-layout a {
+  text-align: center;
+  text-decoration: none;
+}
+
+.main-button-flex{
+  width: 50%;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+.btn--big{
+  padding:20px 20px;
+  width: 200px;
+}
+
+.btn--blue {
+  border: none;
+  font-size: large;
+  font-weight: bold;
+  display: inline-block;
+  color:#444;
+  background-color:#00CCFF;
+  border-bottom: 5px solid#0081cc;
+  border-radius: 10px;    
+}
+
+.btn--blue:hover{
+  opacity: 0.7;
+}
+
+.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
 /* footer */
 footer{
   background-image:url("../master/img/nomilog_footer.jpg");
