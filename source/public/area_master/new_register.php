@@ -13,7 +13,7 @@ $err_msgs = '';
 
 if(isset($_POST['register'])){
 
-    // ユーザ名空チェック
+    // 空チェック
     if(!$area_name){
         $errs[] = '地域名を入力してください';
     }

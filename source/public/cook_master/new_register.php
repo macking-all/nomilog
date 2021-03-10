@@ -13,7 +13,7 @@ $err_msgs = '';
 
 if(isset($_POST['register'])){
 
-    // ユーザ名空チェック
+    // 空チェック
     if(!$cook_name){
         $errs[] = '料理ジャンル名を入力してください';
     }

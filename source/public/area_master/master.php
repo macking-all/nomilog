@@ -30,8 +30,8 @@
 
         foreach ($stmt as $value){
             $setBackgroundColor = $value['delete_flag'] === '1' ? ' class="table-restoration-color"' : '';
-            $setButton = $value['delete_flag'] === '1' ? '<button type="submit" name="restore" onclick="return popup2()";>復元</button>' : '<button type="submit" name="edit">編集</button><button type="submit" name="delete" onclick="return popup();">削除</button>';
-            $records .= '<tr'. $setBackgroundColor . '><td>'. $value['area_name'] . '</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td><form action="master_edit.php" method="post">' . $setButton . '<input type="hidden" name="area_id" value="'. $value['area_id'].'"></form></td></tr>';
+            $setButton = $value['delete_flag'] === '1' ? '<form action="master_edit.php?action=restore" method="post"><button type="submit" name="restore" onclick="return popup2()";>復元</button>' : '<form action="master_edit.php?action=edit" method="post"><input type="hidden" name="area_id" value="'. $value['area_id'].'"><button type="submit" name="edit">編集</button></form><form action="master_edit.php?action=delete" method="post"><button type="submit" name="delete" onclick="return popup();">削除</button>';
+            $records .= '<tr'. $setBackgroundColor . '><td>'. $value['area_name'] . '</td><td>'.$value['register_user'].'</td><td>'.$value['created'].'</td><td>'.$value['updated_user'].'</td><td>'.$value['updated'].'</td><td>' . $setButton . '<input type="hidden" name="area_id" value="'. $value['area_id'].'"></form></td></tr>';
         }
 ?>
 

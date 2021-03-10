@@ -136,10 +136,23 @@ label {
   width: 120px;
 }
 
-#contents {
+#contents,
+#post_contents {
   width: 90%;
   margin: 40px auto;
   margin-bottom: 100px;
+}
+
+#post_contents input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+#post_contents label {
+  margin-top: 40px;
+}
+
+#post_contents textarea {
+  margin-bottom: 20px;
 }
 
 #contents table {
@@ -213,6 +226,14 @@ label {
 #contents form {
   width: 90%;
   margin: 0 auto;
+}
+
+#post_contents form {
+  margin: 10px auto;
+}
+
+#post_contents input {
+  display: inline-block;
 }
 
 .user_serach_form {

@@ -6,12 +6,11 @@
     $dbs = new Database();
     $dbs->dbconnect();
 
-    //POSTで送信されたユーザIDを変数に格納
     $cook_id = filter_input(INPUT_POST, 'cook_id');
     $cook_name = filter_input(INPUT_POST, 'cook_name');
 
     if(isset($_POST['edit'])){
-        //対象のユーザIDのレコードを取得
+        
         $sql = 'select * from MCook where cook_id=?';
         $stmt = $dbs->prepare($sql);
         $data[] = $cook_id;

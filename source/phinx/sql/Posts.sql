@@ -6,7 +6,7 @@ CREATE TABLE `Posts` (
     `cook_id` int(11) NOT NULL COMMENT '料理ID',
     `area_id` int(11) NOT NULL COMMENT '地域ID',
     `price_id` int(11) NOT NULL COMMENT '価格ID',
-    `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`post_id`)
 );

@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -26,8 +30,8 @@
         <!-- メモ2 遷移先のHTMLが作成できたら「href」要素を追加する -->
         <li><a>マスタ管理画面</a></li>
         <li><a>ヘルプ</a></li>
-        <li><a>ログアウト</a></li>
-        <li><a>ユーザー名</a></li>
+        <li><a href="<?= '../logout.php' ?>">ログアウト</a></li>
+        <li><a><?= $_SESSION['USER_NAME']; ?></a></li>
         <li class="icon-img"><img src="../master/img/nomilog-beer.jpg" alt=""></li>
       </ul>
     </div>
