@@ -9,15 +9,28 @@
     }
 
     // 新規投稿画面のセレクトボックス作成
-    function selectOption($tableName, $master_id, $master_value) {
+    // function selectOption($tableName, $master_id, $master_value) {
+      
+    //   global $dbs;
+    //   $sql = 'select * from ' . $tableName;
+    //   $stmt = $dbs->query($sql);
+    //   $select_values = $stmt->fetchAll();
+      
+    //   foreach($select_values as $select_value) {
+    //     $select_tags .= '<option value="' . $select_value[$master_id] . '">' . $select_value[$master_value] . '</option>';
+    //   }
+    //   return $select_tags;
+    // }
+
+    function selectOption($tableName, $master_value) {
       
       global $dbs;
       $sql = 'select * from ' . $tableName;
       $stmt = $dbs->query($sql);
       $select_values = $stmt->fetchAll();
       
-      foreach($select_values as $select_value) {
-        $select_tags .= '<option value="' . $select_value[$master_id] .  '">' . $select_value[$master_value] . '</option>';
+      foreach($select_values as $key => $select_value) {
+        $select_tags .= '<option value="' . $key . '">' . $select_value[$master_value] . '</option>';
       }
       return $select_tags;
     }
