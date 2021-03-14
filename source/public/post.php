@@ -7,40 +7,13 @@
     $dbs = new Database();
     $dbs->dbconnect();
 
-    // 料理ジャンル選択肢取得
-    $sql = 'select * from MCook';
-    $stmt = $dbs->query($sql);
-    $stmt->execute();
-    $select_cook_names = $stmt->fetchAll();
-
-    foreach($select_cook_names as $select_cook_name) {
-        $select_cook .= '<option value="' . $select_cook_name['cook_id'] .  '">' . $select_cook_name['cook_name'] . '</option>';
-    }
-
-    // 価格選択肢取得
-    $sql = 'select * from MPrice';
-    $stmt = $dbs->query($sql);
-    $stmt->execute();
-    $select_price_ranges = $stmt->fetchAll();
-
-    foreach($select_price_ranges as $select_price_range) {
-        $select_price .= '<option value="' . $select_price_range['price_id'] .  '">' . $select_price_range['price_range'] . '</option>';
-    }
-
-    // 地域選択肢取得
-    $sql = 'select * from MArea';
-    $stmt = $dbs->query($sql);
-    $stmt->execute();
-    $select_area_names = $stmt->fetchAll();
-
-    foreach($select_area_names as $select_area_name) {
-        $select_area .= '<option value="' . $select_area_name['area_id'] .  '">' . $select_area_name['area_name'] . '</option>';
-    }
+    // 各セレクトボックス取得
+    $select_cook = selectOption('MCook');
+    $select_price = selectOption('MPrice');
+    $select_area = selectOption('MArea');
 
     // 投稿ボタンを押された時の処理
     $post = filter_input(INPUT_POST, 'post');
-
-    
     
     if(isset($post)) {
       $pub_name = filter_input(INPUT_POST, 'pub_name');
@@ -57,7 +30,6 @@
         $area_id = filter_input(INPUT_POST, 'select_area');
       }
   
-    
       $sql = 'insert into Posts (
                 pub_name, comment, user_id, cook_id, area_id, price_id
               ) values (
@@ -73,13 +45,10 @@
       $stmt->execute();
       header('Location: post_list.php');
     }
-    
-    $dbs = null;
 
 ?>
 
 <?php include('./common/_header.php'); ?>
-
 
 <body>
 <main>
