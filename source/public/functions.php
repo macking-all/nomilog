@@ -9,7 +9,7 @@
     }
 
     // 新規投稿画面のセレクトボックス作成
-    function selectOption($tableName) {
+    function selectOption($tableName, $master_id, $master_value) {
       
       global $dbs;
       $sql = 'select * from ' . $tableName;
@@ -17,7 +17,7 @@
       $select_values = $stmt->fetchAll();
       
       foreach($select_values as $select_value) {
-        $select_tags .= '<option value="' . $select_value['cook_id'] .  '">' . $select_value['cook_name'] . '</option>';
+        $select_tags .= '<option value="' . $select_value[$master_id] .  '">' . $select_value[$master_value] . '</option>';
       }
       return $select_tags;
     }

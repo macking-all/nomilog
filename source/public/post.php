@@ -8,15 +8,18 @@
     $dbs->dbconnect();
 
     // 各セレクトボックス取得
-    $select_cook = selectOption('MCook');
-    $select_price = selectOption('MPrice');
-    $select_area = selectOption('MArea');
+    $select_cook = selectOption('MCook', 'cook_id', 'cook_name');
+    $select_price = selectOption('MPrice', 'price_id', 'price_range');
+    $select_area = selectOption('MArea', 'area_id', 'area_name');
 
     // 投稿ボタンを押された時の処理
     $post = filter_input(INPUT_POST, 'post');
     
     if(isset($post)) {
       $pub_name = filter_input(INPUT_POST, 'pub_name');
+      if(!$pub_name)){
+        
+      }
       $comment = filter_input(INPUT_POST, 'comment');
 
       // 選択された項目のIDを取得
