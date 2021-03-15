@@ -17,7 +17,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css"
     type="text/css" media="all" />
     <script src="../js/jquery-3.5.1.slim.min.js"></script>
-
 </head>
 
 <body>

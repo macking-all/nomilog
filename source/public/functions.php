@@ -30,7 +30,7 @@
       $select_values = $stmt->fetchAll();
       
       foreach($select_values as $key => $select_value) {
-        $select_tags .= '<option value="' . $key . '">' . $select_value[$master_value] . '</option>';
+        $select_tags .= '<option value="' . $key + 1 . '">' . $select_value[$master_value] . '</option>';
       }
       return $select_tags;
     }
