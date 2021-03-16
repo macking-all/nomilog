@@ -22,15 +22,21 @@
     //   return $select_tags;
     // }
 
-    function selectOption($tableName, $master_value) {
+    function selectOption($tableName, $master_id, $master_value) {
       
       global $dbs;
       $sql = 'select * from ' . $tableName;
       $stmt = $dbs->query($sql);
       $select_values = $stmt->fetchAll();
-      
+      $selected = filter_input(INPUT_POST, $master_id);
+       
       foreach($select_values as $key => $select_value) {
-        $select_tags .= '<option value="' . $key + 1 . '">' . $select_value[$master_value] . '</option>';
+        if($selected == $key + 1) {
+          $attr = ' selected';
+        } else {
+          $attr = '';
+        }
+        $select_tags .= '<option value="' . $key + 1 . '"' . $attr . '>' . $select_value[$master_value] . '</option>';
       }
       return $select_tags;
     }

@@ -352,6 +352,7 @@ footer{
 }
 
 .card__title_01 {
+  margin-top: 10px;
   font-size: 28px;
   position: relative;
   left: 10px;

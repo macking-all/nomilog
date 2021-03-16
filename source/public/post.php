@@ -8,9 +8,9 @@
     $dbs->dbconnect();
 
     // 各セレクトボックス取得
-    $select_cook = selectOption('MCook', 'cook_name');
-    $select_price = selectOption('MPrice', 'price_range');
-    $select_area = selectOption('MArea', 'area_name');
+    $select_cook = selectOption('MCook', 'cook_id', 'cook_name');
+    $select_price = selectOption('MPrice', 'price_id', 'price_range');
+    $select_area = selectOption('MArea', 'area_id', 'area_name');
 
     // 投稿ボタンを押された時の処理
     $post = filter_input(INPUT_POST, 'post');
@@ -25,17 +25,19 @@
     
       if(strlen($comment) >= 140) {
         $errs[] = '140文字以内で入力してください';
+      } else if(empty($comment)) {
+        $errs[] = 'コメントを入力してください';
       }
 
       // 選択された項目のIDを取得
-      if (isset($_POST['select_cook'])) {
-        $cook_id = filter_input(INPUT_POST, 'select_cook');
+      if (isset($_POST['cook_id'])) {
+        $cook_id = filter_input(INPUT_POST, 'cook_id');
       }
-      if (isset($_POST['select_price'])) {
-        $price_id = filter_input(INPUT_POST, 'select_price');
+      if (isset($_POST['price_id'])) {
+        $price_id = filter_input(INPUT_POST, 'price_id');
       }
-      if (isset($_POST['select_area'])) {
-        $area_id = filter_input(INPUT_POST, 'select_area');
+      if (isset($_POST['area_id'])) {
+        $area_id = filter_input(INPUT_POST, 'area_id');
       }
 
       if(!isset($errs)){
@@ -79,17 +81,17 @@
             <label for="pub_name">店名</label>
             <input type="text" name="pub_name" value="<?= $pub_name ?>">
             <label for="cook_id">ジャンル</label>
-            <select name="select_cook">
+            <select name="cook_id">
               <option value=""></option>
               <?= $select_cook;?>
             </select>
             <label for="price_id">価格</label>
-            <select name="select_price">
+            <select name="price_id">
               <option value=""></option>
             <?= $select_price; ?>
             </select>
             <label for="area_id">地域</label>
-            <select name="select_area">
+            <select name="area_id">
               <option value=""></option>
             <?= $select_area; ?>
             </select>

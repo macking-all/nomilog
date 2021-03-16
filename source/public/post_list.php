@@ -8,10 +8,18 @@ session_start();
 $dbs = new Database();
 $dbs->dbconnect();
 
-$sql = 'select * from Posts';
+$sql = 'select * 
+          from Posts 
+        left join 
+          Mcook on Posts.cook_id = MCook.cook_id';
 $stmt = $dbs->query($sql);
-$stmt->fetchAll();
+$posts = $stmt->fetchAll();
 
+foreach($posts as $post)
+$posts_list .= '<div class="l-wrapper_01"><article class="card_01"><div class="card__header_01"><p class="card__title_01">'
+            . h($post['pub_name']) . '</p></div><div class="card__body_01">
+            <span>ジャンル' .h($post['cook_id']) .  '</span>　<span>価格' . h($post['price_id']) .'</span>　<span>地域' . h($post['area_id']) . '</span>
+            <p class="card__text2_01">' . h($post['comment']) . '</p></div></article></div>';
 ?>
 
 <?php include('./common/_header.php'); ?>
@@ -24,17 +32,9 @@ $stmt->fetchAll();
     </div>
 
   <div id="contents">
-    <div class="l-wrapper_01">
-      <article class="card_01">
-      <div class="card__header_01">
-        <p class="card__title_01">店名店名店名店名店名店名</p>
-      </div>
-      <div class="card__body_01">
-          <span>ジャンル</span>　<span>価格</span>　<span>地域</span>
-        <p class="card__text2_01">コメントコメントコメントコメント</p>
-      </div>
-      </article>
-    </div><!--./l-wrapper_01-->
+
+    <?= $posts_list; ?>
+
   </div><!--./contents-->
 
 
