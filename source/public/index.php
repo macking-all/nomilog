@@ -33,6 +33,7 @@ if(isset($_POST['login'])){
     session_regenerate_id(true);
     $_SESSION['USER_ID'] = $row['user_id'];
     $_SESSION['USER_NAME'] = $row['user_name'];
+    $_SESSION['ICON_IMAGE'] = $row['icon_image'];
     $_SESSION['ADMIN_FLAG'] = $row['admin_flag'];
     header('Location: post_list.php');
 

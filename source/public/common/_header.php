@@ -31,7 +31,7 @@
         <li><a>ヘルプ</a></li>
         <li><a href="<?= '../logout.php' ?>">ログアウト</a></li>
         <li><a><?= $_SESSION['USER_NAME']; ?></a></li>
-        <li class="icon-img"><img src="../master/img/nomilog-beer.jpg" alt=""></li>
+        <li class="icon-img"><img src="../images/<?= $_SESSION['ICON_IMAGE']; ?>" alt=""></li>
       </ul>
     </div>
   </header>
