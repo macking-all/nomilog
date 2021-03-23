@@ -3,6 +3,8 @@
 require '../dbconnect.php';
 require '../functions.php';
 
+session_start();
+
 $dbs = new Database();
 $dbs->dbconnect();
 
@@ -48,11 +50,13 @@ if(isset($_POST['register'])){
         $image_name = uniqid(mt_rand(), true);
          // アップロードされたファイルの拡張子を取得
         $image_name .= '.' . substr(strrchr($_FILES['icon_image']['name'], '.'), 1);
-        var_dump($image_name);
+        
         $file = "images/$image_name";
         if(exif_imagetype($file)) {
             $errs[] = '画像ファイルをアップロードしてください';
         }
+    } else {
+        $image_name = 'default.png';
     }
 
     // パスワードルールチェック（英数字記号８文字以上３０文字以内）

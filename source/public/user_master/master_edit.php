@@ -58,17 +58,33 @@
         }else if(!preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/', $email)){
             $errs[] = 'メールアドレスの形式で入力してください';
         }
+        if(!empty($_POST['icon_image'])){
+            // ファイル名をユニーク化
+           $image_name = uniqid(mt_rand(), true);
+            // アップロードされたファイルの拡張子を取得
+           $image_name .= '.' . substr(strrchr($_POST['icon_image'], '.'), 1);
+           
+           $file = "images/$image_name";
+           if(exif_imagetype($file)) {
+               $errs[] = '画像ファイルをアップロードしてください';
+           }
+        }
+
         if(!isset($errs)){
-            $sql = "UPDATE MUser SET user_name=:name, email=:email, email_flag=:email_flag, admin_flag=:admin_flag WHERE user_id=:id";
+            // imagesディレクトリにファイル保存
+            move_uploaded_file($_FILES['icon_image']['tmp_name'], '../images/' . $image_name);
+
+            $sql = "UPDATE MUser SET user_name=:name, email=:email, email_flag=:email_flag, icon_image=:icon_image, admin_flag=:admin_flag WHERE user_id=:id";
             $stmt = $dbs->prepare($sql);
             $stmt->bindParam(':name', $user_name, PDO::PARAM_STR);
-            $stmt->bindParam(':email', $email,PDO::PARAM_STR);
-            $stmt->bindParam(':email_flag', $email_flag,PDO::PARAM_INT);
-            $stmt->bindParam(':admin_flag', $admin_flag,PDO::PARAM_INT);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->bindParam(':email_flag', $email_flag, PDO::PARAM_INT);
+            $stmt->bindParam(':icon_image', $image_name, PDO::PARAM_STR);
+            $stmt->bindParam(':admin_flag', $admin_flag, PDO::PARAM_INT);
             $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
             $stmt->execute();
             
-            header('Location: master.php');
+            // header('Location: master.php');
         } else {
             foreach($errs as $err){
             $err_msgs .= '<li>'.$err.'</li>';
