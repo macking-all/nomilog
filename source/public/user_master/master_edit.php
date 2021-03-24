@@ -2,6 +2,8 @@
     
     require '../dbconnect.php';
 
+    session_start();
+
     $dbs = new Database();
     $dbs->dbconnect();
 
@@ -72,19 +74,23 @@
 
         if(!isset($errs)){
             // imagesディレクトリにファイル保存
-            move_uploaded_file($_FILES['icon_image']['tmp_name'], '../images/' . $image_name);
+            move_uploaded_file($_POST['icon_image'], '../images/' . $image_name);
+            var_dump($_SESSION['USER_ID']);
 
-            $sql = "UPDATE MUser SET user_name=:name, email=:email, email_flag=:email_flag, icon_image=:icon_image, admin_flag=:admin_flag WHERE user_id=:id";
+            $sql = "UPDATE MUser SET user_name=:name, email=:email, email_flag=:email_flag, icon_image=:icon_image, admin_flag=:admin_flag, updated_user=:updated_user WHERE user_id=:id";
             $stmt = $dbs->prepare($sql);
             $stmt->bindParam(':name', $user_name, PDO::PARAM_STR);
             $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->bindParam(':email_flag', $email_flag, PDO::PARAM_INT);
             $stmt->bindParam(':icon_image', $image_name, PDO::PARAM_STR);
             $stmt->bindParam(':admin_flag', $admin_flag, PDO::PARAM_INT);
+            $stmt->bindParam(':updated_user', $_SESSION['USER_ID'], PDO::PARAM_INT);
             $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
             $stmt->execute();
+
+            $_SESSION['USER_NAME'] = $user_name;
             
-            // header('Location: master.php');
+            header('Location: master.php');
         } else {
             foreach($errs as $err){
             $err_msgs .= '<li>'.$err.'</li>';
@@ -103,7 +109,7 @@
             </ul>
         </div>
 <div id="contents">
-    <form action="" method="post" id="form">
+    <form action="" method="post" id="form" enctype="multipart/form-data">
         <input type="hidden" name="user_id" value="<?= $user_id; ?>">
         <label for="user_name">ユーザ名：</label>
         <input type="text" name="user_name" id="user_name" value="<?= $user_name; ?>"><br>

@@ -4,7 +4,7 @@ CREATE TABLE `MArea` (
     `register_user` int(11) DEFAULT NULL COMMENT '登録者',
     `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_user` int(11) DEFAULT NULL COMMENT '更新者',
-    `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `delete_flag` boolean COMMENT '削除フラグ',
     PRIMARY KEY (`area_id`)
 

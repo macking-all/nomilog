@@ -1,5 +1,5 @@
 user_id,user_name,email,email_flag,icon_image,password,admin_flag,register_user,created,updated_user,updated,last_login,delete_flag
-0,テストadmin,admin@xxx.com,0,202012211158,passw0rd,1,1,2020/12/21,1,2020/12/21,2020/12/21,0
-0,テスト二郎,jiro@xxx.com,0,202101042151,passw1rd,0,2,2021/01/04,1,2021/01/01,2021/01/05,0
-0,テスト三郎,saburo@xxx.com,0,202101042151,passw2rd,0,3,2021/01/05,1,2021/01/02,2021/01/05,0
-0,テスト四郎,siro@xxx.com,0,202101042151,passw3rd,0,4,2021/01/05,1,2021/01/02,2021/01/05,0
+0,テストadmin,admin@xxx.com,0,default.png,passw0rd,1,1,2020/12/21,1,2020/12/21,2020/12/21,0
+0,テスト二郎,jiro@xxx.com,0,default.png,passw1rd,0,1,2021/01/04,1,2021/01/01,2021/01/05,0
+0,テスト三郎,saburo@xxx.com,0,default.png,passw2rd,0,1,2021/01/05,1,2021/01/02,2021/01/05,0
+0,テスト四郎,siro@xxx.com,0,default.png,passw3rd,0,1,2021/01/05,1,2021/01/02,2021/01/05,0

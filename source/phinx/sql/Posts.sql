@@ -7,6 +7,6 @@ CREATE TABLE `Posts` (
     `area_id` int(11) NOT NULL COMMENT '地域ID',
     `price_id` int(11) NOT NULL COMMENT '価格ID',
     `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`post_id`)
 );

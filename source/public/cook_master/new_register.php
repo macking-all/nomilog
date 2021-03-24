@@ -3,6 +3,8 @@
 require '../dbconnect.php';
 require '../functions.php';
 
+session_start();
+
 $dbs = new Database();
 $dbs->dbconnect();
 
