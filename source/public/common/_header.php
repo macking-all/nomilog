@@ -1,5 +1,40 @@
 <?php
-  session_start();
+  
+  //require '../functions.php';
+  $adFlag = $_SESSION['ADMIN_FLAG'];
+
+  //function menuDisplay(){
+    switch($adFlag){
+      case NULL:
+        $navi = '<ul>
+                          <li><a href="../management.php">新規ユーザ登録</a></li>
+                          <li><a>ヘルプ</a></li>
+                        </ul>';
+        break;
+      case 0:
+        $navi = '<ul>
+                        <li><a href="../management.php">投稿一覧</a></li>
+                        <li><a>ヘルプ</a></li>
+                        <li><a href="../logout.php">ログアウト</a></li>
+                        <li><a>' . $_SESSION['USER_NAME'] . '</a></li>
+                        <li class="icon-img"><img src="../images/' . $_SESSION['ICON_IMAGE']; '" alt=""></li>
+                      </ul>';
+        break;
+      case 1:
+        $navi = '<ul>
+                        <li><a href="../management.php">投稿一覧</a></li>
+                        <li><a href="../management.php">マスタ管理</a></li>
+                        <li><a>ヘルプ</a></li>
+                        <li><a href="../logout.php">ログアウト</a></li>
+                        <li><a>' . $_SESSION['USER_NAME'] . '</a></li>
+                        <li class="icon-img"><img src="../images/' . $_SESSION['ICON_IMAGE']; '" alt=""></li>
+                      </ul>';
+        break;
+    }
+  //}
+
+  //menuDisplay(); 
+
 ?>
 
 <!DOCTYPE html>
@@ -25,13 +60,6 @@
       <h2><i class="fas fa-beer fa-lg fa-fw my-white"></i><a href="../post_list.php">呑みログ</a></h2>
     </div>
     <div class="header-list">
-      <ul>
-        <!-- メモ2 遷移先のHTMLが作成できたら「href」要素を追加する -->
-        <li><a href="../management.php">マスタ管理画面</a></li>
-        <li><a>ヘルプ</a></li>
-        <li><a href="<?= '../logout.php' ?>">ログアウト</a></li>
-        <li><a><?= $_SESSION['USER_NAME']; ?></a></li>
-        <li class="icon-img"><img src="../images/<?= $_SESSION['ICON_IMAGE']; ?>" alt=""></li>
-      </ul>
+    <?= $navi;?>
     </div>
   </header>

@@ -87,7 +87,7 @@ if(isset($_POST['register'])){
         $password = password_hash($password, PASSWORD_DEFAULT);
         $stmt->bindValue('password', $password, PDO::PARAM_STR);
         $stmt->bindValue('admin_flag', $admin_flag);
-        //$stmt->bindValue('register_user', $_SESSION['USER_ID'], PDO::PARAM_INT);
+        $stmt->bindValue('register_user', $_SESSION['USER_ID']);
         $stmt->execute();
         $dbs = null;
 
