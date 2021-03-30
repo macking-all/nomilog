@@ -8,7 +8,26 @@ session_start();
 $dbs = new Database();
 $dbs->dbconnect();
 
-$sql = 'select 
+/* ページネーション*/
+
+// 1ページに表示する投稿数設定
+define('max_view', 5);
+
+// 必要なページ数を求める
+$count = $pdo->prepare('select count(*) as count from posts');
+$count->execute();
+$total_count = $count->fetch(PDO::FETCH_ASSOC);
+$pages = ceil($total_count['count'] / max_view);
+
+// 現在いるページのpage_idを取得
+if(!iseet($_REQUEST['page_id'])){
+  $now = 1;
+} else {
+  $now = $_REQUEST['page_id'];
+}
+
+// 表示する記事を取得するsql
+$sql = 'select
           Posts.pub_name,
           Posts.comment,
           Posts.created,
@@ -20,9 +39,12 @@ $sql = 'select
           Mcook on Posts.cook_id = MCook.cook_id
         left join 
           MArea on Posts.area_id = MArea.area_id
-        left join 
+        left join
           MPrice on Posts.price_id = MPrice.price_id
-          order by Posts.created desc';
+          order by Posts.created desc limit :start, :max';
+
+$select_posts = $pdo->prepare($sql);
+// 31行目からかく
 
 $stmt = $dbs->query($sql);
 $posts = $stmt->fetchAll();
