@@ -49,7 +49,7 @@ if(isset($_POST['login'])){
 ?>
 
 <?php include('./common/_header.php'); ?>
-<body>
+
   <main>
     <h1>ログイン</h1>
     <div id="contents">

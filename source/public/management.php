@@ -1,3 +1,12 @@
+<?php
+ 
+ require './dbconnect.php';
+ require './functions.php';
+
+ session_start();
+
+?>
+
 <?php include('./common/_header.php'); ?>
 
 

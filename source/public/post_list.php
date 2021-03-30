@@ -35,7 +35,7 @@ $posts_list .= '<div class="l-wrapper_01"><article class="card_01"><div class="c
 ?>
 
 <?php include('./common/_header.php'); ?>
-<body>
+
 <main>
 <h1>投稿一覧</h1>
 

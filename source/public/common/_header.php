@@ -1,34 +1,37 @@
 <?php
   
   //require '../functions.php';
+  session_start();
+  
   $adFlag = $_SESSION['ADMIN_FLAG'];
 
   //function menuDisplay(){
     switch($adFlag){
       case NULL:
         $navi = '<ul>
-                          <li><a href="../management.php">新規ユーザ登録</a></li>
-                          <li><a>ヘルプ</a></li>
-                        </ul>';
+                  <li><a href="../index.php">ログイン</a></li>
+                  <li><a href="../signup.php">新規ユーザ登録</a></li>
+                  <li><a>ヘルプ</a></li>
+                 </ul>';
         break;
       case 0:
         $navi = '<ul>
-                        <li><a href="../management.php">投稿一覧</a></li>
-                        <li><a>ヘルプ</a></li>
-                        <li><a href="../logout.php">ログアウト</a></li>
-                        <li><a>' . $_SESSION['USER_NAME'] . '</a></li>
-                        <li class="icon-img"><img src="../images/' . $_SESSION['ICON_IMAGE']; '" alt=""></li>
-                      </ul>';
+                  <li><a href="../management.php">投稿一覧</a></li>
+                  <li><a>ヘルプ</a></li>
+                  <li><a href="../logout.php">ログアウト</a></li>
+                  <li><a>' . $_SESSION['USER_NAME'] . '</a></li>
+                  <li class="icon-img"><img src="../images/' . $_SESSION['ICON_IMAGE'] . '" alt=""></li>
+                 </ul>';
         break;
       case 1:
         $navi = '<ul>
-                        <li><a href="../management.php">投稿一覧</a></li>
-                        <li><a href="../management.php">マスタ管理</a></li>
-                        <li><a>ヘルプ</a></li>
-                        <li><a href="../logout.php">ログアウト</a></li>
-                        <li><a>' . $_SESSION['USER_NAME'] . '</a></li>
-                        <li class="icon-img"><img src="../images/' . $_SESSION['ICON_IMAGE']; '" alt=""></li>
-                      </ul>';
+                  <li><a href="../management.php">投稿一覧</a></li>
+                  <li><a href="../management.php">マスタ管理</a></li>
+                  <li><a>ヘルプ</a></li>
+                  <li><a href="../logout.php">ログアウト</a></li>
+                  <li><a>' . $_SESSION['USER_NAME'] . '</a></li>
+                  <li class="icon-img"><img src="../images/' . $_SESSION['ICON_IMAGE'] .'" alt=""></li>
+                 </ul>';
         break;
     }
   //}
