@@ -2,8 +2,14 @@
   
   //require '../functions.php';
   session_start();
+
+  if(isset($_SESSION['ADMIN_FLAG'])){
+    $adFlag = $_SESSION['ADMIN_FLAG'];
+  } else {
+    $adFlag = NULL;
+  }
   
-  $adFlag = $_SESSION['ADMIN_FLAG'];
+  
 
   //function menuDisplay(){
     switch($adFlag){
@@ -16,7 +22,7 @@
         break;
       case 0:
         $navi = '<ul>
-                  <li><a href="../management.php">投稿一覧</a></li>
+                  <li><a href="../post_list.php">投稿一覧</a></li>
                   <li><a>ヘルプ</a></li>
                   <li><a href="../logout.php">ログアウト</a></li>
                   <li><a>' . $_SESSION['USER_NAME'] . '</a></li>
@@ -25,7 +31,7 @@
         break;
       case 1:
         $navi = '<ul>
-                  <li><a href="../management.php">投稿一覧</a></li>
+                  <li><a href="../post_list.php">投稿一覧</a></li>
                   <li><a href="../management.php">マスタ管理</a></li>
                   <li><a>ヘルプ</a></li>
                   <li><a href="../logout.php">ログアウト</a></li>

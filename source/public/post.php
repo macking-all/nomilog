@@ -98,6 +98,7 @@
             <label for="comment">コメント</label>
             <textarea name="comment"><?= h($comment)?></textarea><br>
             <input type="submit" name="post" value="投稿">
+            <input type="button" onclick="history.back()" value="キャンセル">
         </form>
     </div><!--#/contents-->
 </main>
