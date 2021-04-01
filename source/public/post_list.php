@@ -14,13 +14,13 @@ $dbs->dbconnect();
 define('max_view', 5);
 
 // 必要なページ数を求める
-$count = $pdo->prepare('select count(*) as count from posts');
+$count = $dbs->prepare('select count(*) as count from posts');
 $count->execute();
 $total_count = $count->fetch(PDO::FETCH_ASSOC);
 $pages = ceil($total_count['count'] / max_view);
 
 // 現在いるページのpage_idを取得
-if(!iseet($_REQUEST['page_id'])){
+if(!isset($_REQUEST['page_id'])){
   $now = 1;
 } else {
   $now = $_REQUEST['page_id'];
@@ -43,11 +43,20 @@ $sql = 'select
           MPrice on Posts.price_id = MPrice.price_id
           order by Posts.created desc limit :start, :max';
 
-$select_posts = $pdo->prepare($sql);
-// 31行目からかく
+$select_posts = $dbs->prepare($sql);
 
-$stmt = $dbs->query($sql);
-$posts = $stmt->fetchAll();
+if($now == 1) {
+  // 1ページ目の処理
+  $select_posts->bindValue(':start', $now -1, PDO::PARAM_INT);
+  $select_posts->bindValue(':max', max_view, PDO::PARAM_INT);
+} else {
+  // 1ページ目の以外の処理
+  $select_posts->bindValue(':start', ($now -1) * max_view, PDO::PARAM_INT);
+  $select_posts->bindValue(':max', max_view, PDO::PARAM_INT);
+}
+
+$select_posts->execute();
+$posts = $select_posts->fetchAll(PDO::FETCH_ASSOC);
 
 foreach($posts as $post)
 $posts_list .= '<div class="l-wrapper_01"><article class="card_01"><div class="card__header_01"><p class="card__title_01">'
@@ -68,6 +77,17 @@ $posts_list .= '<div class="l-wrapper_01"><article class="card_01"><div class="c
     <div id="contents">
       <?= $posts_list; ?>
     </div><!--./contents-->
+
+    <?php
+    // ページネーション表示
+     for($n = 1; $n <= $pages; $n++){
+       if($n == $now) {
+         echo '<span style="padding: 5px;">' . $now . '</span>';
+       } else {
+         echo '<a href="./post_list.php?page_id=' . $n . '" style="padding: 5px;">' . $n . '</a>';
+       }
+     }
+    ?>
 
 </main>
 <?php include('./common/_footer.php'); ?>
