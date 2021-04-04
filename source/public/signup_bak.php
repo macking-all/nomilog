@@ -1,7 +1,7 @@
 <?php
 
-require_once './dbconnect.php';
-require_once './functions.php';
+require './dbconnect.php';
+require './functions.php';
 
 session_start();
 
@@ -26,7 +26,7 @@ if(isset($admin_flag)){
     $admin_flag = '0';
 }
 
-// エラーメッセージ格納用
+// エラーメッセージ
 $err_msgs = '';
 
 if(isset($_POST['register'])){
@@ -45,19 +45,19 @@ if(isset($_POST['register'])){
 
     // 画像ファイルかチェック
     // substr:文字列の一部分を返す, strrchr:文字列中に文字が最後に現れる場所を取得する    
-    // if(!empty($_FILES['icon_image']['name'])){
-    //      // ファイル名をユニーク化
-    //     $image_name = uniqid(mt_rand(), true);
-    //      // アップロードされたファイルの拡張子を取得
-    //     $image_name .= '.' . substr(strrchr($_FILES['icon_image']['name'], '.'), 1);
+    if(!empty($_FILES['icon_image']['name'])){
+         // ファイル名をユニーク化
+        $image_name = uniqid(mt_rand(), true);
+         // アップロードされたファイルの拡張子を取得
+        $image_name .= '.' . substr(strrchr($_FILES['icon_image']['name'], '.'), 1);
         
-    //     $file = "images/$image_name";
-    //     if(exif_imagetype($file)) {
-    //         $errs[] = '画像ファイルをアップロードしてください';
-    //     }
-    // } else {
-    //     $image_name = 'default.png';
-    // }
+        $file = "images/$image_name";
+        if(exif_imagetype($file)) {
+            $errs[] = '画像ファイルをアップロードしてください';
+        }
+    } else {
+        $image_name = 'default.png';
+    }
 
     // パスワードルールチェック（英数字記号８文字以上３０文字以内）
     if(!preg_match('/\A(?=.*?[a-z])(?=.*?\d)(?=.*?[!-\/:-@[-`{-~])[!-~]{8,30}+\z/i', $password)){
@@ -70,56 +70,28 @@ if(isset($_POST['register'])){
     
     if(!isset($errs)){
         // imagesディレクトリにファイル保存
-        // move_uploaded_file($_FILES['icon_image']['tmp_name'], '../images/' . $image_name);
+        move_uploaded_file($_FILES['icon_image']['tmp_name'], '../images/' . $image_name);
 
-        // ユーザ情報登録
         $sql = 'insert into MUser (
-            user_name, email, email_flag, icon_image, password, admin_flag
-        ) 
-        values (
-            :user_name, :email, :email_flag, :icon_image, :password, :admin_flag
-        )';
-        
-        // 画像情報登録のためのユーザID取得
-        $sql2 = 'select uer_id from MUser where email = :email';
+                    user_name, email, email_flag, icon_image, password, admin_flag
+                ) 
+                values (
+                    :user_name, :email, :email_flag, :icon_image, :password, :admin_flag
+                )';
 
-        // 画像名ユーザIDで登録
-        $sql3 ='' ;
-        
-        try{
-            // トランザクション開始
-            $dbs->beginTransaction();
-            
-            // 入力されたユーザ情報をDBへ登録
-            $stmt = $dbs->prepare($sql);
-            $stmt->bindValue('user_name', $user_name, PDO::PARAM_STR);
-            $stmt->bindValue('email', $email, PDO::PARAM_STR);
-            $stmt->bindValue('email_flag', $email_flag);
-            // $stmt->bindValue('icon_image', $image_name, PDO::PARAM_STR);
-            $password = password_hash($password, PASSWORD_DEFAULT);
-            $stmt->bindValue('password', $password, PDO::PARAM_STR);
-            $stmt->bindValue('admin_flag', $admin_flag);
-            $stmt->bindValue('register_user', $_SESSION['USER_ID']);
-            $stmt->execute();
-
-            // 画像登録処理
-            $stmt2 = $dbs->prepare($sql2);
-            $stmt2->bindValue('email', $email, PDO::PARAM_STR);
-            $stmt->execute();
-            $userId = $stmt2->fetch(PDO::FETCH_ASSOC);
-            var_dump($userId['user_id']);
-            
-            $dbs->commit();
-            //header('Location: master.php');
-
-        } catch(PDOException $e) {
-            $dbs->rollBack();
-            echo $e->getMessage();
-	        exit();
-        }
-
+        $stmt = $dbs->prepare($sql);
+        $stmt->bindValue('user_name', $user_name, PDO::PARAM_STR);
+        $stmt->bindValue('email', $email, PDO::PARAM_STR);
+        $stmt->bindValue('email_flag', $email_flag);
+        $stmt->bindValue('icon_image', $image_name, PDO::PARAM_STR);
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $stmt->bindValue('password', $password, PDO::PARAM_STR);
+        $stmt->bindValue('admin_flag', $admin_flag);
+        $stmt->bindValue('register_user', $_SESSION['USER_ID']);
+        $stmt->execute();
         $dbs = null;
-        
+
+        header('Location: master.php');
     } else {
         foreach($errs as $err){
             $err_msgs .= '<li>'.$err.'</li>';
