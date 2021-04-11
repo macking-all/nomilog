@@ -1,7 +1,7 @@
 CREATE TABLE `MUser` (
     `user_id` int(11) NOT NULL AUTO_INCREMENT,
     `user_name` varchar(20) NOT NULL COMMENT 'ユーザ名',
-    `email` varchar(200) NOT NULL COMMENT 'Email',
+    `email` varchar(200) UNIQUE NOT NULL COMMENT 'Email',
     `email_flag` boolean COMMENT 'Email送信フラグ',
     `icon_image` varchar(200) DEFAULT NULL COMMENT 'アイコン画像',
     `password` varchar(200) NOT NULL COMMENT 'パスワード',

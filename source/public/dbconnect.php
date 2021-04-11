@@ -12,6 +12,18 @@ class Database
         $this->dbh = new PDO($this::dsn, $this::user, $this::pass);
     }
 
+    public function beginTransaction(){
+        $this->dbh->beginTransaction();
+    }
+
+    public function commit(){
+        $this->dbh->commit();
+    }
+
+    public function rollback(){
+        $this->dbh->rollback();
+    }
+
     public function query($sql){
         if($this->dbh === null){
             throw new Exception('接続されてません');
