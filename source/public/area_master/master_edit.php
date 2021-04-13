@@ -58,30 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $err_msgs .= '<li>'. $err . '</li>';
         }
     }
-    
-    // if(isset($_POST['edit'])){
-        
-    //     // select文は不要：nameなどはpostされているので、
-        
-    //     // update,delete,restoreの処理をまとめる
-    // } else if(isset($_POST['update'])){
-    //     if(!$area_name){
-    //         $errs[] = '地域名を入力してください';
-    //     }
-    //     if(!isset($errs)){
-            
-    //     } else {
-    //         foreach($errs as $err){
-    //             $err_msgs .= '<li>'. $err . '</li>';
-    //         }
-    //     }
-    // } else if(isset($_POST['delete'])){
-        
-
-    // } else if(isset($_POST['restore'])){
-        
-    // }
-
 ?>
 
 <?php include('../common/_header.php'); ?>

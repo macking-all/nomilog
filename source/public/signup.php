@@ -80,6 +80,7 @@ if(isset($_POST['register'])){
         $errs[] = 'パスワードが一致しません';
     }
     
+    // エラーがなかったらユーザの登録処理開始
     if(!isset($errs)){
 
         // ユーザ情報登録
@@ -94,7 +95,7 @@ if(isset($_POST['register'])){
         $sql2 = 'select user_id from MUser where email = :email';
 
         // 画像ファイルのパスを登録
-        $sql3 ='' ;
+        $sql3 ='insert into MUser (icon_image) values(:icon_image)';
         
         try{
             // トランザクション開始
@@ -122,17 +123,22 @@ if(isset($_POST['register'])){
             // ユーザIDのフォルダ名定義　
             $images_structure = 'images/' . $userId['user_id'];
             
-            // フォルダの存在チェック
-            if(!file_exists($images_structure)){
-                mkdir($images_structure, 0777);    
+            // 画像がアップロードされていればフォルダを作成する
+            if($image_name !== 'default.png'){
+                mkdir($images_structure, 0777);
             }
+
+            /* memo
+             * default.pngはここでは指定せずに、_header.phpでicon_imageが空だった時にcase句で値を指定するようにする
+             */
+
 
             // アップロードされた画像をユーザIDフォルダに移動
             move_uploaded_file($_FILES['icon_image']['tmp_name'], $images_structure . '/' . $image_name);
             
             $dbs->commit();
 
-            //header('Location: post_list.php');
+            header('Location: post_list.php');
 
         } catch(PDOException $e) {
             $dbs->rollBack();
